@@ -276,7 +276,7 @@ export const enrollUserInAllSpecialCategoryCourses = async (
     return;
   }
 
-  const specialCategories = ["Monthly_Common_Case_Discussion", "Youtube_Live_Session"];
+  const specialCategories = ["Discussion_Session", "Youtube_Live_Session"];
 
   try {
     // 1. Get all course IDs in special categories

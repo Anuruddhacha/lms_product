@@ -149,8 +149,8 @@ export default function PaymentsPage() {
     return (
       <div className="flex items-center justify-center h-screen bg-white dark:bg-gray-900">
         <Image
-          src="/SASDI_WD.png" // Replace with your actual logo path
-          alt="Sasdi"
+          src="/logo.svg"
+          alt="LMS Platform"
           width={200}
           height={200}
           className="animate-pulse"
@@ -162,7 +162,7 @@ export default function PaymentsPage() {
   return (
     <div className="flex flex-col items-center mt-10 px-4 pt-[100px]">
       <div className="w-full max-w-2xl bg-white rounded-xl shadow-lg p-8">
-        <h1 className="text-3xl font-bold mb-8 text-center text-green-500">Secure Payment</h1>
+        <h1 className="text-3xl font-bold mb-8 text-center text-blue-500">Secure Payment</h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
@@ -206,7 +206,7 @@ export default function PaymentsPage() {
               value={description}
               onChange={e => setDescription(e.target.value)}
               className="w-full border border-gray-300 rounded px-4 py-2 mt-1 focus:outline-none focus:ring focus:border-blue-300 text-black"
-              placeholder="Course Fee for Ayurvedic/Beauty Skill Development"
+              placeholder="Course Fee Payment"
             />
           </div>
         </div>
@@ -217,7 +217,7 @@ export default function PaymentsPage() {
   <div className="flex flex-col sm:flex-row items-center space-y-6 sm:space-y-0 sm:space-x-6 space-x-4">
     {/* Visa / MasterCard */}
     <label className={`flex items-center space-x-3 cursor-pointer p-3 rounded-lg border ${
-      cardType === 'cbc' ? 'border-green-500 bg-green-50' : 'border-gray-300'
+      cardType === 'cbc' ? 'border-blue-500 bg-blue-50' : 'border-gray-300'
     }`}>
       <input
         type="radio"
@@ -225,7 +225,7 @@ export default function PaymentsPage() {
         value="cbc"
         checked={cardType === 'cbc'}
         onChange={() => setCardType('cbc')}
-        className="form-radio text-green-500"
+        className="form-radio text-blue-500"
       />
       <div className="flex items-center space-x-3">
     <Image src="/combank_logos.jpg" alt="Visa and MasterCard" width={130} height={80} />
@@ -237,7 +237,7 @@ export default function PaymentsPage() {
 
     {/* Amex */}
     <label className={`flex items-center space-x-3 cursor-pointer p-3 rounded-lg border ${
-      cardType === 'ntb' ? 'border-green-500 bg-green-50' : 'border-gray-300'
+      cardType === 'ntb' ? 'border-blue-500 bg-blue-50' : 'border-gray-300'
     }`}>
       <input
         type="radio"
@@ -245,7 +245,7 @@ export default function PaymentsPage() {
         value="ntb"
         checked={cardType === 'ntb'}
         onChange={() => setCardType('ntb')}
-        className="form-radio text-green-500"
+        className="form-radio text-blue-500"
       />
       <div className="flex items-center space-x-2">
         <Image src="/ntb_logo.jpg" alt="Amex" width={130} height={80} />
@@ -265,7 +265,7 @@ export default function PaymentsPage() {
     href="/read-before-pay.pdf"
     target="_blank"
     rel="noopener noreferrer"
-    className="inline-flex items-center space-x-2 text-green-600 underline hover:text-green-800"
+    className="inline-flex items-center space-x-2 text-blue-600 underline hover:text-blue-800"
   >
     <span>View “Read Before You Pay”</span>
   </a>
@@ -284,7 +284,7 @@ export default function PaymentsPage() {
       I agree to the{' '}
       <button
         onClick={() => router.push('/termsandconditions')} // Adjust this path if your terms page is different
-        className="text-green-600 underline hover:text-green-800"
+        className="text-blue-600 underline hover:text-blue-800"
         type="button"
       >
         Terms and Conditions
@@ -299,7 +299,7 @@ export default function PaymentsPage() {
     onClick={handlePay}
     disabled={isProcessing || !agreed}
     className={`w-full h-12 inline-flex items-center justify-center font-semibold rounded-md text-white shadow-md transition-all duration-300 ease-in-out
-    ${(isProcessing || !agreed) ? 'bg-gray-400 cursor-not-allowed' : 'bg-gradient-to-r from-green-500 via-emerald-500 to-green-600 hover:shadow-lg hover:scale-[1.02]'}
+    ${(isProcessing || !agreed) ? 'bg-gray-400 cursor-not-allowed' : 'bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-600 hover:shadow-lg hover:scale-[1.02]'}
     `}
   >
     Pay Now
@@ -325,7 +325,7 @@ export default function PaymentsPage() {
             <div className="mt-8 pb-5">  
            <button
             onClick={() => router.push('/')} // Adjust this path if your homepage is different
-            className="h-12 px-6 inline-flex items-center justify-center font-semibold rounded-md bg-gradient-to-r from-green-500 via-emerald-500 to-green-600 text-white shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 ease-in-out"
+            className="h-12 px-6 inline-flex items-center justify-center font-semibold rounded-md bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-600 text-white shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 ease-in-out"
           >
             Home
           </button>

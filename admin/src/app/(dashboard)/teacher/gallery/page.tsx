@@ -112,7 +112,7 @@ const GalleryUploadForm = () => {
         )}
 
         {error && <p className="text-red-600 mb-2">{error}</p>}
-        {success && <p className="text-green-600 mb-2">{success}</p>}
+        {success && <p className="text-blue-600 mb-2">{success}</p>}
 
         <button
           type="submit"

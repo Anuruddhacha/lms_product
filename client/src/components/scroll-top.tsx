@@ -25,6 +25,6 @@ export default function ScrollToTop() {
           };
     },[])
   return (
-    <Link href="#" onClick={scrollToTop} id="back-to-top" className={`back-to-top fixed rounded-full z-10 bottom-5 end-5 size-8 text-center bg-green-600 text-white flex justify-center items-center ${scroll ? '' : 'hidden'}`}><FiArrowUp data-feather="arrow-up" className="size-4"></FiArrowUp></Link>
+    <Link href="#" onClick={scrollToTop} id="back-to-top" className={`back-to-top fixed rounded-full z-10 bottom-5 end-5 size-8 text-center bg-blue-600 text-white flex justify-center items-center ${scroll ? '' : 'hidden'}`}><FiArrowUp data-feather="arrow-up" className="size-4"></FiArrowUp></Link>
   )
 }

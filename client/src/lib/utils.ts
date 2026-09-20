@@ -263,8 +263,13 @@ export function shouldForceHls(url?: string | null): boolean {
 }
 
 export const courseCategories = [
-  { value: "ayurvedic", label: "Ayurvedic" },
-  { value: "beauty", label: "Beauty" }
+  { value: "Computer Science", label: "Computer Science" },
+  { value: "Artificial Intelligence", label: "Artificial Intelligence" },
+  { value: "Web Development", label: "Web Development" },
+  { value: "Data Science", label: "Data Science" },
+  { value: "Mobile Development", label: "Mobile Development" },
+  { value: "Discussion_Session", label: "Discussion Session" },
+  { value: "Youtube_Live_Session", label: "YouTube Live Session" },
 ] as const;
 
 export const customDataGridStyles = {

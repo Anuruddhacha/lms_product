@@ -52,15 +52,15 @@ const CommentsSection = ({ chapterId }: { chapterId: string }) => {
   };
 
   return (
-    <div className="mt-6 bg-zinc-900 rounded p-4">
-      <h3 className="text-lg font-semibold mb-4 text-white">Comments</h3>
+    <div className="mt-6 bg-customgreys-secondarybg border border-customgreys-darkerGrey rounded p-4">
+      <h3 className="text-lg font-semibold mb-4 text-gray-900">Comments</h3>
 
       <div className="space-y-4 max-h-60 overflow-y-auto">
         {comments.map((comment) => (
-          <div key={comment.id} className="bg-zinc-800 p-3 rounded">
+          <div key={comment.id} className="bg-white border border-customgreys-darkerGrey p-3 rounded">
             <CommentItem comment={comment} onDelete={() => handleDeleteComment(comment.id)} />
             {comment.reply && (
-              <div className="ml-4 mt-2 text-sm text-green-400">
+              <div className="ml-4 mt-2 text-sm text-blue-600">
                 <strong>Reply:</strong> {comment.reply}
               </div>
             )}
@@ -104,8 +104,8 @@ const CommentItem = ({
   const isAdmin = comment.userId === "admin";
 
   const hardcodedAdmin = {
-    name: "SASDI",
-    profileImage: "/SASDI_WD.png",
+    name: "Admin",
+    profileImage: "/logo.svg",
   };
 
   const { data: userDataApi } = useGetUserByIdQuery(comment.userId, {
@@ -119,7 +119,7 @@ const CommentItem = ({
     avatarSrc.startsWith("http://") || avatarSrc.startsWith("https://");
 
   return (
-    <div className="flex items-start gap-3 text-white justify-between">
+    <div className="flex items-start gap-3 text-gray-900 justify-between">
       <div className="flex gap-3">
         <Image
           src={avatarSrc}
@@ -132,7 +132,7 @@ const CommentItem = ({
         <div>
           <div className="font-medium text-sm">{userData?.name || "Unknown User"}</div>
           <div className="text-sm">{comment.comment}</div>
-          <div className="text-xs text-gray-400">{new Date(comment.date).toLocaleString()}</div>
+          <div className="text-xs text-gray-500">{new Date(comment.date).toLocaleString()}</div>
         </div>
       </div>
 

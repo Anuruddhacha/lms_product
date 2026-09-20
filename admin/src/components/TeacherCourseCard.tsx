@@ -19,19 +19,7 @@ const TeacherCourseCard = ({
   isOwner,
 }: TeacherCourseCardProps) => {
 
-    const categoryPlaceholderMap = {
-  ayurvedic: "/ayurveda_placeholder.jpeg",
-  beauty: "/beauty_placeholder.jpeg",
-  Monthly_Common_Case_Discussion: "/monthly_case_placeholder.jpeg",
-  Youtube_Live_Session: "/youtube_live_placeholder.jpeg",
-};
-
-// fallback if category is missing or unrecognized
-const defaultPlaceholder = "/default_placeholder.jpeg";
-
-const placeholder =
-  categoryPlaceholderMap[course.category as keyof typeof categoryPlaceholderMap] ||
-  defaultPlaceholder;
+  const placeholder = "/placeholderex.png";
 
   const router = useRouter();
 
@@ -66,7 +54,7 @@ const placeholder =
               className={cn(
                 "font-semibold px-2 py-1 rounded",
                 course.status === "Published"
-                  ? "bg-green-500/20 text-green-400"
+                  ? "bg-blue-500/20 text-blue-400"
                   : "bg-red-500/20 text-red-400"
               )}
             >
@@ -75,7 +63,7 @@ const placeholder =
           </p>
           {course.enrollments && (
             <p className="ml-1 mt-1 inline-block text-secondary bg-secondary/10 text-sm font-normal">
-              <span className="font-bold text-white-100">
+              <span className="font-bold text-secondary-700">
                 {course.enrollments.length}
               </span>{" "}
               Student{course.enrollments.length > 1 ? "s" : ""} Enrolled
@@ -107,7 +95,7 @@ const placeholder =
 <Button
   variant="ghost"
   size="icon"
-  className=" rounded w-full bg-green-600 text-white-100 hover:bg-green-400 hover:text-customgreys-primarybg cursor-pointer"
+  className=" rounded w-full bg-blue-600 text-white-100 hover:bg-blue-400 hover:text-customgreys-primarybg cursor-pointer"
   onClick={() => router.push(`/teacher/courses/${course.courseId}/comments`)}
 >
   <MessageCircle className="w-6 h-6" />

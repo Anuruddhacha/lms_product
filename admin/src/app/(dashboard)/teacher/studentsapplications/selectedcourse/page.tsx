@@ -101,10 +101,10 @@ const SelectCoursesPage = () => {
   if (isLoading || !request || isEnrolledLoading) return <Loading />;
 
   return (
-    <div className="p-6 text-white">
+    <div className="p-6 text-gray-900">
       <h2 className="text-2xl font-semibold mb-2">Select Courses for Reg.No: {code}</h2>
 
-      <div className="mb-4 text-sm text-gray-400">
+      <div className="mb-4 text-sm text-gray-500">
         <p><strong>Name:</strong> {request.userName}</p>
         <p><strong>Email:</strong> {request.email}</p>
         <p><strong>Phone:</strong> {request.phone}</p>

@@ -1,7 +1,6 @@
 "use client";
 
 import { SignedIn, SignedOut, UserButton, useUser } from "@clerk/nextjs";
-import { dark } from "@clerk/themes";
 import { Bell, BookOpen } from "lucide-react";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -45,7 +44,6 @@ const Navbar = ({ isCoursePage }: { isCoursePage: boolean }) => {
 
           <UserButton
             appearance={{
-              baseTheme: dark,
               elements: {
                 userButtonOuterIdentifier: "text-customgreys-dirtyGrey",
                 userButtonBox: "scale-90 sm:scale-100",

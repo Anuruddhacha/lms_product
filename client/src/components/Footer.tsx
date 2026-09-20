@@ -15,7 +15,7 @@ export default function Footer() {
           {/* Logo & About */}
           <div>
             <Link href="/">
-              <Image src="/SASDI_WD.png" alt="SASDI Logo" width={140} height={30} />
+              <Image src="/logo.svg" alt="LMS Platform Logo" width={140} height={30} />
             </Link>
             <p className="mt-4 text-sm leading-relaxed">
               Discover a world of knowledge and opportunities with our online education platform. Pursue a new career.
@@ -26,16 +26,16 @@ export default function Footer() {
           <div>
             <h4 className="text-lg font-semibold mb-4">Contact</h4>
             <div className="flex items-start gap-3 mb-3">
-              <FiMapPin className="text-green-400 mt-1" />
+              <FiMapPin className="text-blue-400 mt-1" />
               <span className="text-sm leading-relaxed">
-                300/3, Puwakgadeniya Road,<br />
-                Hokandara 10230, Sri Lanka
+                123 Example Street,<br />
+                Your City, Your Country
               </span>
             </div>
             <div className="flex items-center gap-3">
-              <FiPhoneCall className="text-green-400" />
-              <a href="tel:+94764121571" className="hover:text-white transition text-sm">
-                +94 76 412 1571
+              <FiPhoneCall className="text-blue-400" />
+              <a href="tel:+15550100100" className="hover:text-white transition text-sm">
+                +1 555 010 0100
               </a>
             </div>
           </div>
@@ -46,12 +46,6 @@ export default function Footer() {
             <ul className="space-y-2 text-sm">
               <li>
                 <Link href="/" className="hover:text-white transition">Home</Link>
-              </li>
-              <li>
-                <Link href="/courseintro/ayurvedic" className="hover:text-white transition">The Certificate in Proficiency of Ayurveda</Link>
-              </li>
-              <li>
-                <Link href="/courseintro/beauty" className="hover:text-white transition">Elegance of Beauty Through Pure Ayurveda</Link>
               </li>
               <li>
                 <Link href="/aboutus" className="hover:text-white transition">About Us</Link>
@@ -69,7 +63,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
           <p className="text-center md:text-left mb-4 md:mb-0">
-            © {new Date().getFullYear()} SASDI. Ayurvedic & Beauty Skill Development Courses.
+            © {new Date().getFullYear()} LMS Platform. All Rights Reserved.
           </p>
           <div className="flex space-x-4">
             <Link href="/terms" className="hover:text-white transition">Terms</Link>

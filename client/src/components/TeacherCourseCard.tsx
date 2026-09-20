@@ -18,19 +18,7 @@ const TeacherCourseCard = ({
   isOwner,
 }: TeacherCourseCardProps) => {
 
-    const categoryPlaceholderMap = {
-  ayurvedic: "/ayurveda_placeholder.jpeg",
-  beauty: "/beauty_placeholder.jpeg",
-  Monthly_Common_Case_Discussion: "/monthly_case_placeholder.jpeg",
-  Youtube_Live_Session: "/youtube_live_placeholder.jpeg",
-};
-
-// fallback if category is missing or unrecognized
-const defaultPlaceholder = "/default_placeholder.jpeg";
-
-const placeholder =
-  categoryPlaceholderMap[course.category as keyof typeof categoryPlaceholderMap] ||
-  defaultPlaceholder;
+  const placeholder = "/placeholderex.png";
 
 
   return (
@@ -61,7 +49,7 @@ const placeholder =
               className={cn(
                 "font-semibold px-2 py-1 rounded",
                 course.status === "Published"
-                  ? "bg-green-500/20 text-green-400"
+                  ? "bg-blue-500/20 text-blue-400"
                   : "bg-red-500/20 text-red-400"
               )}
             >

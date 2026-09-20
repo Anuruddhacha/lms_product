@@ -34,7 +34,7 @@ const FeedbacksPage = () => {
     <section className="py-20 mt-20 bg-gradient-to-br  shadow-inner">
       <div className="container relative text-center">
         <h2 className="text-4xl lg:text-5xl font-extrabold text-gray-800 dark:text-white mb-4">
-          Student <span className="text-green-500">Feedbacks</span>
+          Student <span className="text-blue-500">Feedbacks</span>
         </h2>
         <p className="text-slate-600 max-w-xl mx-auto mb-12">
           Hear directly from our students about their experiences and growth.

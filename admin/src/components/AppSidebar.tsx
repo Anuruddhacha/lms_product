@@ -82,7 +82,7 @@ const AppSidebar = () => {
             >
               <div className="app-sidebar__logo-container group">
                 <div className="app-sidebar__logo-wrapper">
-                  <p className="app-sidebar__title">SASDI_ADMIN</p>
+                  <p className="app-sidebar__title">LMS Platform Admin</p>
                 </div>
                 <PanelLeft className="app-sidebar__collapse-icon" />
               </div>

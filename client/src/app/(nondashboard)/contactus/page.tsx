@@ -17,8 +17,8 @@ export default function ContactPage() {
     return (
       <div className="flex items-center justify-center h-screen bg-white dark:bg-gray-900">
         <Image
-          src="/SASDI_WD.png"
-          alt="SASDI Logo"
+          src="/logo.svg"
+          alt="LMS Platform Logo"
           width={200}
           height={200}
           className="animate-pulse"
@@ -39,14 +39,14 @@ export default function ContactPage() {
               </h3>
               <div className="flex items-center justify-center md:justify-start mt-4">
                 <Image
-                  src="/SASDI_WD.png"
+                  src="/logo.svg"
                   width={36}
                   height={36}
                   className="rounded-full shadow-md dark:shadow-gray-800"
-                  alt="SASDI Logo"
+                  alt="LMS Platform Logo"
                 />
-                <span className="font-semibold block ms-3 text-green-700 dark:text-green-400">
-                  Sanathana Ayurveda Skill Development Institute
+                <span className="font-semibold block ms-3 text-blue-700 dark:text-blue-400">
+                  LMS Platform
                 </span>
               </div>
             </div>

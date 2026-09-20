@@ -7,6 +7,7 @@ import { Form } from "@/components/ui/form";
 import { courseSchema } from "@/lib/schemas";
 import {
   centsToDollars,
+  courseCategories,
   createCourseFormData,
   uploadAllResources,
   uploadAllVideos,
@@ -221,10 +222,10 @@ const removeLink = (index: number, type: 'zoom' | 'youtube') => {
                   className="flex items-center space-x-2"
                   labelClassName={`text-sm font-medium ${
                     methods.watch("courseStatus")
-                      ? "text-green-500"
+                      ? "text-blue-500"
                       : "text-yellow-500"
                   }`}
-                  inputClassName="data-[state=checked]:bg-green-500"
+                  inputClassName="data-[state=checked]:bg-blue-500"
                 />
                 <Button
                   type="submit"
@@ -263,12 +264,7 @@ const removeLink = (index: number, type: 'zoom' | 'youtube') => {
                   label="Course Category"
                   type="select"
                   placeholder="Select category here"
-                  options={[
-                    { value: "ayurvedic", label: "Ayurvedic" },
-                    { value: "beauty", label: "Beauty" },
-                    { value: "Monthly_Common_Case_Discussion", label: "Monthly common case discussion" },
-                    { value: "Youtube_Live_Session", label: "Youtube live session" },
-                  ]}
+                  options={courseCategories as unknown as { value: string; label: string }[]}
                   initialValue={course?.category}
                 />
 

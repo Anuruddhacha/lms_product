@@ -101,13 +101,10 @@ const handlePasscodeSubmit = async () => {
  const validateCode = async () => {
 
 
-  const codePattern = /^SASDI\/[AB]\/\d{2}\/\d{3,4}$/;
-if (!codePattern.test(registrationCode)) {
-  setError(
-    "Invalid registration number format. Expected: SASDI/A/xx/xxx or SASDI/B/xx/xxx"
-  );
-  return;
-}
+  if (!registrationCode.trim()) {
+    setError("Please enter a valid registration code.");
+    return;
+  }
 
   if(isFirstTime)
   {
@@ -198,7 +195,7 @@ const renderContent = () => {
   if (!isCodeValid) {
     return (
       <div className="max-w-xl w-full bg-white p-8 rounded-md shadow-md">
-  <h2 className="text-green-900 text-xl font-semibold mb-6">
+  <h2 className="text-blue-900 text-xl font-semibold mb-6">
     Enter Registration Code
   </h2>
   <input
@@ -206,19 +203,19 @@ const renderContent = () => {
     placeholder="Enter your registration number"
     value={registrationCode}
     onChange={(e) => setRegistrationCode(e.target.value)}
-    className="w-full p-3 rounded border border-green-300 focus:border-green-600 focus:ring-2 focus:ring-green-400 text-black mb-4 bg-green-50 placeholder-green-700"
+    className="w-full p-3 rounded border border-blue-300 focus:border-blue-600 focus:ring-2 focus:ring-blue-400 text-black mb-4 bg-blue-50 placeholder-blue-700"
   />
   <input
     type="text"
     placeholder="Enter your registration email"
     value={registrationEmail}
     onChange={(e) => setRegistrationEmail(e.target.value)}
-    className="w-full p-3 rounded border border-green-300 focus:border-green-600 focus:ring-2 focus:ring-green-400 text-black mb-4 bg-green-50 placeholder-green-700"
+    className="w-full p-3 rounded border border-blue-300 focus:border-blue-600 focus:ring-2 focus:ring-blue-400 text-black mb-4 bg-blue-50 placeholder-blue-700"
   />
   {error && <p className="text-red-600 text-sm mb-4">{error}</p>}
   <button
     onClick={validateCode}
-    className="bg-green-700 hover:bg-green-600 text-white px-6 py-3 rounded-md w-full disabled:opacity-60 transition-colors duration-200"
+    className="bg-blue-700 hover:bg-blue-600 text-white px-6 py-3 rounded-md w-full disabled:opacity-60 transition-colors duration-200"
     disabled={loading}
   >
     {loading ? "Checking..." : "Continue"}
@@ -294,8 +291,8 @@ const renderContent = () => {
 return (
   <div className="flex justify-center items-center py-10 px-4">
     {(!showContent && isFirstTime) ? (
-      <div className="bg-white shadow-lg rounded-2xl p-8 max-w-md w-full border border-green-200">
-  <h2 className="text-2xl font-bold text-green-800 mb-4 text-center">
+      <div className="bg-white shadow-lg rounded-2xl p-8 max-w-md w-full border border-blue-200">
+  <h2 className="text-2xl font-bold text-blue-800 mb-4 text-center">
     🔒 Enter Passcode
   </h2>
   <p className="text-sm text-gray-600 text-center mb-6">
@@ -309,7 +306,7 @@ return (
       setPasscodeError("");
     }}
     placeholder="------"
-    className="w-full px-4 py-3 rounded-lg border border-green-300 focus:outline-none focus:ring-2 focus:ring-green-500 text-black focus:border-green-500 mb-3 transition"
+    className="w-full px-4 py-3 rounded-lg border border-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-black focus:border-blue-500 mb-3 transition"
   />
   {passcodeError && (
     <p className="text-red-600 text-sm mb-4 text-center">{passcodeError}</p>
@@ -317,7 +314,7 @@ return (
   <button
     onClick={handlePasscodeSubmit}
     disabled={checkingPasscode}
-    className="w-full py-3 bg-green-700 hover:bg-green-600 text-white font-semibold rounded-lg transition disabled:opacity-50"
+    className="w-full py-3 bg-blue-700 hover:bg-blue-600 text-white font-semibold rounded-lg transition disabled:opacity-50"
   >
     {checkingPasscode ? "Verifying..." : "Continue"}
   </button>
@@ -326,7 +323,7 @@ return (
     Don’t have a passcode?{" "}
     <a
       href="/contactus"
-      className="text-green-700 hover:underline font-medium"
+      className="text-blue-700 hover:underline font-medium"
     >
       Contact us to get one
     </a>

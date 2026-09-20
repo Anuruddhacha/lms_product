@@ -8,8 +8,6 @@ import Image from "next/image";
 import BannerSlider from "@/components/Banners";
 import GallerySection from "@/components/GallerySection";
 import EventsSection from "@/components/EventsSection";
-import CourseIntroCard from "@/components/CourseIntroCard";
-import BeautyAyurvedaCourseCard from "@/components/BeautyCourseCard";
 import FeedbackCard from "@/components/FeedbackCard";
 import FeedbackSection from "@/components/FeedbackSection";
 import { useGetAllNoticesQuery, useGetAllYouTubeLinksQuery } from "@/state/api";
@@ -44,8 +42,8 @@ const extractVideoId = (url: string) => {
     return (
       <div className="flex items-center justify-center h-screen bg-white dark:bg-gray-900">
         <Image
-          src="/SASDI_WD.png"
-          alt="SASDI Logo"
+          src="/logo.svg"
+          alt="LMS Platform Logo"
           width={200}
           height={200}
           className="animate-pulse"
@@ -59,7 +57,7 @@ const extractVideoId = (url: string) => {
 
       {/* Hero Section */}
       <section
-        className="relative py-36 bg-gradient-to-br from-green-50 to-white dark:from-green-950 dark:to-gray-900 shadow-inner overflow-hidden"
+        className="relative py-36 bg-gradient-to-br from-blue-50 to-white dark:from-blue-950 dark:to-gray-900 shadow-inner overflow-hidden"
         style={{ backgroundImage: `url('/images/bg/bg.png')` }}
       >
         <div className="container mx-auto px-4">
@@ -68,12 +66,12 @@ const extractVideoId = (url: string) => {
               <h1 className="font-extrabold lg:leading-tight leading-snug tracking-tight text-3xl lg:text-3xl mb-5 text-gray-900 dark:text-white">
                 Empowering{" "}
                 <span className="relative inline-block">
-                  <span className="absolute inset-0 -skew-y-3 bg-gradient-to-r from-green-700 via-emerald-600 to-lime-600 rounded-md"></span>
+                  <span className="absolute inset-0 -skew-y-3 bg-gradient-to-r from-blue-700 via-cyan-600 to-sky-600 rounded-md"></span>
                   <span className="relative text-white px-2 font-black">Global</span>
                 </span>{" "}
-                Healers
+                Learners
                 <br />
-                Through <span className="font-extrabold text-green-700 dark:text-green-400">Ayurveda</span>
+                Through <span className="font-extrabold text-blue-700 dark:text-blue-400">Quality Education</span>
               </h1>
               <p className="text-slate-600 dark:text-slate-300 text-lg max-w-xl">
                 Discover a world of knowledge and opportunities with our online education platform pursue a new career.
@@ -83,7 +81,7 @@ const extractVideoId = (url: string) => {
                 <SignedIn>
                   <Link
                     href="/user/courses"
-                    className="h-12 px-6 tracking-wide inline-flex items-center justify-center font-medium rounded-md bg-green-600 text-white"
+                    className="h-12 px-6 tracking-wide inline-flex items-center justify-center font-medium rounded-md bg-blue-600 text-white"
                   >
                     View Courses
                   </Link>
@@ -93,7 +91,7 @@ const extractVideoId = (url: string) => {
                     href="/signin?isFirstTime=true"
                     //href="/"
                     //onClick={(e) => e.preventDefault()}
-                    className="h-12 px-6 inline-flex items-center justify-center font-semibold rounded-md bg-gradient-to-r from-green-500 via-emerald-500 to-green-600 text-white shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 ease-in-out"
+                    className="h-12 px-6 inline-flex items-center justify-center font-semibold rounded-md bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-600 text-white shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 ease-in-out"
                   >
                     Register Now
                   </Link>
@@ -107,34 +105,21 @@ const extractVideoId = (url: string) => {
         </div>
       </section>
 
-      {/* Featured Courses */}
-      <section className="py-16 bg-gray-50 dark:bg-gray-950">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center text-slate-800 dark:text-slate-100 mb-10">
-            Featured Courses
-          </h2>
-          <div className="flex flex-wrap justify-center gap-x-32 gap-y-12">
-            <CourseIntroCard />
-            <BeautyAyurvedaCourseCard />
-          </div>
-        </div>
-      </section>
-
       {/* Video Section */}
 {/* Video Section */}
 <section className="py-16 bg-transparent">
   <div className="max-w-5xl mx-auto px-4">
-    <h2 className="text-3xl font-bold text-center text-green-900 mb-10">
+    <h2 className="text-3xl font-bold text-center text-blue-900 mb-10">
       Watch Our Videos
     </h2>
 
     {isYoutubeLinksLoading ? (
       <p className="text-center">Loading videos...</p>
-    ) : youtubeLinksData?.data?.length === 0 ? (
+    ) : !youtubeLinksData?.data?.length ? (
       <p className="text-center text-gray-500">No videos available.</p>
     ) : (
       <div className="flex flex-col gap-12">
-        {youtubeLinksData!.data.map((link) => {
+        {youtubeLinksData.data.map((link) => {
           const videoId = extractVideoId(link.youtubeUrl);
           return (
             <div
@@ -166,7 +151,7 @@ const extractVideoId = (url: string) => {
       <section className="py-20 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-blue-950 dark:to-indigo-900 shadow-inner">
         <div className="container relative text-center">
           <h2 className="text-4xl lg:text-5xl font-extrabold text-gray-800 dark:text-white mb-4">
-            Events & <span className="text-green-500">News</span>
+            Events & <span className="text-blue-500">News</span>
           </h2>
           <p className="text-slate-600 max-w-xl mx-auto mb-12">
             Discover a world of knowledge and opportunities with our online education platform pursue a new career.

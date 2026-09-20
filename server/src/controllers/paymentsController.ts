@@ -36,7 +36,7 @@ export const createPaymentSession = async (req: Request, res: Response) => {
        billingAddress : "HIDE",
       },
       merchant: {
-        name: isNTB ? "SASDI" : "SANATHANALKR",
+        name: "LMS Platform",
       },
     },
     order: {

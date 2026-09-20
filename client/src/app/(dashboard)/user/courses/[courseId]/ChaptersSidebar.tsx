@@ -125,7 +125,7 @@ const ChaptersSidebar = () => {
     <>
       {/* Toggle Button - only visible on mobile */}
       <button
-        className="lg:hidden fixed top-4 left-12 z-50 bg-white rounded-full p-2 shadow-md border bg-green-500 border-gray-300"
+        className="lg:hidden fixed top-4 left-12 z-50 bg-white rounded-full p-2 shadow-md border bg-blue-500 border-gray-300"
         onClick={() => setShowSidebar((prev) => !prev)}
       >
         {showSidebar ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}

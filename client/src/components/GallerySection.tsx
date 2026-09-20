@@ -21,7 +21,7 @@ const GallerySection = () => {
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="text-center mb-14">
           <h2 className="text-5xl font-extrabold text-gray-800 dark:text-white mb-4">
-            Memorable Moments in <span className="text-green-500">SASDI</span>
+            Memorable <span className="text-blue-500">Moments</span>
           </h2>
           <p className="text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
             Explore moments and glimpses from our events and activities.

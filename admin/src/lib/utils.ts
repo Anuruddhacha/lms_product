@@ -243,49 +243,56 @@ export function convertToSubCurrency(amount: number, factor = 100) {
 export const NAVBAR_HEIGHT = 48;
 
 export const courseCategories = [
-  { value: "ayurvedic", label: "Ayurvedic" },
-  { value: "beauty", label: "Beauty" }
+  { value: "Computer Science", label: "Computer Science" },
+  { value: "Artificial Intelligence", label: "Artificial Intelligence" },
+  { value: "Web Development", label: "Web Development" },
+  { value: "Data Science", label: "Data Science" },
+  { value: "Mobile Development", label: "Mobile Development" },
+  { value: "Discussion_Session", label: "Discussion Session" },
+  { value: "Youtube_Live_Session", label: "YouTube Live Session" },
 ] as const;
 
 export const customDataGridStyles = {
   border: "none",
-  backgroundColor: "#17181D",
+  backgroundColor: "#ffffff",
   "& .MuiDataGrid-columnHeaders": {
-    backgroundColor: "#1B1C22",
-    color: "#6e6e6e",
+    backgroundColor: "#f8fafc",
+    color: "#475569",
     "& [role='row'] > *": {
-      backgroundColor: "#1B1C22 !important",
+      backgroundColor: "#f8fafc !important",
       border: "none !important",
     },
   },
   "& .MuiDataGrid-cell": {
-    color: "#6e6e6e",
+    color: "#334155",
     border: "none !important",
+    borderBottom: "1px solid #e2e8f0 !important",
   },
   "& .MuiDataGrid-row": {
-    backgroundColor: "#17181D",
+    backgroundColor: "#ffffff",
     "&:hover": {
-      backgroundColor: "#25262F",
+      backgroundColor: "#f1f5f9",
     },
   },
   "& .MuiDataGrid-footerContainer": {
-    backgroundColor: "#17181D",
-    color: "#6e6e6e",
+    backgroundColor: "#ffffff",
+    color: "#475569",
     border: "none !important",
+    borderTop: "1px solid #e2e8f0 !important",
   },
   "& .MuiDataGrid-filler": {
     border: "none !important",
-    backgroundColor: "#17181D !important",
+    backgroundColor: "#ffffff !important",
     borderTop: "none !important",
     "& div": {
       borderTop: "none !important",
     },
   },
   "& .MuiTablePagination-root": {
-    color: "#6e6e6e",
+    color: "#475569",
   },
   "& .MuiTablePagination-actions .MuiIconButton-root": {
-    color: "#6e6e6e",
+    color: "#475569",
   },
 };
 

@@ -71,7 +71,7 @@ function FeedbackSection() {
         {reviewsContent}
 
         <div className="mb-10">
-       <Link href="/allreveiws" className="inline-block px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded shadow transition">
+       <Link href="/allreveiws" className="inline-block px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded shadow transition">
        View All Reviews
       </Link>
 
@@ -136,7 +136,7 @@ function FeedbackSection() {
           <button
             type="submit"
             disabled={saving}
-            className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded transition disabled:opacity-50"
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded transition disabled:opacity-50"
           >
             {saving ? "Submitting..." : "Submit Review"}
           </button>
@@ -158,12 +158,12 @@ function FeedbackCard({ name, role, feedback, rating }: FeedbackCardProps) {
     <div className="max-w-md bg-white rounded-lg p-6 shadow-md text-left border border-gray-200">
       <p className="text-gray-900 mb-4">{feedback}</p>
       <div className="flex items-center gap-4">
-        <div className="w-12 h-12 rounded-full bg-green-600 flex items-center justify-center text-white font-bold uppercase">
+        <div className="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold uppercase">
           {name[0]}
         </div>
         <div>
           <p className="font-semibold text-gray-900">{name}</p>
-          <p className="text-sm text-green-600">{role}</p>
+          <p className="text-sm text-blue-600">{role}</p>
           <StarRating rating={rating} />
         </div>
       </div>

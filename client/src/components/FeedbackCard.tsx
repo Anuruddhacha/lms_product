@@ -34,12 +34,12 @@ const FeedbackCard = ({ name, role, feedback, avatar, rating }: FeedbackCardProp
       <div>{stars}</div>
 
       <div className="flex items-center gap-4 mt-4">
-        <div className="w-12 h-12 rounded-full bg-green-600 flex items-center justify-center text-white font-bold uppercase">
+        <div className="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold uppercase">
     {name[0]}
   </div>
         <div>
           <p className="font-semibold text-gray-900 dark:text-white">{name}</p>
-          <p className="text-sm text-green-600 dark:text-green-400">{role}</p>
+          <p className="text-sm text-blue-600 dark:text-blue-400">{role}</p>
         </div>
       </div>
     </div>

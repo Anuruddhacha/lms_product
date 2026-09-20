@@ -13,8 +13,8 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "SASDI Admin Dashboard",
-  description: "SASDI Admin Dashboard - user management, analytics, and more.",
+  title: "LMS Platform Admin",
+  description: "LMS Platform Admin Dashboard - user management, analytics, and more.",
 };
 
 export default function RootLayout({

@@ -90,7 +90,7 @@ const CourseIntro = () => {
         {firstChapter && (
           <div className="text-center">
   <Button
-    className="bg-gradient-to-r from-green-700 via-green-600 to-green-500 text-white px-8 py-3 text-lg rounded-full font-bold shadow-lg hover:scale-105 transform transition duration-300"
+    className="bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 text-white px-8 py-3 text-lg rounded-full font-bold shadow-lg hover:scale-105 transform transition duration-300"
     onClick={() =>
       router.push(
         `/user/courses/${course.courseId}/chapters/${firstChapter.chapterId}`,
@@ -184,10 +184,10 @@ const CourseIntro = () => {
       {[...(course.uploadedResources ?? [])].reverse().map((res, i) => (
         <div
           key={i}
-          className="w-full p-5 rounded-2xl shadow-sm hover:shadow-md transition bg-gradient-to-r from-green-100 via-green-50 to-white border border-green-300"
+          className="w-full p-5 rounded-2xl shadow-sm hover:shadow-md transition bg-gradient-to-r from-blue-100 via-blue-50 to-white border border-blue-300"
         >
           <div className="flex items-start gap-4">
-            <div className="text-green-600 text-3xl mt-1 shrink-0">
+            <div className="text-blue-600 text-3xl mt-1 shrink-0">
               📄
             </div>
             <div className="flex flex-col">
@@ -200,7 +200,7 @@ const CourseIntro = () => {
                   href={res.fileUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-white bg-green-600 hover:bg-green-700 px-4 py-1.5 rounded-md font-medium transition"
+                  className="text-sm text-white bg-blue-600 hover:bg-blue-700 px-4 py-1.5 rounded-md font-medium transition"
                 >
                   Download
                 </a>
@@ -235,19 +235,19 @@ const CourseIntro = () => {
     course.sections.map((section, i) => (
       <div
         key={section.sectionId}
-        className="mb-6 p-6 bg-gradient-to-br from-green-100 via-white to-green-50 border border-green-200 rounded-2xl shadow-sm transition hover:shadow-md"
+        className="mb-6 p-6 bg-gradient-to-br from-blue-100 via-white to-blue-50 border border-blue-200 rounded-2xl shadow-sm transition hover:shadow-md"
       >
-        <h3 className="text-xl font-semibold text-green-800 mb-3 flex items-center gap-2">
-          <span className="bg-green-200 text-green-900 px-2 py-0.5 rounded-md text-sm font-bold">
+        <h3 className="text-xl font-semibold text-blue-800 mb-3 flex items-center gap-2">
+          <span className="bg-blue-200 text-blue-900 px-2 py-0.5 rounded-md text-sm font-bold">
             Section {i + 1}
           </span>
           {section.sectionTitle}
         </h3>
 
-        <ul className="ml-6 list-disc text-green-800 space-y-2">
+        <ul className="ml-6 list-disc text-blue-800 space-y-2">
           {section.chapters.map((chapter, j) => (
             <li key={chapter.chapterId} className="text-base leading-relaxed">
-              <span className="font-medium text-green-900">Chapter {j + 1}:</span> {chapter.title}
+              <span className="font-medium text-blue-900">Chapter {j + 1}:</span> {chapter.title}
             </li>
           ))}
         </ul>

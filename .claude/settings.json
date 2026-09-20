@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(powershell -Command \"Get-NetTCPConnection -LocalPort 8000 -State Listen -ErrorAction SilentlyContinue | Select-Object LocalPort,State,OwningProcess\")",
+      "Bash(curl -s -o /dev/null -w \"dynamodb:%{http_code}\\\\n\" http://localhost:8000 --max-time 5)"
+    ]
+  }
+}

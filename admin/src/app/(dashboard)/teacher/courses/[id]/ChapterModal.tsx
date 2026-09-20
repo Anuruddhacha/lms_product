@@ -182,7 +182,7 @@ const ChapterModal = () => {
 
     {/* Display current video (from server) */}
     {typeof value === "string" && value && (
-      <div className="my-2 text-sm text-white-100 flex items-center gap-4">
+      <div className="my-2 text-sm text-customgreys-dirtyGrey flex items-center gap-4">
         <span>Current video: {value.split("/").pop()}</span>
         <button
         type="button"

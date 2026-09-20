@@ -37,7 +37,7 @@ const RegistrationForm = () => {
   const [saveRegistrationCodeIfNew] = useSaveRegistrationCodeIfNewMutation();
   const [updatePasscodeStatus] = useUpdatePasscodeStatusMutation();
   const [submitting, setSubmitting] = useState(false);
-  const specialCategories = ["Monthly_Common_Case_Discussion", "Youtube_Live_Session"];
+  const specialCategories = ["Discussion_Session", "Youtube_Live_Session"];
   const [registerUserAtomic, { isLoading }] = useRegisterUserAtomicMutation();
 
 
@@ -239,12 +239,12 @@ if (storedPasscode) {
 
 
   return (
-    <div className="flex justify-center items-center mt-10 px-4 bg-green-50">
+    <div className="flex justify-center items-center mt-10 px-4 bg-blue-50">
   <form
     onSubmit={handleSubmit}
     className="max-w-2xl w-full bg-white p-8 mt-10 rounded-md shadow-md"
   >
-    <h2 className="text-green-900 text-xl font-semibold mb-6">User Registration</h2>
+    <h2 className="text-blue-900 text-xl font-semibold mb-6">User Registration</h2>
 
     {/* Inputs */}
     <input
@@ -252,47 +252,47 @@ if (storedPasscode) {
       placeholder="Full Name"
       value={name}
       onChange={(e) => setName(e.target.value)}
-      className="w-full p-3 mb-4 rounded border border-green-300 focus:border-green-600 focus:ring-2 focus:ring-green-300 text-black bg-green-50 placeholder-green-700"
+      className="w-full p-3 mb-4 rounded border border-blue-300 focus:border-blue-600 focus:ring-2 focus:ring-blue-300 text-black bg-blue-50 placeholder-blue-700"
     />
     <input
       type="text"
       placeholder="Phone Number"
       value={phone}
       onChange={(e) => setPhone(e.target.value)}
-      className="w-full p-3 mb-4 rounded border border-green-300 focus:border-green-600 focus:ring-2 focus:ring-green-300 text-black bg-green-50 placeholder-green-700"
+      className="w-full p-3 mb-4 rounded border border-blue-300 focus:border-blue-600 focus:ring-2 focus:ring-blue-300 text-black bg-blue-50 placeholder-blue-700"
     />
     <input
       type="text"
       placeholder="Address"
       value={address}
       onChange={(e) => setAddress(e.target.value)}
-      className="w-full p-3 mb-6 rounded border border-green-300 focus:border-green-600 focus:ring-2 focus:ring-green-300 text-black bg-green-50 placeholder-green-700"
+      className="w-full p-3 mb-6 rounded border border-blue-300 focus:border-blue-600 focus:ring-2 focus:ring-blue-300 text-black bg-blue-50 placeholder-blue-700"
     />
 
     {/* Profile Image Upload */}
     <div className="mb-6">
-      <label className="block text-green-800 font-medium mb-2">Profile Picture</label>
+      <label className="block text-blue-800 font-medium mb-2">Profile Picture</label>
       <input
         type="file"
         accept="image/*"
         onChange={handleImageChange}
-        className="w-full p-2 border border-green-300 rounded bg-green-50 text-green-900"
+        className="w-full p-2 border border-blue-300 rounded bg-blue-50 text-blue-900"
       />
       {profileImagePreview && (
         <img
           src={profileImagePreview}
           alt="Preview"
-          className="mt-3 rounded w-32 h-32 object-cover border border-green-300"
+          className="mt-3 rounded w-32 h-32 object-cover border border-blue-300"
         />
       )}
     </div>
 
     {/* Course Selection */}
-    <h3 className="text-green-900 text-lg font-semibold mb-3">Select Courses</h3>
+    <h3 className="text-blue-900 text-lg font-semibold mb-3">Select Courses</h3>
 
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
   {loadingCourses ? (
-    <p className="text-green-700">Loading courses...</p>
+    <p className="text-blue-700">Loading courses...</p>
   ) : isError ? (
     <p className="text-red-600">Failed to load courses.</p>
   ) : (
@@ -301,13 +301,13 @@ if (storedPasscode) {
       .map((course) => (
         <label
           key={course.courseId}
-          className="flex gap-2 items-start bg-green-100 p-3 rounded border border-green-300"
+          className="flex gap-2 items-start bg-blue-100 p-3 rounded border border-blue-300"
         >
           <input
             type="checkbox"
             checked={selectedCourses.includes(course.courseId)}
             onChange={() => handleCheckboxChange(course.courseId)}
-            className="mt-1 accent-green-600"
+            className="mt-1 accent-blue-600"
           />
           <div className="flex-1">
             <CourseCardSearch course={course} />
@@ -320,13 +320,13 @@ if (storedPasscode) {
 
     {/* Feedback */}
     {error && <p className="text-red-600 text-sm mb-2">{error}</p>}
-    {success && <p className="text-green-600 text-sm mb-2">{success}</p>}
+    {success && <p className="text-blue-600 text-sm mb-2">{success}</p>}
 
     {/* Submit Button */}
     <button
       type="submit"
       disabled={submitting}
-      className="bg-green-700 hover:bg-green-600 text-white px-6 py-3 rounded-md w-full transition duration-200 disabled:opacity-60"
+      className="bg-blue-700 hover:bg-blue-600 text-white px-6 py-3 rounded-md w-full transition duration-200 disabled:opacity-60"
     >
       {submitting ? "Saving..." : "Complete Registration"}
     </button>
@@ -334,8 +334,8 @@ if (storedPasscode) {
   {submitting && (
   <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
     <div className="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center">
-      <div className="w-8 h-8 border-4 border-green-500 border-t-transparent rounded-full animate-spin mb-3"></div>
-      <p className="text-green-900 font-medium">Processing your registration...</p>
+      <div className="w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mb-3"></div>
+      <p className="text-blue-900 font-medium">Processing your registration...</p>
     </div>
   </div>
 )}

@@ -14,7 +14,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl lg:text-5xl font-extrabold text-gray-800 dark:text-white mb-4">
-              Who We <span className="text-green-500 dark:text-green-400">Are</span>
+              Who We <span className="text-blue-500 dark:text-blue-400">Are</span>
             </h2>
             <p className="text-lg text-gray-600 dark:text-slate-300 max-w-2xl mx-auto">
               Learn from industry-leading professionals who bring real-world experience and a passion for teaching.

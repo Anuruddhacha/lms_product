@@ -29,7 +29,7 @@ const CourseRequestByCode = () => {
   const { data: courses, isLoading: loadingCourses, isError } = useListAllCoursesQuery();
   const [saveCourseRequest] = useSaveCourseRequestMutation();
   const [registerAnotherCodeForExistingUser] = useRegisterAnotherCodeForExistingUserMutation();
-  const specialCategories = ["Monthly_Common_Case_Discussion", "Youtube_Live_Session"];
+  const specialCategories = ["Discussion_Session", "Youtube_Live_Session"];
 
   const userId = user?.id;
   const userEmail = user?.emailAddresses[0]?.emailAddress;
@@ -159,12 +159,12 @@ const CourseRequestByCode = () => {
 
 
   return (
-    <div className="flex justify-center items-center py-10 px-4 bg-green-50">
+    <div className="flex justify-center items-center py-10 px-4 bg-blue-50">
   <form
     onSubmit={handleSubmit}
     className="max-w-2xl w-full bg-white p-8 rounded-md shadow-md"
   >
-    <h2 className="text-green-900 text-xl font-semibold mb-6">Request More Courses</h2>
+    <h2 className="text-blue-900 text-xl font-semibold mb-6">Request More Courses</h2>
 
     {/* Registration Code Input */}
     <input
@@ -172,13 +172,13 @@ const CourseRequestByCode = () => {
       placeholder="Enter your Registration Code"
       value={registrationCodeInput}
       onChange={(e) => setRegistrationCodeInput(e.target.value)}
-      className="w-full p-3 mb-6 rounded border border-green-300 focus:border-green-600 focus:ring-2 focus:ring-green-300 text-black bg-green-50 placeholder-green-700"
+      className="w-full p-3 mb-6 rounded border border-blue-300 focus:border-blue-600 focus:ring-2 focus:ring-blue-300 text-black bg-blue-50 placeholder-blue-700"
     />
 
     {/* Course List */}
 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
   {loadingCourses ? (
-    <p className="text-green-700">Loading courses...</p>
+    <p className="text-blue-700">Loading courses...</p>
   ) : isError ? (
     <p className="text-red-600">Failed to load courses.</p>
   ) : (
@@ -187,13 +187,13 @@ const CourseRequestByCode = () => {
       .map((course) => (
         <label
           key={course.courseId}
-          className="flex gap-2 items-start bg-green-100 p-3 rounded border border-green-300"
+          className="flex gap-2 items-start bg-blue-100 p-3 rounded border border-blue-300"
         >
           <input
             type="checkbox"
             checked={selectedCourses.includes(course.courseId)}
             onChange={() => handleCheckboxChange(course.courseId)}
-            className="mt-1 accent-green-600"
+            className="mt-1 accent-blue-600"
           />
           <div className="flex-1">
             <CourseCardSearch course={course} />
@@ -206,13 +206,13 @@ const CourseRequestByCode = () => {
 
     {/* Feedback */}
     {error && <p className="text-red-600 text-sm mb-2">{error}</p>}
-    {success && <p className="text-green-600 text-sm mb-2">{success}</p>}
+    {success && <p className="text-blue-600 text-sm mb-2">{success}</p>}
 
     {/* Submit Button */}
     <button
       type="submit"
       disabled={submitting}
-      className="bg-green-700 hover:bg-green-600 text-white px-6 py-3 rounded-md w-full transition duration-200 disabled:opacity-60"
+      className="bg-blue-700 hover:bg-blue-600 text-white px-6 py-3 rounded-md w-full transition duration-200 disabled:opacity-60"
     >
       {submitting ? "Submitting..." : "Request Courses"}
     </button>

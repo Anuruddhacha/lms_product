@@ -11,11 +11,7 @@ import { formatPrice } from "@/lib/utils";
 
 const CourseCard = ({ course, onGoToCourse }: CourseCardProps) => {
 
-  // Pick the placeholder based on category
-const placeholder =
-  course.category === "ayurvedic"
-    ? "/ayurveda_placeholder.jpeg"
-    : "/beauty_placeholder.jpeg";
+  const placeholder = "/placeholderex.png";
 
   return (
     <Card className="course-card group" onClick={() => onGoToCourse(course)}>

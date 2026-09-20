@@ -15,7 +15,7 @@ body,
   height: 100%;
   width: 100%;
   @apply text-sm;
-  @apply text-gray-300;
+  @apply text-slate-700;
   @apply bg-customgreys-primarybg;
 }
 
@@ -41,7 +41,7 @@ input[type="color"] {
     --sidebar-primary-foreground: theme("colors.white.50");
     --sidebar-accent: theme("colors.customgreys.darkerGrey");
     --sidebar-accent-foreground: theme("colors.customgreys.dirtyGrey");
-    --sidebar-border: theme("colors.customgreys.secondarybg");
+    --sidebar-border: theme("colors.customgreys.darkerGrey");
     --sidebar-ring: theme("colors.primary.700");
     --popover: theme("colors.customgreys.primarybg");
     --popover-foreground: theme("colors.white.50");
@@ -52,13 +52,13 @@ input[type="color"] {
     --primary: theme("colors.primary.700");
     --primary-foreground: theme("colors.white.50");
 
-    --muted: theme("colors.primary.600");
+    --muted: theme("colors.primary.50");
     --muted-foreground: theme("colors.customgreys.dirtyGrey");
 
-    --accent: theme("colors.primary.600");
-    --accent-foreground: theme("colors.white.50");
+    --accent: theme("colors.primary.50");
+    --accent-foreground: theme("colors.primary.700");
 
-    --border: theme("colors.customgreys.secondarybg");
+    --border: theme("colors.customgreys.darkerGrey");
     --ring: theme("colors.primary.700");
 
     --card: theme("colors.customgreys.primarybg");
@@ -72,7 +72,7 @@ input[type="color"] {
     --sidebar-primary-foreground: theme("colors.white.50");
     --sidebar-accent: theme("colors.customgreys.darkerGrey");
     --sidebar-accent-foreground: theme("colors.customgreys.dirtyGrey");
-    --sidebar-border: theme("colors.customgreys.secondarybg");
+    --sidebar-border: theme("colors.customgreys.darkerGrey");
     --sidebar-ring: theme("colors.primary.700");
     --popover: theme("colors.customgreys.primarybg");
     --popover-foreground: theme("colors.white.50");
@@ -83,13 +83,13 @@ input[type="color"] {
     --primary: theme("colors.primary.700");
     --primary-foreground: theme("colors.white.50");
 
-    --muted: theme("colors.primary.600");
+    --muted: theme("colors.primary.50");
     --muted-foreground: theme("colors.customgreys.dirtyGrey");
 
-    --accent: theme("colors.primary.600");
-    --accent-foreground: theme("colors.white.50");
+    --accent: theme("colors.primary.50");
+    --accent-foreground: theme("colors.primary.700");
 
-    --border: theme("colors.customgreys.secondarybg");
+    --border: theme("colors.customgreys.darkerGrey");
     --ring: theme("colors.primary.700");
 
     --card: theme("colors.customgreys.primarybg");
@@ -158,7 +158,7 @@ input[type="color"] {
 }
 
 .selected-course__enrollment-count {
-  @apply font-bold text-gray-300;
+  @apply font-bold text-gray-700;
 }
 
 .selected-course__content {
@@ -204,7 +204,7 @@ input[type="color"] {
 }
 
 .completion__icon {
-  @apply mb-4 rounded-full bg-green-500 p-3 inline-flex items-center justify-center;
+  @apply mb-4 rounded-full bg-blue-500 p-3 inline-flex items-center justify-center;
 }
 
 .completion__title {
@@ -766,7 +766,7 @@ input[type="color"] {
 }
 
 .chapters-sidebar__chapter {
-  @apply flex gap-3 items-center px-7 py-4 text-gray-300 cursor-pointer hover:bg-gray-700/20;
+  @apply flex gap-3 items-center px-7 py-4 text-gray-700 cursor-pointer hover:bg-gray-100;
 }
 
 .chapters-sidebar__chapter--current {
@@ -1161,7 +1161,7 @@ input[type="color"] {
 }
 
 .wizard-stepper__circle--completed {
-  @apply bg-green-500;
+  @apply bg-blue-500;
 }
 
 .wizard-stepper__circle--current {
@@ -1189,7 +1189,7 @@ input[type="color"] {
 }
 
 .wizard-stepper__line--completed {
-  @apply bg-green-500;
+  @apply bg-blue-500;
 }
 
 .wizard-stepper__line--incomplete {
@@ -1292,7 +1292,7 @@ input[type="color"] {
 }
 
 .course-card-teacher__title {
-  @apply text-primary-50 text-md md:text-lg line-clamp-2 overflow-hidden;
+  @apply text-gray-900 font-semibold text-md md:text-lg line-clamp-2 overflow-hidden;
 }
 
 .course-card-teacher__category {

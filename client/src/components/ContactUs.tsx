@@ -52,7 +52,7 @@ export default function ContactUs() {
                       <Link
                         key={i}
                         href={`tel:${phone.replace(/\s+/g, "")}`}
-                        className="text-green-600 hover:underline transition duration-300"
+                        className="text-blue-600 hover:underline transition duration-300"
                       >
                         {phone}
                       </Link>
@@ -64,7 +64,7 @@ export default function ContactUs() {
                   <p className="text-slate-500 dark:text-slate-400">Email:</p>
                   <Link
                     href={`mailto:${member.email}`}
-                    className="text-green-600 hover:underline transition duration-300"
+                    className="text-blue-600 hover:underline transition duration-300"
                   >
                     {member.email}
                   </Link>
@@ -77,7 +77,7 @@ export default function ContactUs() {
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex items-center justify-center px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition w-full sm:w-40"
+      className="inline-flex items-center justify-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition w-full sm:w-40"
     >
       <FaWhatsapp className="w-5 h-5 mr-2" />
       WhatsApp

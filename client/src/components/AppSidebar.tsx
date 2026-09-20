@@ -66,20 +66,20 @@ const AppSidebar = () => {
             <SidebarMenuButton
   size="lg"
   onClick={() => toggleSidebar()}
-  className="group hover:bg-green-100 transition-colors duration-200"
+  className="group hover:bg-blue-100 transition-colors duration-200"
 >
   <div className="app-sidebar__logo-container group">
     <div className="app-sidebar__logo-wrapper">
       <Image
-        src="/SASDI_WD.png"
+        src="/logo.svg"
         alt="logo"
         width={25}
         height={20}
         className="app-sidebar__logo"
       />
-      <p className="app-sidebar__title text-green-900">SASDI</p>
+      <p className="app-sidebar__title text-blue-900">LMS Platform</p>
     </div>
-    <PanelLeft className="app-sidebar__collapse-icon text-green-600 group-hover:text-green-800" />
+    <PanelLeft className="app-sidebar__collapse-icon text-blue-600 group-hover:text-blue-800" />
   </div>
 </SidebarMenuButton>
 
@@ -100,7 +100,7 @@ const AppSidebar = () => {
                 key={link.href}
                 className={cn(
                   "app-sidebar__nav-item",
-                  isActive && "bg-green-100 dark:bg-green-900"
+                  isActive && "bg-blue-100 dark:bg-blue-900"
                 )}
               >
                 <SidebarMenuButton

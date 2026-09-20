@@ -1,7 +1,6 @@
 "use client";
 
 import { SignedIn, SignedOut, UserButton, useUser } from "@clerk/nextjs";
-import { dark } from "@clerk/themes";
 import { Bell, BookOpen } from "lucide-react";
 import Link from "next/link";
 import React from "react";
@@ -15,7 +14,7 @@ const NonDashboardNavbar = () => {
       <div className="nondashboard-navbar__container">
         <div className="nondashboard-navbar__search">
           <Link href="/" className="nondashboard-navbar__brand" scroll={false}>
-            SASDI_ADMIN
+            LMS Platform Admin
           </Link>
           <div className="flex items-center gap-4">
           </div>
@@ -29,7 +28,6 @@ const NonDashboardNavbar = () => {
           <SignedIn>
             <UserButton
               appearance={{
-                baseTheme: dark,
                 elements: {
                   userButtonOuterIdentifier: "text-customgreys-dirtyGrey",
                   userButtonBox: "scale-90 sm:scale-100",

@@ -237,7 +237,7 @@ const SectionModal = () => {
               {uploadedResources.length > 0 && (
         <>
     <h4 className="mt-4 font-semibold">Uploaded Resources</h4>
-    <ul className="mt-2 space-y-1 text-sm text-green-600">
+    <ul className="mt-2 space-y-1 text-sm text-blue-600">
       {uploadedResources.map((res, idx) => (
         <li key={idx} className="flex items-center justify-between gap-2">
           <span>{res.fileName}</span>

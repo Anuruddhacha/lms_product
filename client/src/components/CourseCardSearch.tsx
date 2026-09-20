@@ -10,19 +10,7 @@ const CourseCardSearch = ({
 
 
 
-    const categoryPlaceholderMap = {
-  ayurvedic: "/ayurveda_placeholder.jpeg",
-  beauty: "/beauty_placeholder.jpeg",
-  Monthly_Common_Case_Discussion: "/monthly_case_placeholder.jpeg",
-  Youtube_Live_Session: "/youtube_live_placeholder.jpeg",
-};
-
-// fallback if category is missing or unrecognized
-const defaultPlaceholder = "/default_placeholder.jpeg";
-
-const placeholder =
-  categoryPlaceholderMap[course.category as keyof typeof categoryPlaceholderMap] ||
-  defaultPlaceholder;
+  const placeholder = "/placeholderex.png";
 
 
   return (

@@ -57,8 +57,23 @@ console.warn = (message, ...args) => {
 };
 
 async function createTables() {
-  //const models = [Transaction, UserCourseProgress, Course, RegistrationCode, CourseRequest, DBUser, Banner, Event, GalleryImage, Review, Passcode, Notice];
-  const models = [Feedback];
+  const models = [
+    Transaction,
+    UserCourseProgress,
+    Course,
+    RegistrationCode,
+    CourseRequest,
+    DBUser,
+    Banner,
+    Event,
+    GalleryImage,
+    Review,
+    Passcode,
+    Notice,
+    Comment,
+    YouTubeLink,
+    Feedback,
+  ];
 
   for (const model of models) {
     const tableName = model.name;
@@ -138,11 +153,10 @@ async function deleteAllTables() {
 }
 
 export default async function seed() {
-  //await deleteAllTables();
-  //await new Promise((resolve) => setTimeout(resolve, 1000));
-  //await createTables();
+  await createTables();
+  await new Promise((resolve) => setTimeout(resolve, 1000));
 
-  /*const seedDataPath = path.join(__dirname, "./data");
+  const seedDataPath = path.join(__dirname, "./data");
   const files = fs
     .readdirSync(seedDataPath)
     .filter((file) => file.endsWith(".json"));
@@ -151,7 +165,7 @@ export default async function seed() {
     const tableName = path.basename(file, ".json");
     const filePath = path.join(seedDataPath, file);
     await seedData(tableName, filePath);
-  }*/
+  }
 }
 
 if (require.main === module) {

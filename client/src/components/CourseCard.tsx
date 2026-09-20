@@ -11,19 +11,7 @@ import { formatPrice } from "@/lib/utils";
 
 const CourseCard = ({ course, onGoToCourse }: CourseCardProps) => {
 
-    const categoryPlaceholderMap = {
-  ayurvedic: "/ayurveda_placeholder.jpeg",
-  beauty: "/beauty_placeholder.jpeg",
-  Monthly_Common_Case_Discussion: "/monthly_case_placeholder.jpeg",
-  Youtube_Live_Session: "/youtube_live_placeholder.jpeg",
-};
-
-// fallback if category is missing or unrecognized
-const defaultPlaceholder = "/default_placeholder.jpeg";
-
-const placeholder =
-  categoryPlaceholderMap[course.category as keyof typeof categoryPlaceholderMap] ||
-  defaultPlaceholder;
+  const placeholder = "/placeholderex.png";
 
   return (
     <Card
@@ -55,7 +43,7 @@ const placeholder =
         <div className="flex items-center gap-3 mb-3">
           <Avatar className="w-8 h-8">
             <AvatarImage alt={course.teacherName} />
-            <AvatarFallback className="bg-green-200 text-green-800 font-medium">
+            <AvatarFallback className="bg-blue-200 text-blue-800 font-medium">
               {course.teacherName?.[0]}
             </AvatarFallback>
           </Avatar>
@@ -69,7 +57,7 @@ const placeholder =
             {course.category}
           </span>
           {/* Uncomment to show price */}
-          {/* <span className="font-medium text-green-600 dark:text-green-400">
+          {/* <span className="font-medium text-blue-600 dark:text-blue-400">
             {formatPrice(course.price)}
           </span> */}
         </div>

@@ -13,8 +13,8 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Sanathana Ayurveda Skill Development Institute",
-  description: "Sasdi Learning Management System",
+  title: "LMS Platform",
+  description: "A modern learning management system",
 };
 
 export default function RootLayout({

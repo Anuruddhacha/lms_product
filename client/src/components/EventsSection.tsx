@@ -127,7 +127,7 @@ export default function EventsSection() {
 
                 <Link
                   href={`/events`}
-                  className="block text-lg font-semibold text-gray-800 hover:text-green-700 transition"
+                  className="block text-lg font-semibold text-gray-800 hover:text-blue-700 transition"
                 >
                   {item.title}
                 </Link>
@@ -139,7 +139,7 @@ export default function EventsSection() {
                 <div className="mt-3">
                   <button
                     onClick={() => toggleExpand(item.id)}
-                    className="text-sm font-medium text-green-700 hover:text-green-900 transition"
+                    className="text-sm font-medium text-blue-700 hover:text-blue-900 transition"
                   >
                     {isExpanded ? "Show Less ←" : "Read More →"}
                   </button>

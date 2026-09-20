@@ -100,7 +100,7 @@ const ChapterWithNotification = ({ chapter, filter }: ChapterWithNotificationPro
   return (
     <div className="mb-6 p-4 rounded border border-gray-300 bg-white shadow-sm">
       <div className="flex justify-between items-center mb-3">
-        <span className="text-lg font-semibold text-white-100">{chapter.title}</span>
+        <span className="text-lg font-semibold text-gray-900">{chapter.title}</span>
         {unrepliedCount > 0 && (
           <span className="bg-red-500 text-white text-sm rounded-full px-3 py-1">
             {unrepliedCount}
@@ -122,7 +122,7 @@ const ChapterWithNotification = ({ chapter, filter }: ChapterWithNotificationPro
 
             <div className="ml-6 mt-2">
               {comment.reply && (
-                <div className="text-green-600 text-sm mb-1">
+                <div className="text-blue-600 text-sm mb-1">
                   <strong>Current Reply:</strong> {comment.reply}
                 </div>
               )}
@@ -171,7 +171,7 @@ const ChapterWithNotification = ({ chapter, filter }: ChapterWithNotificationPro
         />
         <button
           onClick={handleAddComment}
-          className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded text-base font-semibold"
+          className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded text-base font-semibold"
         >
           Post
         </button>
@@ -193,8 +193,8 @@ const CourseCommentsPage = () => {
   if (error || !course) return <div>Course not found</div>;
 
   return (
-    <div className="p-8 max-w-5xl mx-auto bg-gray-800 min-h-screen">
-      <h1 className="text-3xl font-bold mb-8 text-white">{course.title}</h1>
+    <div className="p-8 max-w-5xl mx-auto bg-white min-h-screen">
+      <h1 className="text-3xl font-bold mb-8 text-gray-900">{course.title}</h1>
 
       {/* Global filter buttons */}
       <div className="flex gap-3 mb-8">
@@ -215,7 +215,7 @@ const CourseCommentsPage = () => {
 
       {course.sections?.map((section) => (
         <div key={section.sectionId} className="mb-10">
-          <h2 className="text-2xl font-semibold mb-4 text-gray-300">{section.sectionTitle}</h2>
+          <h2 className="text-2xl font-semibold mb-4 text-gray-700">{section.sectionTitle}</h2>
           <ul className="space-y-4">
             {section.chapters?.map((chapter) => (
               <li key={chapter.chapterId}>

@@ -123,14 +123,14 @@ const FeedbackUploadForm = () => {
       )}
 
       <div className="max-w-2xl mx-auto mt-10 bg-white shadow p-6 rounded">
-        <h2 className="text-2xl font-bold mb-4 text-green-900">Submit Feedback</h2>
+        <h2 className="text-2xl font-bold mb-4 text-blue-900">Submit Feedback</h2>
 
         <form onSubmit={handleSubmit}>
           <textarea
             value={feedback}
             onChange={(e) => setFeedback(e.target.value)}
             placeholder="Write your feedback..."
-            className="w-full mb-4 p-2 border border-green-300 rounded text-black"
+            className="w-full mb-4 p-2 border border-blue-300 rounded text-black"
             rows={4}
             required
           />
@@ -160,12 +160,12 @@ const FeedbackUploadForm = () => {
           )}
 
           {error && <p className="text-red-600 mb-2">{error}</p>}
-          {success && <p className="text-green-600 mb-2">{success}</p>}
+          {success && <p className="text-blue-600 mb-2">{success}</p>}
 
           {uploading && (
             <div className="w-full h-3 bg-gray-200 rounded-full mb-3">
               <div
-                className="h-full bg-green-500 transition-all"
+                className="h-full bg-blue-500 transition-all"
                 style={{ width: `${uploadProgress}%` }}
               />
             </div>
@@ -174,7 +174,7 @@ const FeedbackUploadForm = () => {
           <button
             type="submit"
             disabled={uploading}
-            className="w-full bg-green-700 text-white py-2 rounded hover:bg-green-600 disabled:opacity-60"
+            className="w-full bg-blue-700 text-white py-2 rounded hover:bg-blue-600 disabled:opacity-60"
           >
             {uploading ? "Submitting..." : "Submit Feedback"}
           </button>
@@ -182,7 +182,7 @@ const FeedbackUploadForm = () => {
 
         <hr className="my-8" />
 
-        <h3 className="text-xl font-semibold mb-4 text-green-800">All Feedback</h3>
+        <h3 className="text-xl font-semibold mb-4 text-blue-800">All Feedback</h3>
 
         {isFeedbacksLoading ? (
           <p>Loading...</p>

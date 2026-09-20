@@ -88,14 +88,14 @@ const BannerUploadForm = () => {
 
   return (
     <div className="max-w-4xl mx-auto mt-10 bg-white shadow-lg p-6 rounded-md">
-      <h2 className="text-2xl font-semibold mb-4 text-green-900">Upload Banner</h2>
+      <h2 className="text-2xl font-semibold mb-4 text-blue-900">Upload Banner</h2>
 
       <form onSubmit={handleSubmit}>
         <input
           type="file"
           accept="image/*"
           onChange={handleImageChange}
-          className="w-full mb-4 border border-green-300 rounded p-2"
+          className="w-full mb-4 border border-blue-300 rounded p-2"
         />
 
         {previewUrl && (
@@ -112,12 +112,12 @@ const BannerUploadForm = () => {
         )}
 
         {error && <p className="text-red-600 mb-2">{error}</p>}
-        {success && <p className="text-green-600 mb-2">{success}</p>}
+        {success && <p className="text-blue-600 mb-2">{success}</p>}
 
         <button
           type="submit"
           disabled={uploading}
-          className="w-full bg-green-700 text-white py-2 rounded hover:bg-green-600 disabled:opacity-60"
+          className="w-full bg-blue-700 text-white py-2 rounded hover:bg-blue-600 disabled:opacity-60"
         >
           {uploading ? "Uploading..." : "Upload Banner"}
         </button>
@@ -125,7 +125,7 @@ const BannerUploadForm = () => {
 
       <hr className="my-8" />
 
-      <h3 className="text-xl font-semibold mb-4 text-green-800">All Banners</h3>
+      <h3 className="text-xl font-semibold mb-4 text-blue-800">All Banners</h3>
       {isBannersLoading ? (
         <p>Loading banners...</p>
       ) : (

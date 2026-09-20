@@ -153,14 +153,14 @@ const handleYoutubeDelete = async (id: string) => {
 
   return (
     <div className="max-w-4xl mx-auto mt-10 bg-white shadow-lg p-6 rounded-md">
-      <h2 className="text-2xl font-semibold mb-4 text-green-900">Upload Notice</h2>
+      <h2 className="text-2xl font-semibold mb-4 text-blue-900">Upload Notice</h2>
 
       <form onSubmit={handleSubmit}>
         <input
           type="file"
           accept="application/pdf"
           onChange={handleFileChange}
-          className="w-full mb-4 border border-green-300 rounded p-2"
+          className="w-full mb-4 border border-blue-300 rounded p-2"
         />
 
         {previewUrl && (
@@ -180,17 +180,17 @@ const handleYoutubeDelete = async (id: string) => {
           placeholder="Enter notice text"
           value={noticeText}
           onChange={(e) => setNoticeText(e.target.value)}
-          className="w-full mb-4 border border-green-300 rounded p-2"
+          className="w-full mb-4 border border-blue-300 rounded p-2"
           rows={3}
         />
 
         {error && <p className="text-red-600 mb-2">{error}</p>}
-        {success && <p className="text-green-600 mb-2">{success}</p>}
+        {success && <p className="text-blue-600 mb-2">{success}</p>}
 
         <button
           type="submit"
           disabled={uploading}
-          className="w-full bg-green-700 text-white py-2 rounded hover:bg-green-600 disabled:opacity-60"
+          className="w-full bg-blue-700 text-white py-2 rounded hover:bg-blue-600 disabled:opacity-60"
         >
           {uploading ? "Uploading..." : "Upload Notice"}
         </button>
@@ -198,7 +198,7 @@ const handleYoutubeDelete = async (id: string) => {
 
       <hr className="my-8" />
 
-      <h3 className="text-xl font-semibold mb-4 text-green-800">All Notices</h3>
+      <h3 className="text-xl font-semibold mb-4 text-blue-800">All Notices</h3>
       {isNoticesLoading ? (
         <p>Loading notices...</p>
       ) : (
@@ -231,14 +231,14 @@ const handleYoutubeDelete = async (id: string) => {
 
       <hr className="my-8" />
 
-<h3 className="text-xl font-semibold mb-4 text-green-800">Add YouTube Link</h3>
+<h3 className="text-xl font-semibold mb-4 text-blue-800">Add YouTube Link</h3>
 <form onSubmit={handleYoutubeSubmit} className="mb-6">
   <input
     type="url"
     placeholder="Enter YouTube URL"
     value={youtubeUrl}
     onChange={(e) => setYoutubeUrl(e.target.value)}
-    className="w-full mb-4 border border-green-300 rounded p-2"
+    className="w-full mb-4 border border-blue-300 rounded p-2"
   />
   <button
     type="submit"
@@ -248,7 +248,7 @@ const handleYoutubeDelete = async (id: string) => {
   </button>
 </form>
 
-<h3 className="text-xl font-semibold mb-4 text-green-800">All YouTube Links</h3>
+<h3 className="text-xl font-semibold mb-4 text-blue-800">All YouTube Links</h3>
 {isYoutubeLinksLoading ? (
   <p>Loading YouTube links...</p>
 ) : (

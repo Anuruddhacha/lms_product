@@ -54,12 +54,12 @@ function FeedbackCard({ name, role, feedback, rating }: FeedbackCardProps) {
     <div className="max-w-sm bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md text-left border border-gray-200 dark:border-gray-700 flex flex-col justify-between">
       <p className="text-gray-900 dark:text-gray-100 mb-4 break-words">{feedback}</p>
       <div className="flex items-center gap-4 mt-auto">
-        <div className="w-12 h-12 rounded-full bg-green-600 flex items-center justify-center text-white font-bold uppercase">
+        <div className="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold uppercase">
           {name[0]}
         </div>
         <div>
           <p className="font-semibold text-gray-900 dark:text-gray-100">{name}</p>
-          <p className="text-sm text-green-600">{role}</p>
+          <p className="text-sm text-blue-600">{role}</p>
           <StarRating rating={rating} />
         </div>
       </div>

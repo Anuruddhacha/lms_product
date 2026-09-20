@@ -59,7 +59,7 @@ const Courses = () => {
 
     const result = await createCourse({
       teacherId: user.id,
-      teacherName: user.fullName || "SASDI",
+      teacherName: user.fullName || "Instructor",
     }).unwrap();
     router.push(`/teacher/courses/${result.courseId}`, {
       scroll: false,
