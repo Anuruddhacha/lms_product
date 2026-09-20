@@ -2,18 +2,16 @@
 
 import React, { useEffect, useState } from "react";
 import { SignedIn, SignedOut } from "@clerk/nextjs";
-import Faqs from "@/components/Faqs";
 import Link from "next/link";
 import Image from "next/image";
 import BannerSlider from "@/components/Banners";
 import GallerySection from "@/components/GallerySection";
 import EventsSection from "@/components/EventsSection";
-import FeedbackCard from "@/components/FeedbackCard";
 import FeedbackSection from "@/components/FeedbackSection";
 import { useGetAllNoticesQuery, useGetAllYouTubeLinksQuery } from "@/state/api";
 
 
-const Landing = () => {
+const LandingContent = () => {
   const [isLoading, setIsLoading] = useState(true);
   const { data: noticesData, isError } = useGetAllNoticesQuery();
   const firstNotice = noticesData?.data?.[0];
@@ -89,8 +87,6 @@ const extractVideoId = (url: string) => {
                 <SignedOut>
                   <Link
                     href="/signin?isFirstTime=true"
-                    //href="/"
-                    //onClick={(e) => e.preventDefault()}
                     className="h-12 px-6 inline-flex items-center justify-center font-semibold rounded-md bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-600 text-white shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 ease-in-out"
                   >
                     Register Now
@@ -106,7 +102,6 @@ const extractVideoId = (url: string) => {
       </section>
 
       {/* Video Section */}
-{/* Video Section */}
 <section className="py-16 bg-transparent">
   <div className="max-w-5xl mx-auto px-4">
     <h2 className="text-3xl font-bold text-center text-blue-900 mb-10">
@@ -160,25 +155,11 @@ const extractVideoId = (url: string) => {
         </div>
       </section>
 
-     
-     { /*<section className="py-20 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-blue-950 dark:to-indigo-900 shadow-inner">
-        <div className="container relative text-center">
-          <h2 className="text-4xl lg:text-5xl font-extrabold text-gray-800 dark:text-white mb-4">
-            FAQ
-          </h2>
-          <p className="text-slate-600 max-w-xl mx-auto mb-12">
-            Discover a world of knowledge and opportunities with our online education platform pursue a new career.
-          </p>
-          <Faqs />
-        </div>
-      </section>*/}
-
-
       {/* Feedback Section */}
 <FeedbackSection/>
 
       {/* Notice and PDF Section */}
-    
+
     <section className="py-20 bg-gradient-to-br from-white-100 to-white-100 dark:from-yellow-900 dark:to-yellow-950 shadow-inner">
   <div className="container mx-auto px-4">
     <h2 className="text-3xl lg:text-4xl font-extrabold text-center text-gray-800 dark:text-gray-100 mb-8">
@@ -226,10 +207,8 @@ const extractVideoId = (url: string) => {
   </div>
 </section>
 
-
-
     </div>
   );
 };
 
-export default Landing;
+export default LandingContent;
