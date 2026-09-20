@@ -38,7 +38,7 @@ input[type="color"] {
     --sidebar-background: theme("colors.customgreys.primarybg");
     --sidebar-foreground: theme("colors.white.50");
     --sidebar-primary: theme("colors.primary.700");
-    --sidebar-primary-foreground: theme("colors.white.50");
+    --sidebar-primary-foreground: theme("colors.white.100");
     --sidebar-accent: theme("colors.customgreys.darkerGrey");
     --sidebar-accent-foreground: theme("colors.customgreys.dirtyGrey");
     --sidebar-border: theme("colors.customgreys.darkerGrey");
@@ -50,7 +50,7 @@ input[type="color"] {
     --foreground: theme("colors.white.50");
 
     --primary: theme("colors.primary.700");
-    --primary-foreground: theme("colors.white.50");
+    --primary-foreground: theme("colors.white.100");
 
     --muted: theme("colors.primary.50");
     --muted-foreground: theme("colors.customgreys.dirtyGrey");
@@ -69,7 +69,7 @@ input[type="color"] {
     --sidebar-background: theme("colors.customgreys.primarybg");
     --sidebar-foreground: theme("colors.white.50");
     --sidebar-primary: theme("colors.primary.700");
-    --sidebar-primary-foreground: theme("colors.white.50");
+    --sidebar-primary-foreground: theme("colors.white.100");
     --sidebar-accent: theme("colors.customgreys.darkerGrey");
     --sidebar-accent-foreground: theme("colors.customgreys.dirtyGrey");
     --sidebar-border: theme("colors.customgreys.darkerGrey");
@@ -81,7 +81,7 @@ input[type="color"] {
     --foreground: theme("colors.white.50");
 
     --primary: theme("colors.primary.700");
-    --primary-foreground: theme("colors.white.50");
+    --primary-foreground: theme("colors.white.100");
 
     --muted: theme("colors.primary.50");
     --muted-foreground: theme("colors.customgreys.dirtyGrey");
