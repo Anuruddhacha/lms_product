@@ -29,7 +29,6 @@ const CourseRequestByCode = () => {
   const { data: courses, isLoading: loadingCourses, isError } = useListAllCoursesQuery();
   const [saveCourseRequest] = useSaveCourseRequestMutation();
   const [registerAnotherCodeForExistingUser] = useRegisterAnotherCodeForExistingUserMutation();
-  const specialCategories = ["Discussion_Session", "Youtube_Live_Session"];
 
   const userId = user?.id;
   const userEmail = user?.emailAddresses[0]?.emailAddress;
@@ -183,8 +182,7 @@ const CourseRequestByCode = () => {
     <p className="text-red-600">Failed to load courses.</p>
   ) : (
     courses
-      ?.filter((course) => !specialCategories.includes(course.category))
-      .map((course) => (
+      ?.map((course) => (
         <label
           key={course.courseId}
           className="flex gap-2 items-start bg-blue-100 p-3 rounded border border-blue-300"

@@ -2,11 +2,11 @@
 
 import Toolbar from "@/components/Toolbar";
 import CourseCard from "@/components/CourseCard";
-import { useEnrollUserInAllSpecialCategoryCoursesMutation, useGetUserEnrolledCoursesQuery } from "@/state/api";
+import { useGetUserEnrolledCoursesQuery } from "@/state/api";
 import { useRouter } from "next/navigation";
 import Header from "@/components/Header";
 import { useUser } from "@clerk/nextjs";
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo } from "react";
 import Loading from "@/components/Loading";
 
 const Courses = () => {
@@ -15,19 +15,6 @@ const Courses = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
 
-
-
-   //  Import the mutation hook
-  const [enrollUserInAllSpecialCategoryCourses] = useEnrollUserInAllSpecialCategoryCoursesMutation();
-
-  //  Enroll user in special category courses when ready
-  useEffect(() => {
-    if (isLoaded && user) {
-      enrollUserInAllSpecialCategoryCourses({ userId: user.id }).catch((err) => {
-        console.error("Error enrolling user in special courses:", err);
-      });
-    }
-  }, [isLoaded, user, enrollUserInAllSpecialCategoryCourses]);
 
   const {
     data: courses,

@@ -816,20 +816,6 @@ deleteVideoAssets: build.mutation<
 }),
 
 
-enrollUserInAllSpecialCategoryCourses: build.mutation<
-  UserCourseProgress[], // Assuming it returns an array of enrolled course progress
-  { userId: string }
->({
-  query: ({ userId }) => ({
-    url: `users/course-progress/enrollUserInAllSpecialCategoryCourses`,
-    method: "POST",
-    body: { userId },
-  }),
-  invalidatesTags: ["UserCourseProgress", "Courses"],
-}),
-
-
-
 unenrollUserFromCourse: build.mutation<
   { success: boolean }, // or any other appropriate response shape
   { userId: string; courseId: string }
@@ -907,7 +893,6 @@ export const {
   useUpdateUserCourseProgressMutation,
   useEnrollUserInCourseMutation,
   useUnenrollUserFromCourseMutation,
-  useEnrollUserInAllSpecialCategoryCoursesMutation,
 
   useGetAllRegistrationCodesQuery,
   useAcceptRegistrationCodeMutation,

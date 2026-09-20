@@ -37,7 +37,6 @@ const RegistrationForm = () => {
   const [saveRegistrationCodeIfNew] = useSaveRegistrationCodeIfNewMutation();
   const [updatePasscodeStatus] = useUpdatePasscodeStatusMutation();
   const [submitting, setSubmitting] = useState(false);
-  const specialCategories = ["Discussion_Session", "Youtube_Live_Session"];
   const [registerUserAtomic, { isLoading }] = useRegisterUserAtomicMutation();
 
 
@@ -297,8 +296,7 @@ if (storedPasscode) {
     <p className="text-red-600">Failed to load courses.</p>
   ) : (
     courses
-      ?.filter((course) => !specialCategories.includes(course.category))
-      .map((course) => (
+      ?.map((course) => (
         <label
           key={course.courseId}
           className="flex gap-2 items-start bg-blue-100 p-3 rounded border border-blue-300"

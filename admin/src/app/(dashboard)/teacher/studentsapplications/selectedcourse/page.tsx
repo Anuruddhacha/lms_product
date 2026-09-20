@@ -8,7 +8,6 @@ import {
   useUnenrollUserFromCourseMutation,
   useAcceptRegistrationCodeMutation,
   useSaveCourseRequestMutation,
-  useEnrollUserInAllSpecialCategoryCoursesMutation,
   useGetUserEnrolledCoursesQuery,
 } from "@/state/api";
 import CourseCheckboxCard from "@/components/CourseCheckboxCard";
@@ -33,7 +32,6 @@ const SelectCoursesPage = () => {
   const [unenrollUserFromCourse] = useUnenrollUserFromCourseMutation();
   const [acceptRegistrationCode] = useAcceptRegistrationCodeMutation();
   const [saveCourseRequest] = useSaveCourseRequestMutation();
-  const [enrollUserInAllSpecialCategoryCourses] = useEnrollUserInAllSpecialCategoryCoursesMutation();
 
   useEffect(() => {
     if (request?.selectedCourseIds) {
@@ -66,8 +64,6 @@ const SelectCoursesPage = () => {
           selectedCourseIds: selectedCourses,
           profileImageUrl,
         }).unwrap();
-
-        await enrollUserInAllSpecialCategoryCourses({ userId }).unwrap();
       }
 
       await Promise.all(

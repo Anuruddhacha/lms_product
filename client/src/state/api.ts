@@ -516,19 +516,7 @@ getAllNotices: build.query<
     }),
 
 
-    enrollUserInAllSpecialCategoryCourses: build.mutation<
-  UserCourseProgress[], // Assuming it returns an array of enrolled course progress
-  { userId: string }
->({
-  query: ({ userId }) => ({
-    url: `users/course-progress/enrollUserInAllSpecialCategoryCourses`,
-    method: "POST",
-    body: { userId },
-  }),
-  invalidatesTags: ["UserCourseProgress", "Courses"],
-}),
-
-    /* 
+    /*
     ===============
     TRANSACTIONS
     =============== 
@@ -661,8 +649,6 @@ export const {
   useGetUserEnrolledCoursesQuery,
   useGetUserCourseProgressQuery,
   useUpdateUserCourseProgressMutation,
-  useEnrollUserInAllSpecialCategoryCoursesMutation,
-
 
   useCheckRegistrationCodeStatusMutation,
   useSaveRegistrationCodeIfNewMutation,

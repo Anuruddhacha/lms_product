@@ -9,7 +9,6 @@ import {
   useSaveCourseRequestMutation,
   useAcceptRegistrationCodeMutation,
   useUnenrollUserFromCourseMutation,
-  useEnrollUserInAllSpecialCategoryCoursesMutation,
 } from "@/state/api";
 import CourseCheckboxCard from "@/components/CourseCheckboxCard";
 import Loading from "@/components/Loading";
@@ -25,7 +24,6 @@ const AllCourseRequests = () => {
   const [selectedCourses, setSelectedCourses] = useState<{ [key: string]: string[] }>({});
   const [saveCourseRequest] = useSaveCourseRequestMutation();
   const [acceptRegistrationCode] = useAcceptRegistrationCodeMutation();
-  const [enrollUserInAllSpecialCategoryCourses] = useEnrollUserInAllSpecialCategoryCoursesMutation();
 
 
   const [filterStatus, setFilterStatus] = useState<"all" | "pending" | "accepted">("all");
@@ -100,11 +98,6 @@ const AllCourseRequests = () => {
           enrollUserInCourse({ userId, courseId }).unwrap()
         )
       );
-
-      if(!request.isAccepted){
-       // Enroll user in all special category courses instead of selected ones - if not already accepted
-       await enrollUserInAllSpecialCategoryCourses({ userId }).unwrap();
-      }
 
       console.log(`Enrollment and request update successful for ${userId}`);
     } catch (err) {

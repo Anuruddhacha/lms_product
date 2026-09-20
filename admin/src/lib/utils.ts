@@ -248,8 +248,6 @@ export const courseCategories = [
   { value: "Web Development", label: "Web Development" },
   { value: "Data Science", label: "Data Science" },
   { value: "Mobile Development", label: "Mobile Development" },
-  { value: "Discussion_Session", label: "Discussion Session" },
-  { value: "Youtube_Live_Session", label: "YouTube Live Session" },
 ] as const;
 
 export const customDataGridStyles = {
