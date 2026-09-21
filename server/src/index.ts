@@ -29,6 +29,7 @@ import commentRoutes from "./routes/commentRoutes";
 import youtubeLinksRoutes from "./routes/youtubeLinksRoutes";
 import feedbackRoutes from "./routes/feedbacksRoutes"; // Import feedback routes
 import multipartRoutes from "./routes/multipartRoutes";
+import dashboardRoutes from "./routes/dashboardRoutes";
 
 /* CONFIGURATIONS */
 dotenv.config();
@@ -94,6 +95,7 @@ app.use("/commentsection", commentRoutes);
 app.use("/youtube", youtubeLinksRoutes); // Ensure you have youtubeRoutes imported correctly
 app.use("/feedbacks", feedbackRoutes); // Import feedback routes
 app.use("/api", multipartRoutes);
+app.use("/dashboard", dashboardRoutes);
 
 /* SERVER */
 const port = process.env.PORT || 3000;

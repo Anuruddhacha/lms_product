@@ -14,6 +14,7 @@ import {
 import {
   BookOpen,
   HomeIcon,
+  LayoutDashboard,
   List,
   Lock,
   LogOut,
@@ -39,6 +40,7 @@ const AppSidebar = () => {
       { icon: Settings, label: "Settings", href: "/user/settings" },
     ],
     teacher: [
+      { icon: LayoutDashboard, label: "Dashboard", href: "/teacher/dashboard" },
       { icon: HomeIcon, label: "Home", href: "/" },
       { icon: BookOpen, label: "Courses", href: "/teacher/courses" },
       { icon: List, label: "All Students", href: "/teacher/users" },

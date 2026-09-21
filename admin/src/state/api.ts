@@ -63,10 +63,43 @@ export const api = createApi({
   reducerPath: "api",
   tagTypes: ["Courses", "Users", "UserCourseProgress"],
   endpoints: (build) => ({
-    /* 
+    /*
+    ===============
+    DASHBOARD
+    ===============
+    */
+    getDashboardStats: build.query<
+      {
+        totalStudents: number;
+        totalCourses: number;
+        totalEnrollments: number;
+        enrollmentTrends: { month: string; enrollments: number }[];
+        categoryBreakdown: { category: string; count: number }[];
+        topCourses: {
+          courseId: string;
+          title: string;
+          image?: string;
+          category: string;
+          enrollments: number;
+        }[];
+        recentCourses: {
+          courseId: string;
+          title: string;
+          image?: string;
+          category: string;
+          price?: number;
+        }[];
+      },
+      void
+    >({
+      query: () => "dashboard/stats",
+      providesTags: ["Courses", "Users"],
+    }),
+
+    /*
     ===============
     USER CLERK
-    =============== 
+    ===============
     */
     updateUser: build.mutation<User, Partial<User> & { userId: string }>({
       query: ({ userId, ...updatedUser }) => ({
@@ -873,6 +906,7 @@ unenrollUserFromCourse: build.mutation<
 });
 
 export const {
+  useGetDashboardStatsQuery,
   useGetAllUsersQuery,
   useUpdateUserMutation,
   useCreateCourseMutation,
