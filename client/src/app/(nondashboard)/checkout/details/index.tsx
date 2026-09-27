@@ -57,7 +57,7 @@ const CheckoutDetailsPage = () => {
                   label="Email address"
                   type="email"
                   className="w-full rounded mt-4"
-                  labelClassName="font-normal text-white-50"
+                  labelClassName="font-normal text-udemy-black"
                   inputClassName="py-3"
                 />
                 <Button type="submit" className="checkout-details__submit">

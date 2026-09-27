@@ -122,8 +122,8 @@ const CourseRequestByCode = () => {
 
   return (
     <div className="flex justify-center items-center h-screen px-4">
-      <div className="max-w-md w-full bg-customgreys-secondarybg p-6 rounded-lg shadow text-center">
-        <p className="text-white mb-4">We couldn’t find your profile data.</p>
+      <div className="max-w-md w-full bg-white-100 p-6 rounded-md shadow border border-gray-200 text-center">
+        <p className="text-udemy-black mb-4">We couldn’t find your profile data.</p>
 
         {/* Registration Code Input */}
         <input
@@ -131,7 +131,7 @@ const CourseRequestByCode = () => {
           placeholder="Enter Registration Code"
           value={registrationCode}
           onChange={(e) => setRegistrationCode(e.target.value)}
-          className="w-full p-2 mb-3 rounded bg-slate-900 dark:bg-slate-800 text-white"
+          className="w-full p-2 mb-3 rounded border border-gray-300 bg-white-100 text-udemy-black"
         />
 
         {/* Registration Email Input */}
@@ -140,12 +140,12 @@ const CourseRequestByCode = () => {
           placeholder="Enter Email"
           value={registrationEmail}
           onChange={(e) => setRegistrationEmail(e.target.value)}
-          className="w-full p-2 mb-4 rounded bg-slate-900 dark:bg-slate-800 text-white"
+          className="w-full p-2 mb-4 rounded border border-gray-300 bg-white-100 text-udemy-black"
         />
 
         <button
           onClick={handleRedirect}
-          className="bg-primary-700 hover:bg-primary-600 text-white px-4 py-2 rounded w-full"
+          className="bg-udemy-purple hover:bg-udemy-purpleDark text-white-100 font-bold px-4 py-2 rounded-sm w-full"
           disabled={!registrationCode || !registrationEmail}
         >
           Please Complete Registration
@@ -158,12 +158,12 @@ const CourseRequestByCode = () => {
 
 
   return (
-    <div className="flex justify-center items-center py-10 px-4 bg-blue-50">
+    <div className="flex justify-center items-center py-10 px-4 bg-udemy-lightGray">
   <form
     onSubmit={handleSubmit}
-    className="max-w-2xl w-full bg-white p-8 rounded-md shadow-md"
+    className="max-w-2xl w-full bg-white-100 p-8 rounded-md shadow-md border border-gray-200"
   >
-    <h2 className="text-blue-900 text-xl font-semibold mb-6">Request More Courses</h2>
+    <h2 className="text-udemy-black text-xl font-semibold mb-6">Request More Courses</h2>
 
     {/* Registration Code Input */}
     <input
@@ -171,13 +171,13 @@ const CourseRequestByCode = () => {
       placeholder="Enter your Registration Code"
       value={registrationCodeInput}
       onChange={(e) => setRegistrationCodeInput(e.target.value)}
-      className="w-full p-3 mb-6 rounded border border-blue-300 focus:border-blue-600 focus:ring-2 focus:ring-blue-300 text-black bg-blue-50 placeholder-blue-700"
+      className="w-full p-3 mb-6 rounded border border-gray-300 focus:border-udemy-purple focus:ring-2 focus:ring-udemy-purple/30 text-udemy-black bg-white-100 placeholder-udemy-gray"
     />
 
     {/* Course List */}
 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
   {loadingCourses ? (
-    <p className="text-blue-700">Loading courses...</p>
+    <p className="text-udemy-gray">Loading courses...</p>
   ) : isError ? (
     <p className="text-red-600">Failed to load courses.</p>
   ) : (
@@ -185,13 +185,13 @@ const CourseRequestByCode = () => {
       ?.map((course) => (
         <label
           key={course.courseId}
-          className="flex gap-2 items-start bg-blue-100 p-3 rounded border border-blue-300"
+          className="flex gap-2 items-start bg-udemy-lightGray p-3 rounded border border-gray-200"
         >
           <input
             type="checkbox"
             checked={selectedCourses.includes(course.courseId)}
             onChange={() => handleCheckboxChange(course.courseId)}
-            className="mt-1 accent-blue-600"
+            className="mt-1 accent-udemy-purple"
           />
           <div className="flex-1">
             <CourseCardSearch course={course} />
@@ -204,13 +204,13 @@ const CourseRequestByCode = () => {
 
     {/* Feedback */}
     {error && <p className="text-red-600 text-sm mb-2">{error}</p>}
-    {success && <p className="text-blue-600 text-sm mb-2">{success}</p>}
+    {success && <p className="text-udemy-purple text-sm mb-2">{success}</p>}
 
     {/* Submit Button */}
     <button
       type="submit"
       disabled={submitting}
-      className="bg-blue-700 hover:bg-blue-600 text-white px-6 py-3 rounded-md w-full transition duration-200 disabled:opacity-60"
+      className="bg-udemy-purple hover:bg-udemy-purpleDark text-white-100 font-bold px-6 py-3 rounded-sm w-full transition duration-200 disabled:opacity-60"
     >
       {submitting ? "Submitting..." : "Request Courses"}
     </button>

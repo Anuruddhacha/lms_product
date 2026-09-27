@@ -16,7 +16,7 @@ const CourseCard = ({ course, onGoToCourse }: CourseCardProps) => {
   return (
     <Card
       onClick={() => onGoToCourse(course)}
-      className="group cursor-pointer transition-all duration-300 hover:shadow-xl hover:scale-[1.02] rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800"
+      className="group cursor-pointer transition-shadow duration-300 hover:shadow-lg rounded-md overflow-hidden border border-gray-200"
     >
       <CardHeader className="p-0 overflow-hidden">
         <div className="relative w-full h-56">
@@ -43,7 +43,7 @@ const CourseCard = ({ course, onGoToCourse }: CourseCardProps) => {
         <div className="flex items-center gap-3 mb-3">
           <Avatar className="w-8 h-8">
             <AvatarImage alt={course.teacherName} />
-            <AvatarFallback className="bg-blue-200 text-blue-800 font-medium">
+            <AvatarFallback className="bg-udemy-purpleLight text-udemy-purple font-medium">
               {course.teacherName?.[0]}
             </AvatarFallback>
           </Avatar>

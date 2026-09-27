@@ -27,7 +27,7 @@ const CommentItem = ({ comment, onDelete }: CommentItemProps) => {
 
   const hardcodedAdmin = {
     name: "Admin",
-    profileImage: "/logo.svg",
+    profileImage: "",
   };
 
   const { data: userDataApi } = useGetUserByIdQuery(comment.userId, {
@@ -57,7 +57,7 @@ const CommentItem = ({ comment, onDelete }: CommentItemProps) => {
       <div className="flex gap-3 items-start">
         <Avatar>
           <AvatarImage src={userData?.profileImage} />
-          <AvatarFallback className="bg-blue-200 text-gray-800">
+          <AvatarFallback className="bg-udemy-purpleLight text-udemy-purple">
             {userData?.name ? userData.name.charAt(0).toUpperCase() : "U"}  
             </AvatarFallback>
         </Avatar>
@@ -87,7 +87,9 @@ const CommentItem = ({ comment, onDelete }: CommentItemProps) => {
   <div className="ml-12 mt-2 p-2 border-l-2 border-gray-200 bg-gray-50 rounded">
     <div className="flex items-center gap-2 text-sm text-gray-600">
       <Avatar className="w-6 h-6 mt-0.5">
-        <AvatarImage src="/logo.svg" />
+        <AvatarFallback className="bg-udemy-purpleLight text-udemy-purple text-xs">
+          A
+        </AvatarFallback>
       </Avatar>
       <div>
         <strong className="mr-1">Reply:</strong> {comment.reply}

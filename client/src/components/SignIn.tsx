@@ -2,7 +2,6 @@
 
 import { SignIn, useUser, SignUp } from "@clerk/nextjs";
 import React, { useState } from "react";
-import { dark } from "@clerk/themes";
 import { useSearchParams } from "next/navigation";
 import {
   useCheckRegistrationCodeStatusMutation,
@@ -194,8 +193,8 @@ try {
 const renderContent = () => {
   if (!isCodeValid) {
     return (
-      <div className="max-w-xl w-full bg-white p-8 rounded-md shadow-md">
-  <h2 className="text-blue-900 text-xl font-semibold mb-6">
+      <div className="max-w-xl w-full bg-white-100 p-8 rounded-md shadow-md border border-gray-200">
+  <h2 className="text-udemy-black text-xl font-semibold mb-6">
     Enter Registration Code
   </h2>
   <input
@@ -203,19 +202,19 @@ const renderContent = () => {
     placeholder="Enter your registration number"
     value={registrationCode}
     onChange={(e) => setRegistrationCode(e.target.value)}
-    className="w-full p-3 rounded border border-blue-300 focus:border-blue-600 focus:ring-2 focus:ring-blue-400 text-black mb-4 bg-blue-50 placeholder-blue-700"
+    className="w-full p-3 rounded border border-gray-300 focus:border-udemy-purple focus:ring-2 focus:ring-udemy-purple/30 text-udemy-black mb-4 bg-white-100 placeholder-udemy-gray"
   />
   <input
     type="text"
     placeholder="Enter your registration email"
     value={registrationEmail}
     onChange={(e) => setRegistrationEmail(e.target.value)}
-    className="w-full p-3 rounded border border-blue-300 focus:border-blue-600 focus:ring-2 focus:ring-blue-400 text-black mb-4 bg-blue-50 placeholder-blue-700"
+    className="w-full p-3 rounded border border-gray-300 focus:border-udemy-purple focus:ring-2 focus:ring-udemy-purple/30 text-udemy-black mb-4 bg-white-100 placeholder-udemy-gray"
   />
   {error && <p className="text-red-600 text-sm mb-4">{error}</p>}
   <button
     onClick={validateCode}
-    className="bg-blue-700 hover:bg-blue-600 text-white px-6 py-3 rounded-md w-full disabled:opacity-60 transition-colors duration-200"
+    className="bg-udemy-purple hover:bg-udemy-purpleDark text-white-100 font-bold px-6 py-3 rounded-sm w-full disabled:opacity-60 transition-colors duration-200"
     disabled={loading}
   >
     {loading ? "Checking..." : "Continue"}
@@ -229,24 +228,23 @@ const renderContent = () => {
     return (
             <SignUp
                 appearance={{
-                  baseTheme: dark,
                   elements: {
                     rootBox: "flex justify-center items-center py-5",
                     cardBox: "shadow-none",
-                    card: "bg-customgreys-secondarybg w-full shadow-none",
+                    card: "bg-white-100 w-full shadow-none border border-gray-200",
                     footer: {
-                      background: "#25262F",
+                      background: "#ffffff",
                       padding: "0rem 2.5rem",
                       "& > div > div:nth-child(1)": {
-                        background: "#25262F",
+                        background: "#ffffff",
                       },
                     },
-                    formFieldLabel: "text-white-50 font-normal",
+                    formFieldLabel: "text-udemy-black font-normal",
                     formButtonPrimary:
-                      "bg-primary-700 text-white-100 hover:bg-primary-600 !shadow-none",
+                      "bg-udemy-purple text-white-100 hover:bg-udemy-purpleDark !shadow-none",
                     formFieldInput:
-                      "bg-slate-900 dark:bg-slate-800 text-white-50 !shadow-none",
-                    footerActionLink: "text-primary-750 hover:text-primary-600",
+                      "bg-white-100 border border-gray-300 text-udemy-black !shadow-none",
+                    footerActionLink: "text-udemy-purple hover:text-udemy-purpleDark",
                   },
                 }}
                 signInUrl={signInUrl}
@@ -260,23 +258,22 @@ const renderContent = () => {
   return (
     <SignIn
           appearance={{
-            baseTheme: dark,
             elements: {
               rootBox: "flex justify-center items-center py-5",
               cardBox: "shadow-none",
-              card: "bg-customgreys-secondarybg w-full shadow-none",
+              card: "bg-white-100 w-full shadow-none border border-gray-200",
               footer: {
-                background: "#25262F",
+                background: "#ffffff",
                 padding: "0rem 2.5rem",
                 "& > div > div:nth-child(1)": {
-                  background: "#25262F",
+                  background: "#ffffff",
                 },
               },
-              formFieldLabel: "text-white-50 font-normal",
+              formFieldLabel: "text-udemy-black font-normal",
               formButtonPrimary:
-                "bg-primary-700 text-white-100 hover:bg-primary-600 !shadow-none",
-              formFieldInput: "bg-slate-900 dark:bg-slate-800 text-white-50 !shadow-none",
-              footerActionLink: "text-primary-750 hover:text-primary-600",
+                "bg-udemy-purple text-white-100 hover:bg-udemy-purpleDark !shadow-none",
+              formFieldInput: "bg-white-100 border border-gray-300 text-udemy-black !shadow-none",
+              footerActionLink: "text-udemy-purple hover:text-udemy-purpleDark",
             },
           }}
           signUpUrl={signUpUrl}
@@ -291,11 +288,11 @@ const renderContent = () => {
 return (
   <div className="flex justify-center items-center py-10 px-4">
     {(!showContent && isFirstTime) ? (
-      <div className="bg-white shadow-lg rounded-2xl p-8 max-w-md w-full border border-blue-200">
-  <h2 className="text-2xl font-bold text-blue-800 mb-4 text-center">
+      <div className="bg-white-100 shadow-lg rounded-md p-8 max-w-md w-full border border-gray-200">
+  <h2 className="text-2xl font-bold text-udemy-black mb-4 text-center">
     🔒 Enter Passcode
   </h2>
-  <p className="text-sm text-gray-600 text-center mb-6">
+  <p className="text-sm text-udemy-gray text-center mb-6">
     Please enter your access passcode to continue.
   </p>
   <input
@@ -306,7 +303,7 @@ return (
       setPasscodeError("");
     }}
     placeholder="------"
-    className="w-full px-4 py-3 rounded-lg border border-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-black focus:border-blue-500 mb-3 transition"
+    className="w-full px-4 py-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-udemy-purple/30 text-udemy-black focus:border-udemy-purple mb-3 transition"
   />
   {passcodeError && (
     <p className="text-red-600 text-sm mb-4 text-center">{passcodeError}</p>
@@ -314,16 +311,16 @@ return (
   <button
     onClick={handlePasscodeSubmit}
     disabled={checkingPasscode}
-    className="w-full py-3 bg-blue-700 hover:bg-blue-600 text-white font-semibold rounded-lg transition disabled:opacity-50"
+    className="w-full py-3 bg-udemy-purple hover:bg-udemy-purpleDark text-white-100 font-bold rounded-sm transition disabled:opacity-50"
   >
     {checkingPasscode ? "Verifying..." : "Continue"}
   </button>
 
-  <p className="text-sm text-gray-600 text-center mt-6">
+  <p className="text-sm text-udemy-gray text-center mt-6">
     Don’t have a passcode?{" "}
     <a
       href="/contactus"
-      className="text-blue-700 hover:underline font-medium"
+      className="text-udemy-purple hover:underline font-medium"
     >
       Contact us to get one
     </a>

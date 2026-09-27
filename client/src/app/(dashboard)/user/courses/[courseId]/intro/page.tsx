@@ -30,10 +30,10 @@ const CourseIntro = () => {
   if (!course) return <div className="text-center text-lg mt-10 text-red-600">Error loading course information.</div>;
 
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-6">
+    <div className="flex flex-col min-h-screen bg-udemy-lightGray p-6">
       <div className="max-w-5xl w-full mx-auto space-y-10">
         {/* Header Section */}
-        <section className="relative py-10 bg-white/90 rounded-2xl shadow-lg">
+        <section className="relative py-10 bg-white-100 border border-gray-200 rounded-md shadow-sm">
           <div className="px-6 md:px-10">
             <div className="flex items-center justify-between">
               <div>
@@ -90,7 +90,7 @@ const CourseIntro = () => {
         {firstChapter && (
           <div className="text-center">
   <Button
-    className="bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 text-white px-8 py-3 text-lg rounded-full font-bold shadow-lg hover:scale-105 transform transition duration-300"
+    className="bg-udemy-purple hover:bg-udemy-purpleDark text-white-100 px-8 py-3 text-lg rounded-sm font-bold shadow-lg transition duration-300"
     onClick={() =>
       router.push(
         `/user/courses/${course.courseId}/chapters/${firstChapter.chapterId}`,
@@ -108,33 +108,33 @@ const CourseIntro = () => {
 
 
         {/* Resources */}
-        <section className="bg-white/90 border border-gray-200 rounded-2xl shadow-md p-6">
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">Resources & Links</h2>
+        <section className="bg-white-100 border border-gray-200 rounded-md shadow-sm p-6">
+          <h2 className="text-2xl font-bold text-udemy-black mb-4">Resources & Links</h2>
           <div className="space-y-6">
            
            
 
 
            {(course.zoomLinks?.length ?? 0) > 0 && (
-  <div className="bg-gradient-to-r from-blue-100 via-blue-50 to-white border border-blue-200 rounded-2xl p-5 space-y-4">
-    <h3 className="text-lg font-semibold text-blue-700">Zoom Lives</h3>
-    
+  <div className="bg-udemy-purpleLight border border-udemy-purple/20 rounded-md p-5 space-y-4">
+    <h3 className="text-lg font-semibold text-udemy-purple">Zoom Lives</h3>
+
     <div className="flex flex-col gap-4">
       {[...(course.zoomLinks ?? [])].reverse().map((link, i) => (
         <div key={i} className="flex items-start gap-4">
-          <div className="text-blue-600 text-2xl mt-1 shrink-0">
+          <div className="text-udemy-purple text-2xl mt-1 shrink-0">
             🎥
           </div>
           <div className="flex flex-col">
-            <h4 className="font-semibold text-gray-800 break-words text-base">
+            <h4 className="font-semibold text-udemy-black break-words text-base">
               {link.title}
             </h4>
-            <p className="text-sm text-gray-600 mb-2">{link.description}</p>
+            <p className="text-sm text-udemy-gray mb-2">{link.description}</p>
             <a
               href={link.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm text-white bg-blue-600 hover:bg-blue-700 px-4 py-1.5 rounded-md font-medium transition w-fit"
+              className="text-sm text-white-100 bg-udemy-purple hover:bg-udemy-purpleDark px-4 py-1.5 rounded-sm font-medium transition w-fit"
             >
               Join
             </a>
@@ -165,7 +165,7 @@ const CourseIntro = () => {
               href={link.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm text-white bg-red-600 hover:bg-red-700 px-4 py-1.5 rounded-md font-medium transition w-fit"
+              className="text-sm text-white-100 bg-red-600 hover:bg-red-700 px-4 py-1.5 rounded-md font-medium transition w-fit"
             >
               Watch
             </a>
@@ -179,28 +179,28 @@ const CourseIntro = () => {
 
             {(course.uploadedResources?.length ?? 0) > 0 && (
   <div>
-    <h3 className="text-lg font-semibold text-gray-800 mb-4">Files</h3>
+    <h3 className="text-lg font-semibold text-udemy-black mb-4">Files</h3>
     <div className="flex flex-col gap-4">
       {[...(course.uploadedResources ?? [])].reverse().map((res, i) => (
         <div
           key={i}
-          className="w-full p-5 rounded-2xl shadow-sm hover:shadow-md transition bg-gradient-to-r from-blue-100 via-blue-50 to-white border border-blue-300"
+          className="w-full p-5 rounded-md shadow-sm hover:shadow-md transition bg-udemy-lightGray border border-gray-200"
         >
           <div className="flex items-start gap-4">
-            <div className="text-blue-600 text-3xl mt-1 shrink-0">
+            <div className="text-udemy-purple text-3xl mt-1 shrink-0">
               📄
             </div>
             <div className="flex flex-col">
-              <h4 className="font-semibold text-gray-800 break-words text-lg">
+              <h4 className="font-semibold text-udemy-black break-words text-lg">
                 {res.fileName}
               </h4>
-              <p className="text-sm text-gray-600 mb-2">{res.fileType}</p>
+              <p className="text-sm text-udemy-gray mb-2">{res.fileType}</p>
               <div className="flex flex-wrap gap-3">
                 <a
                   href={res.fileUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-white bg-blue-600 hover:bg-blue-700 px-4 py-1.5 rounded-md font-medium transition"
+                  className="text-sm text-white-100 bg-udemy-purple hover:bg-udemy-purpleDark px-4 py-1.5 rounded-sm font-medium transition"
                 >
                   Download
                 </a>
@@ -225,9 +225,9 @@ const CourseIntro = () => {
 
 
               {/* Course Structure */}
-           <section className="bg-white/90 border border-blue-200 rounded-2xl shadow-md p-6">
-  <h2 className="text-2xl font-bold text-blue-700 flex items-center gap-2 mb-6">
-    <BookOpenIcon className="w-6 h-6 text-blue-600" />
+           <section className="bg-white-100 border border-gray-200 rounded-md shadow-sm p-6">
+  <h2 className="text-2xl font-bold text-udemy-black flex items-center gap-2 mb-6">
+    <BookOpenIcon className="w-6 h-6 text-udemy-purple" />
     Course Structure
   </h2>
 
@@ -235,19 +235,19 @@ const CourseIntro = () => {
     course.sections.map((section, i) => (
       <div
         key={section.sectionId}
-        className="mb-6 p-6 bg-gradient-to-br from-blue-100 via-white to-blue-50 border border-blue-200 rounded-2xl shadow-sm transition hover:shadow-md"
+        className="mb-6 p-6 bg-udemy-lightGray border border-gray-200 rounded-md shadow-sm transition hover:shadow-md"
       >
-        <h3 className="text-xl font-semibold text-blue-800 mb-3 flex items-center gap-2">
-          <span className="bg-blue-200 text-blue-900 px-2 py-0.5 rounded-md text-sm font-bold">
+        <h3 className="text-xl font-semibold text-udemy-black mb-3 flex items-center gap-2">
+          <span className="bg-udemy-purpleLight text-udemy-purple px-2 py-0.5 rounded-md text-sm font-bold">
             Section {i + 1}
           </span>
           {section.sectionTitle}
         </h3>
 
-        <ul className="ml-6 list-disc text-blue-800 space-y-2">
+        <ul className="ml-6 list-disc text-udemy-black space-y-2">
           {section.chapters.map((chapter, j) => (
             <li key={chapter.chapterId} className="text-base leading-relaxed">
-              <span className="font-medium text-blue-900">Chapter {j + 1}:</span> {chapter.title}
+              <span className="font-medium text-udemy-black">Chapter {j + 1}:</span> {chapter.title}
             </li>
           ))}
         </ul>

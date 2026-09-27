@@ -22,14 +22,14 @@ const CoursePreview = ({ course }: CoursePreviewProps) => {
         </div>
         <div>
           <h2 className="course-preview__title">{course.title}</h2>
-          <p className="text-gray-400 text-md mb-4">by {course.teacherName}</p>
-          <p className="text-sm text-customgreys-dirtyGrey">
+          <p className="text-udemy-gray text-md mb-4">by {course.teacherName}</p>
+          <p className="text-sm text-udemy-gray">
             {course.description}
           </p>
         </div>
 
         <div>
-          <h4 className="text-white-50/90 font-semibold mb-2">
+          <h4 className="text-udemy-black font-semibold mb-2">
             Course Content
           </h4>
           <AccordionSections sections={course.sections} />
