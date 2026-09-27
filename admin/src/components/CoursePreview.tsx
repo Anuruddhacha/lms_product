@@ -1,4 +1,4 @@
-import { formatPrice } from "@/lib/utils";
+import { formatPrice, getSafeImageUrl } from "@/lib/utils";
 import Image from "next/image";
 import React from "react";
 import AccordionSections from "./AccordionSections";
@@ -6,14 +6,12 @@ import AccordionSections from "./AccordionSections";
 const CoursePreview = ({ course }: CoursePreviewProps) => {
   const price = formatPrice(course.price);
 
-  const placeholder = "/placeholderex.png";
-
   return (
     <div className="course-preview">
       <div className="course-preview__container">
         <div className="course-preview__image-wrapper">
                           <Image
-                            src={course.image || placeholder}
+                            src={getSafeImageUrl(course.image)}
                             alt={course.title}
                             fill
                             className="object-contain transition-transform duration-300 group-hover:scale-105"

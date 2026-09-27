@@ -97,6 +97,14 @@ const config = {
         tertiary: {
           "50": "#E9B306",
         },
+        udemy: {
+          purple: "#a435f0",
+          purpleDark: "#8710d8",
+          purpleLight: "#f2d7fc",
+          black: "#1c1d1f",
+          gray: "#6a6f73",
+          lightGray: "#f7f9fa",
+        },
         chart: {
           "1": "hsl(var(--chart-1))",
           "2": "hsl(var(--chart-2))",

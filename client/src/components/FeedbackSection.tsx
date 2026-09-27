@@ -62,16 +62,16 @@ function FeedbackSection() {
   }
 
   return (
-    <section className="py-20 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-blue-950 dark:to-indigo-900 shadow-inner">
+    <section className="py-20 bg-white-100">
       <div className="container mx-auto px-4 text-center">
-        <h2 className="text-4xl font-extrabold text-gray-900 mb-10">
+        <h2 className="text-4xl font-extrabold text-udemy-black mb-10">
           What Our Students Say
         </h2>
 
         {reviewsContent}
 
         <div className="mb-10">
-       <Link href="/allreveiws" className="inline-block px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded shadow transition">
+       <Link href="/allreveiws" className="inline-block px-6 py-3 bg-udemy-purple hover:bg-udemy-purpleDark text-white-100 font-bold rounded-sm transition">
        View All Reviews
       </Link>
 
@@ -80,9 +80,9 @@ function FeedbackSection() {
         {/* Review Submission Form */}
         <form
           onSubmit={handleSubmit}
-          className="max-w-xl mx-auto bg-white p-8 rounded-lg shadow-lg"
+          className="max-w-xl mx-auto bg-udemy-lightGray p-8 rounded-md border border-gray-200"
         >
-          <h3 className="text-2xl font-semibold mb-6 text-gray-900">
+          <h3 className="text-2xl font-semibold mb-6 text-udemy-black">
             Add Your Review
           </h3>
 
@@ -136,7 +136,7 @@ function FeedbackSection() {
           <button
             type="submit"
             disabled={saving}
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded transition disabled:opacity-50"
+            className="w-full bg-udemy-purple hover:bg-udemy-purpleDark text-white-100 font-bold py-3 rounded-sm transition disabled:opacity-50"
           >
             {saving ? "Submitting..." : "Submit Review"}
           </button>
@@ -155,15 +155,15 @@ type FeedbackCardProps = {
 
 function FeedbackCard({ name, role, feedback, rating }: FeedbackCardProps) {
   return (
-    <div className="max-w-md bg-white rounded-lg p-6 shadow-md text-left border border-gray-200">
-      <p className="text-gray-900 mb-4">{feedback}</p>
+    <div className="max-w-md bg-white-100 rounded-md p-6 shadow-md text-left border border-gray-200">
+      <p className="text-udemy-black mb-4">{feedback}</p>
       <div className="flex items-center gap-4">
-        <div className="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold uppercase">
+        <div className="w-12 h-12 rounded-full bg-udemy-purple flex items-center justify-center text-white-100 font-bold uppercase">
           {name[0]}
         </div>
         <div>
-          <p className="font-semibold text-gray-900">{name}</p>
-          <p className="text-sm text-blue-600">{role}</p>
+          <p className="font-semibold text-udemy-black">{name}</p>
+          <p className="text-sm text-udemy-purple">{role}</p>
           <StarRating rating={rating} />
         </div>
       </div>

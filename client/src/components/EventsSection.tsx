@@ -50,7 +50,7 @@ export default function EventsSection() {
           return (
             <div
               key={item.id}
-              className="group relative bg-white dark:bg-slate-900 rounded-xl shadow-lg dark:shadow-gray-700 transition-all duration-500 overflow-hidden"
+              className="group relative bg-white-100 rounded-md shadow-lg border border-gray-200 transition-all duration-500 overflow-hidden"
             >
               {/* Main Image */}
              <div className="relative h-52 w-full overflow-hidden">
@@ -127,7 +127,7 @@ export default function EventsSection() {
 
                 <Link
                   href={`/events`}
-                  className="block text-lg font-semibold text-gray-800 hover:text-blue-700 transition"
+                  className="block text-lg font-semibold text-udemy-black hover:text-udemy-purple transition"
                 >
                   {item.title}
                 </Link>
@@ -139,7 +139,7 @@ export default function EventsSection() {
                 <div className="mt-3">
                   <button
                     onClick={() => toggleExpand(item.id)}
-                    className="text-sm font-medium text-blue-700 hover:text-blue-900 transition"
+                    className="text-sm font-medium text-udemy-purple hover:text-udemy-purpleDark transition"
                   >
                     {isExpanded ? "Show Less ←" : "Read More →"}
                   </button>

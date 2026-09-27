@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import React, { useState } from "react";
+import { getSafeImageUrl } from "@/lib/utils";
 import {
   useDeleteGalleryImageMutation,
   useGetAllGalleryImagesQuery,
@@ -137,7 +138,7 @@ const GalleryUploadForm = () => {
             >
               <div className="relative h-40 w-full">
                 <Image
-                  src={img.imageUrl}
+                  src={getSafeImageUrl(img.imageUrl)}
                   alt="Gallery"
                   fill
                   className="object-cover"

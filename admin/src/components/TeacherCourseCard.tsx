@@ -7,7 +7,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Image from "next/image";
-import { cn } from "@/lib/utils";
+import { cn, getSafeImageUrl } from "@/lib/utils";
 import { Button } from "./ui/button";
 import { MessageCircle, Pencil, Trash2 } from "lucide-react";
 import { useRouter } from "next/navigation";
@@ -19,8 +19,6 @@ const TeacherCourseCard = ({
   isOwner,
 }: TeacherCourseCardProps) => {
 
-  const placeholder = "/placeholderex.png";
-
   const router = useRouter();
 
   return (
@@ -28,7 +26,7 @@ const TeacherCourseCard = ({
       <CardHeader className="course-card-teacher__header">
   <div className="relative w-full h-48">
   <Image
-    src={course.image || placeholder}
+    src={getSafeImageUrl(course.image)}
     alt={course.title}
     fill
     className="object-cover transition-transform duration-300 group-hover:scale-105"

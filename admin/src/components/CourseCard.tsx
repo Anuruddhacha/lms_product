@@ -7,17 +7,15 @@ import {
 } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import Image from "next/image";
-import { formatPrice } from "@/lib/utils";
+import { formatPrice, getSafeImageUrl } from "@/lib/utils";
 
 const CourseCard = ({ course, onGoToCourse }: CourseCardProps) => {
-
-  const placeholder = "/placeholderex.png";
 
   return (
     <Card className="course-card group" onClick={() => onGoToCourse(course)}>
       <CardHeader className="course-card__header">
                 <Image
-                  src={course.image || placeholder}
+                  src={getSafeImageUrl(course.image)}
                   alt={course.title}
                   fill
                   className="object-contain transition-transform duration-300 group-hover:scale-105"

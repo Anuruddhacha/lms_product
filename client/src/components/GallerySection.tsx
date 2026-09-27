@@ -16,14 +16,14 @@ const GallerySection = () => {
   return (
     <section
       id="gallery"
-      className="py-24 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-blue-950 dark:to-indigo-900"
+      className="py-24 bg-udemy-lightGray"
     >
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="text-center mb-14">
-          <h2 className="text-5xl font-extrabold text-gray-800 dark:text-white mb-4">
-            Memorable <span className="text-blue-500">Moments</span>
+          <h2 className="text-5xl font-extrabold text-udemy-black mb-4">
+            Memorable <span className="text-udemy-purple">Moments</span>
           </h2>
-          <p className="text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
+          <p className="text-lg text-udemy-gray max-w-3xl mx-auto">
             Explore moments and glimpses from our events and activities.
           </p>
         </div>
@@ -33,7 +33,7 @@ const GallerySection = () => {
             {images.concat(images).map((src, index) => (
               <div
                 key={index}
-                className="flex-shrink-0 w-72 md:w-80 lg:w-96 rounded-2xl shadow-lg dark:shadow-black/40 overflow-hidden group"
+                className="flex-shrink-0 w-72 md:w-80 lg:w-96 rounded-md shadow-lg overflow-hidden group"
               >
                 <img
                   src={src}

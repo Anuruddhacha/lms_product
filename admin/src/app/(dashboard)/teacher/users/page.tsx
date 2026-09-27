@@ -17,6 +17,7 @@ import {
 import { useUser } from "@clerk/nextjs";
 import Image from "next/image";
 import React, { useState, useMemo } from "react";
+import { getSafeImageUrl } from "@/lib/utils";
 
 const AllUsers = () => {
   const { user, isLoaded } = useUser();
@@ -103,9 +104,9 @@ const AllUsers = () => {
                   filteredUsers.map((usr) => (
                     <TableRow key={usr.id} className="billing__table-row">
                       <TableCell className="billing__table-cell">
-                        {usr.profileImage ? (
+                        {usr.profileImage && !usr.profileImage.startsWith("undefined/") ? (
                           <Image
-                            src={usr.profileImage}
+                            src={getSafeImageUrl(usr.profileImage)}
                             alt={usr.name ?? "User"}
                             width={40}
                             height={40}

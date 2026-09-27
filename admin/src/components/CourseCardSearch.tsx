@@ -1,4 +1,4 @@
-import { formatPrice } from "@/lib/utils";
+import { formatPrice, getSafeImageUrl } from "@/lib/utils";
 import Image from "next/image";
 import React from "react";
 
@@ -7,10 +7,6 @@ const CourseCardSearch = ({
   isSelected,
   onClick,
 }: SearchCourseCardProps) => {
-
-
-  const placeholder = "/placeholderex.png";
-
 
   return (
     <div
@@ -23,7 +19,7 @@ const CourseCardSearch = ({
     >
       <div className="course-card-search__image-container">
                                               <Image
-                                               src={course.image || placeholder}
+                                               src={getSafeImageUrl(course.image)}
                                                alt={course.title}
                                                fill
                                                className="object-contain transition-transform duration-300 group-hover:scale-105"

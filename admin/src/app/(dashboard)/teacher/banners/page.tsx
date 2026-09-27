@@ -8,6 +8,7 @@ import {
 } from "@/state/api";
 import Image from "next/image";
 import React, { useState } from "react";
+import { getSafeImageUrl } from "@/lib/utils";
 
 const BannerUploadForm = () => {
   const [bannerImage, setBannerImage] = useState<File | null>(null);
@@ -137,7 +138,7 @@ const BannerUploadForm = () => {
             >
               <div className="relative h-40 w-full">
                 <Image
-                  src={banner.imageUrl}
+                  src={getSafeImageUrl(banner.imageUrl)}
                   alt="Banner"
                   fill
                   className="object-cover"

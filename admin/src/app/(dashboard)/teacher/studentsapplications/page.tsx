@@ -12,6 +12,7 @@ import {
 } from "@/state/api";
 import CourseCheckboxCard from "@/components/CourseCheckboxCard";
 import Loading from "@/components/Loading";
+import { getSafeImageUrl } from "@/lib/utils";
 
 const AllCourseRequests = () => {
   const { user, isLoaded } = useUser();
@@ -165,9 +166,9 @@ const AllCourseRequests = () => {
             className="bg-customgreys-secondarybg rounded-lg p-4 shadow-md flex flex-col justify-between"
           >
 
-              {request.profileImageUrl && (
+              {request.profileImageUrl && !request.profileImageUrl.startsWith("undefined/") && (
                 <Image
-                  src={request.profileImageUrl}
+                  src={getSafeImageUrl(request.profileImageUrl)}
                   alt={`${request.userName}'s profile`}
                   width={80}
                   height={80}

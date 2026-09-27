@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import React, { useState } from "react";
+import { getSafeImageUrl } from "@/lib/utils";
 import {
   useGetUploadEventImageUrlMutation,
   useSaveEventMutation,
@@ -349,7 +350,7 @@ const EventUploadForm = () => {
               key={event.id}
               className="relative border rounded overflow-hidden shadow-sm p-3"
             >
-              {event.imageUrl && (() => {
+              {event.imageUrl && !event.imageUrl.startsWith("undefined/") && (() => {
   const ext: string = (event.imageUrl.split('.').pop() ?? '').toLowerCase();
 
   if (['jpg', 'jpeg', 'png', 'webp', 'gif'].includes(ext)) {

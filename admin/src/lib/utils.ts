@@ -9,6 +9,19 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+// Backend URLs are built as `${CLOUDFRONT_DOMAIN}/...`; if that env var is
+// unset on the server, the value comes back as the literal string
+// "undefined/..." instead of a usable URL, which crashes next/image.
+export function getSafeImageUrl(
+  url: string | null | undefined,
+  fallback = "/placeholderex.png"
+): string {
+  if (!url || url.startsWith("undefined/") || url === "undefined") {
+    return fallback;
+  }
+  return url;
+}
+
 // Convert cents to formatted currency string (e.g., 4999 -> "$49.99")
 export function formatPrice(cents: number | undefined): string {
   return new Intl.NumberFormat("en-US", {

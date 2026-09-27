@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import Header from "@/components/Header";
 import Loading from "@/components/Loading";
+import { getSafeImageUrl } from "@/lib/utils";
 import { useGetDashboardStatsQuery } from "@/state/api";
 import { Users, BookOpen, GraduationCap } from "lucide-react";
 import {
@@ -166,7 +167,7 @@ const DashboardPage = () => {
                 >
                   <div className="relative w-full h-24 bg-rose-50">
                     <Image
-                      src={c.image || "/placeholderex.png"}
+                      src={getSafeImageUrl(c.image)}
                       alt={c.title}
                       fill
                       className="object-cover"

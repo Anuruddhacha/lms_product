@@ -7,7 +7,7 @@ import { FiMapPin, FiPhoneCall } from "react-icons/fi";
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-700 text-gray-200 pt-12 pb-6">
+    <footer className="bg-udemy-black text-gray-300 pt-12 pb-6">
       <div className="container mx-auto px-4">
         {/* Top Grid */}
         <div className="grid md:grid-cols-3 gap-10">
@@ -24,17 +24,17 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Contact</h4>
+            <h4 className="text-lg font-semibold mb-4 text-white-100">Contact</h4>
             <div className="flex items-start gap-3 mb-3">
-              <FiMapPin className="text-blue-400 mt-1" />
+              <FiMapPin className="text-udemy-purple mt-1" />
               <span className="text-sm leading-relaxed">
                 123 Example Street,<br />
                 Your City, Your Country
               </span>
             </div>
             <div className="flex items-center gap-3">
-              <FiPhoneCall className="text-blue-400" />
-              <a href="tel:+15550100100" className="hover:text-white transition text-sm">
+              <FiPhoneCall className="text-udemy-purple" />
+              <a href="tel:+15550100100" className="hover:text-white-100 transition text-sm">
                 +1 555 010 0100
               </a>
             </div>
@@ -42,23 +42,23 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+            <h4 className="text-lg font-semibold mb-4 text-white-100">Quick Links</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/" className="hover:text-white transition">Home</Link>
+                <Link href="/" className="hover:text-white-100 transition">Home</Link>
               </li>
               <li>
-                <Link href="/aboutus" className="hover:text-white transition">About Us</Link>
+                <Link href="/aboutus" className="hover:text-white-100 transition">About Us</Link>
               </li>
               <li>
-                <Link href="/contactus" className="hover:text-white transition">Contact</Link>
+                <Link href="/contactus" className="hover:text-white-100 transition">Contact</Link>
               </li>
             </ul>
           </div>
         </div>
 
         {/* Divider */}
-        <div className="border-t border-gray-600 my-8"></div>
+        <div className="border-t border-gray-700 my-8"></div>
 
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
@@ -66,8 +66,8 @@ export default function Footer() {
             © {new Date().getFullYear()} LMS Platform. All Rights Reserved.
           </p>
           <div className="flex space-x-4">
-            <Link href="/terms" className="hover:text-white transition">Terms</Link>
-            <Link href="/privacy" className="hover:text-white transition">Privacy</Link>
+            <Link href="/terms" className="hover:text-white-100 transition">Terms</Link>
+            <Link href="/privacy" className="hover:text-white-100 transition">Privacy</Link>
           </div>
         </div>
       </div>

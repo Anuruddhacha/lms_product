@@ -4,6 +4,7 @@ import React from "react";
 import { Button } from "./ui/button";
 import { Input } from "@/components/ui/input";
 import { useUser } from "@clerk/nextjs";
+import { getSafeImageUrl } from "@/lib/utils";
 
 const CommentsSection = ({ chapterId }: { chapterId: string }) => {
   const { data: commentData, refetch } = useGetCommentsByChapterIdQuery(chapterId, {
@@ -114,7 +115,7 @@ const CommentItem = ({
 
   const userData = isAdmin ? hardcodedAdmin : userDataApi;
 
-  const avatarSrc = userData?.profileImage || "/default-avatar.png";
+  const avatarSrc = getSafeImageUrl(userData?.profileImage);
   const avatarRemote =
     avatarSrc.startsWith("http://") || avatarSrc.startsWith("https://");
 
