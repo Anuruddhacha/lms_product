@@ -152,15 +152,15 @@ const handleYoutubeDelete = async (id: string) => {
 
 
   return (
-    <div className="max-w-4xl mx-auto mt-10 bg-white shadow-lg p-6 rounded-md">
-      <h2 className="text-2xl font-semibold mb-4 text-blue-900">Upload Notice</h2>
+    <div className="max-w-4xl mx-auto mt-10 bg-white-100 border border-gray-200 shadow-lg p-6 rounded-md">
+      <h2 className="text-2xl font-semibold mb-4 text-udemy-black">Upload Notice</h2>
 
       <form onSubmit={handleSubmit}>
         <input
           type="file"
           accept="application/pdf"
           onChange={handleFileChange}
-          className="w-full mb-4 border border-blue-300 rounded p-2"
+          className="w-full mb-4 border border-gray-300 rounded p-2"
         />
 
         {previewUrl && (
@@ -169,7 +169,7 @@ const handleYoutubeDelete = async (id: string) => {
               href={previewUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-600 underline"
+              className="text-udemy-purple underline"
             >
               Preview PDF
             </a>
@@ -180,17 +180,17 @@ const handleYoutubeDelete = async (id: string) => {
           placeholder="Enter notice text"
           value={noticeText}
           onChange={(e) => setNoticeText(e.target.value)}
-          className="w-full mb-4 border border-blue-300 rounded p-2"
+          className="w-full mb-4 border border-gray-300 rounded p-2"
           rows={3}
         />
 
         {error && <p className="text-red-600 mb-2">{error}</p>}
-        {success && <p className="text-blue-600 mb-2">{success}</p>}
+        {success && <p className="text-udemy-purple mb-2">{success}</p>}
 
         <button
           type="submit"
           disabled={uploading}
-          className="w-full bg-blue-700 text-white py-2 rounded hover:bg-blue-600 disabled:opacity-60"
+          className="w-full bg-udemy-purple text-white-100 font-bold py-2 rounded-sm hover:bg-udemy-purpleDark disabled:opacity-60"
         >
           {uploading ? "Uploading..." : "Upload Notice"}
         </button>
@@ -198,7 +198,7 @@ const handleYoutubeDelete = async (id: string) => {
 
       <hr className="my-8" />
 
-      <h3 className="text-xl font-semibold mb-4 text-blue-800">All Notices</h3>
+      <h3 className="text-xl font-semibold mb-4 text-udemy-black">All Notices</h3>
       {isNoticesLoading ? (
         <p>Loading notices...</p>
       ) : (
@@ -206,20 +206,20 @@ const handleYoutubeDelete = async (id: string) => {
           {noticesData?.data.map((notice) => (
             <div
               key={notice.id}
-              className="relative border rounded p-4 shadow-sm bg-gray-50"
+              className="relative border rounded p-4 shadow-sm bg-udemy-lightGray"
             >
               <p className="mb-2 text-sm">{notice.notice}</p>
               <a
                 href={notice.pdfUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-600 underline mb-2 block"
+                className="text-udemy-purple underline mb-2 block"
               >
                 View PDF
               </a>
               <button
                 onClick={() => handleDelete(notice.id)}
-                className="absolute top-2 right-2 bg-red-600 text-white px-2 py-1 text-sm rounded hover:bg-red-700"
+                className="absolute top-2 right-2 bg-red-600 text-white-100 px-2 py-1 text-sm rounded hover:bg-red-700"
               >
                 Delete
               </button>
@@ -231,24 +231,24 @@ const handleYoutubeDelete = async (id: string) => {
 
       <hr className="my-8" />
 
-<h3 className="text-xl font-semibold mb-4 text-blue-800">Add YouTube Link</h3>
+<h3 className="text-xl font-semibold mb-4 text-udemy-black">Add YouTube Link</h3>
 <form onSubmit={handleYoutubeSubmit} className="mb-6">
   <input
     type="url"
     placeholder="Enter YouTube URL"
     value={youtubeUrl}
     onChange={(e) => setYoutubeUrl(e.target.value)}
-    className="w-full mb-4 border border-blue-300 rounded p-2"
+    className="w-full mb-4 border border-gray-300 rounded p-2"
   />
   <button
     type="submit"
-    className="w-full bg-blue-700 text-white py-2 rounded hover:bg-blue-600"
+    className="w-full bg-udemy-purple text-white-100 font-bold py-2 rounded-sm hover:bg-udemy-purpleDark"
   >
     Save YouTube Link
   </button>
 </form>
 
-<h3 className="text-xl font-semibold mb-4 text-blue-800">All YouTube Links</h3>
+<h3 className="text-xl font-semibold mb-4 text-udemy-black">All YouTube Links</h3>
 {isYoutubeLinksLoading ? (
   <p>Loading YouTube links...</p>
 ) : (
@@ -256,7 +256,7 @@ const handleYoutubeDelete = async (id: string) => {
     {youtubeLinksData?.data.map((link) => (
       <div
         key={link.id}
-        className="relative border rounded p-4 shadow-sm bg-gray-50"
+        className="relative border rounded p-4 shadow-sm bg-udemy-lightGray"
       >
         <iframe
           className="w-full h-48 mb-2"
@@ -267,13 +267,13 @@ const handleYoutubeDelete = async (id: string) => {
           href={link.youtubeUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-blue-600 underline mb-2 block text-sm break-all"
+          className="text-udemy-purple underline mb-2 block text-sm break-all"
         >
           {link.youtubeUrl}
         </a>
         <button
           onClick={() => handleYoutubeDelete(link.id)}
-          className="absolute top-2 right-2 bg-red-600 text-white px-2 py-1 text-sm rounded hover:bg-red-700"
+          className="absolute top-2 right-2 bg-red-600 text-white-100 px-2 py-1 text-sm rounded hover:bg-red-700"
         >
           Delete
         </button>

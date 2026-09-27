@@ -154,7 +154,7 @@ const ChapterModal = () => {
               name="video"
               render={({ field: { onChange, value } }) => (
                 <FormItem>
-                  <FormLabel className="text-customgreys-dirtyGrey text-sm">
+                  <FormLabel className="text-udemy-black text-sm font-medium">
                     Chapter Video
                   </FormLabel>
                   <FormControl>
@@ -177,7 +177,7 @@ const ChapterModal = () => {
 
 
       }}
-      className="border-none bg-customgreys-darkGrey py-2 cursor-pointer"
+      className="border border-gray-300 bg-white-100 py-2 cursor-pointer"
     />
 
     {/* Display current video (from server) */}
@@ -193,7 +193,7 @@ const ChapterModal = () => {
        } catch {}
       }}
      disabled={isDeleting}
-     className="px-3 py-1 text-white bg-red-600 hover:bg-red-700 rounded text-xs disabled:opacity-50"
+     className="px-3 py-1 text-white-100 bg-red-600 hover:bg-red-700 rounded text-xs disabled:opacity-50"
      >
     {isDeleting ? "Deleting..." : "Delete"}
      </button>
@@ -222,7 +222,7 @@ const ChapterModal = () => {
               <Button type="button" variant="outline" onClick={onClose}>
                 Cancel
               </Button>
-              <Button type="submit" className="bg-primary-700">
+              <Button type="submit" className="bg-udemy-purple hover:bg-udemy-purpleDark text-white-100">
                 Save
               </Button>
             </div>
@@ -233,7 +233,7 @@ const ChapterModal = () => {
 
     {isDeleting && (
   <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-    <div className="bg-white px-6 py-4 rounded shadow text-center text-lg font-semibold">
+    <div className="bg-white-100 text-udemy-black px-6 py-4 rounded shadow text-center text-lg font-semibold">
       Deleting...
     </div>
   </div>

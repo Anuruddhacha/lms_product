@@ -237,7 +237,7 @@ const SectionModal = () => {
               {uploadedResources.length > 0 && (
         <>
     <h4 className="mt-4 font-semibold">Uploaded Resources</h4>
-    <ul className="mt-2 space-y-1 text-sm text-blue-600">
+    <ul className="mt-2 space-y-1 text-sm text-udemy-purple">
       {uploadedResources.map((res, idx) => (
         <li key={idx} className="flex items-center justify-between gap-2">
           <span>{res.fileName}</span>
@@ -270,7 +270,7 @@ const SectionModal = () => {
               <Button type="button" variant="outline" onClick={onClose} disabled={isUploading}>
                 Cancel
               </Button>
-              <Button type="submit" className="bg-primary-700" disabled={isUploading}>
+              <Button type="submit" className="bg-udemy-purple hover:bg-udemy-purpleDark text-white-100" disabled={isUploading}>
                 Save
               </Button>
             </div>

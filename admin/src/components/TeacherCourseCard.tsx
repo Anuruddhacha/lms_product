@@ -52,16 +52,16 @@ const TeacherCourseCard = ({
               className={cn(
                 "font-semibold px-2 py-1 rounded",
                 course.status === "Published"
-                  ? "bg-blue-500/20 text-blue-400"
-                  : "bg-red-500/20 text-red-400"
+                  ? "bg-udemy-purpleLight text-udemy-purple"
+                  : "bg-red-100 text-red-600"
               )}
             >
               {course.status}
             </span>
           </p>
           {course.enrollments && (
-            <p className="ml-1 mt-1 inline-block text-secondary bg-secondary/10 text-sm font-normal">
-              <span className="font-bold text-secondary-700">
+            <p className="ml-1 mt-1 inline-block text-udemy-gray bg-udemy-lightGray text-sm font-normal">
+              <span className="font-bold text-udemy-purple">
                 {course.enrollments.length}
               </span>{" "}
               Student{course.enrollments.length > 1 ? "s" : ""} Enrolled
@@ -93,7 +93,7 @@ const TeacherCourseCard = ({
 <Button
   variant="ghost"
   size="icon"
-  className=" rounded w-full bg-blue-600 text-white-100 hover:bg-blue-400 hover:text-customgreys-primarybg cursor-pointer"
+  className=" rounded-sm w-full bg-udemy-purple text-white-100 hover:bg-udemy-purpleDark cursor-pointer"
   onClick={() => router.push(`/teacher/courses/${course.courseId}/comments`)}
 >
   <MessageCircle className="w-6 h-6" />

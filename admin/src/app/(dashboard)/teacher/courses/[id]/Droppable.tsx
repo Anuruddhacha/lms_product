@@ -263,7 +263,7 @@ const SectionHeader = ({
 
       {isDeleting && (
   <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
-    <div className="bg-white px-6 py-4 rounded shadow text-center text-lg font-semibold">
+    <div className="bg-white-100 text-udemy-black px-6 py-4 rounded shadow text-center text-lg font-semibold">
       Deleting section...
     </div>
   </div>
@@ -368,7 +368,7 @@ const handleDeleteChapter = async () => {
 
     {isDeleting && (
    <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
-    <div className="bg-white px-6 py-4 rounded shadow text-center text-lg font-semibold">
+    <div className="bg-white-100 text-udemy-black px-6 py-4 rounded shadow text-center text-lg font-semibold">
       Deleting chapter...
     </div>
   </div>

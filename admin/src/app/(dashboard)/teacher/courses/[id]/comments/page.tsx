@@ -98,11 +98,11 @@ const ChapterWithNotification = ({ chapter, filter }: ChapterWithNotificationPro
   };
 
   return (
-    <div className="mb-6 p-4 rounded border border-gray-300 bg-white shadow-sm">
+    <div className="mb-6 p-4 rounded border border-gray-300 bg-white-100 shadow-sm">
       <div className="flex justify-between items-center mb-3">
         <span className="text-lg font-semibold text-gray-900">{chapter.title}</span>
         {unrepliedCount > 0 && (
-          <span className="bg-red-500 text-white text-sm rounded-full px-3 py-1">
+          <span className="bg-red-500 text-white-100 text-sm rounded-full px-3 py-1">
             {unrepliedCount}
           </span>
         )}
@@ -122,7 +122,7 @@ const ChapterWithNotification = ({ chapter, filter }: ChapterWithNotificationPro
 
             <div className="ml-6 mt-2">
               {comment.reply && (
-                <div className="text-blue-600 text-sm mb-1">
+                <div className="text-udemy-purple text-sm mb-1">
                   <strong>Current Reply:</strong> {comment.reply}
                 </div>
               )}
@@ -131,14 +131,14 @@ const ChapterWithNotification = ({ chapter, filter }: ChapterWithNotificationPro
                 <input
                   type="text"
                   placeholder="Write or update reply..."
-                  className="flex-grow rounded px-3 py-2 text-sm bg-white text-black border border-gray-300"
+                  className="flex-grow rounded px-3 py-2 text-sm bg-white-100 text-black border border-gray-300"
                   onChange={(e) =>
                     setReplyMap((prev) => ({ ...prev, [comment.id]: e.target.value }))
                   }
                   value={replyMap[comment.id] || ""}
                 />
                 <button
-                  className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded text-sm font-semibold"
+                  className="bg-udemy-purple hover:bg-udemy-purpleDark text-white-100 px-4 py-2 rounded text-sm font-semibold"
                   onClick={() => handleReply(comment.id)}
                 >
                   {comment.reply ? "Update Reply" : "Reply"}
@@ -167,11 +167,11 @@ const ChapterWithNotification = ({ chapter, filter }: ChapterWithNotificationPro
           placeholder="Add a new comment..."
           value={newComment}
           onChange={(e) => setNewComment(e.target.value)}
-          className="flex-grow rounded px-4 py-3 text-base text-black bg-white border border-gray-300"
+          className="flex-grow rounded px-4 py-3 text-base text-black bg-white-100 border border-gray-300"
         />
         <button
           onClick={handleAddComment}
-          className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded text-base font-semibold"
+          className="bg-udemy-purple hover:bg-udemy-purpleDark text-white-100 px-6 py-3 rounded text-base font-semibold"
         >
           Post
         </button>
@@ -193,7 +193,7 @@ const CourseCommentsPage = () => {
   if (error || !course) return <div>Course not found</div>;
 
   return (
-    <div className="p-8 max-w-5xl mx-auto bg-white min-h-screen">
+    <div className="p-8 max-w-5xl mx-auto bg-white-100 min-h-screen">
       <h1 className="text-3xl font-bold mb-8 text-gray-900">{course.title}</h1>
 
       {/* Global filter buttons */}
@@ -204,7 +204,7 @@ const CourseCommentsPage = () => {
             onClick={() => setFilter(f as any)}
             className={`px-3 py-1 text-sm rounded-full border ${
               filter === f
-                ? "bg-blue-500 text-white border-blue-500"
+                ? "bg-udemy-purple text-white-100 border-udemy-purple"
                 : "bg-gray-100 text-gray-700 hover:bg-gray-200"
             }`}
           >

@@ -222,14 +222,13 @@ const removeLink = (index: number, type: 'zoom' | 'youtube') => {
                   className="flex items-center space-x-2"
                   labelClassName={`text-sm font-medium ${
                     methods.watch("courseStatus")
-                      ? "text-blue-500"
+                      ? "text-udemy-purple"
                       : "text-yellow-500"
                   }`}
-                  inputClassName="data-[state=checked]:bg-blue-500"
                 />
                 <Button
                   type="submit"
-                  className="bg-primary-700 hover:bg-primary-600"
+                  className="bg-udemy-purple hover:bg-udemy-purpleDark text-white-100"
                 >
                   {methods.watch("courseStatus")
                     ? "Update Published Course"
@@ -400,7 +399,7 @@ const removeLink = (index: number, type: 'zoom' | 'youtube') => {
       <button
         type="button"
         onClick={() => addLink('zoom')}
-        className="text-sm bg-blue-500 text-white px-3 py-1 rounded"
+        className="text-sm bg-udemy-purple text-white-100 px-3 py-1 rounded-sm"
       >
         + Add Zoom Link
       </button>
@@ -449,7 +448,7 @@ const removeLink = (index: number, type: 'zoom' | 'youtube') => {
       <button
         type="button"
         onClick={() => addLink('youtube')}
-        className="text-sm bg-red-500 text-white px-3 py-1 rounded"
+        className="text-sm bg-red-500 text-white-100 px-3 py-1 rounded"
       >
         + Add YouTube Link
       </button>
@@ -509,10 +508,10 @@ const removeLink = (index: number, type: 'zoom' | 'youtube') => {
                   onClick={() =>
                     dispatch(openSectionModal({ sectionIndex: null }))
                   }
-                  className="border-none text-primary-700 group"
+                  className="border-none text-udemy-purple group"
                 >
-                  <Plus className="mr-1 h-4 w-4 text-primary-700 group-hover:white-100" />
-                  <span className="text-primary-700 group-hover:white-100">
+                  <Plus className="mr-1 h-4 w-4 text-udemy-purple group-hover:text-udemy-purpleDark" />
+                  <span className="text-udemy-purple group-hover:text-udemy-purpleDark">
                     Add Section
                   </span>
                 </Button>
@@ -538,7 +537,7 @@ const removeLink = (index: number, type: 'zoom' | 'youtube') => {
     <div className="mt-4">
       <Progress value={uploadProgress} className="bg-muted">
         <div
-          className="h-full bg-blue-600 transition-all"
+          className="h-full bg-udemy-purple transition-all"
           style={{ width: `${uploadProgress}%` }}
         />
       </Progress>

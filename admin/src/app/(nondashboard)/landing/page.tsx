@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { useUser, SignInButton } from "@clerk/nextjs";
 import {
+  LayoutDashboard,
   BookOpen,
   Users,
   ClipboardList,
@@ -13,13 +14,102 @@ import {
   Image as ImageIcon,
   CalendarDays,
   GalleryHorizontalEnd,
+  MessageSquare,
+  Bell,
+  Lock,
+  ArrowRight,
 } from "lucide-react";
 
-const cardStyle = (bgColor: string) =>
-  `rounded-2xl p-6 transition duration-200 cursor-pointer shadow-sm hover:shadow-lg hover:-translate-y-0.5 text-gray-900 ${bgColor}`;
+type Tile = {
+  href: string;
+  icon: React.ElementType;
+  title: string;
+  description: string;
+};
 
-const iconWrapStyle = (iconBg: string, iconColor: string) =>
-  `w-11 h-11 rounded-xl flex items-center justify-center mb-4 ${iconBg} ${iconColor}`;
+const sections: { label: string; tiles: Tile[] }[] = [
+  {
+    label: "Course Management",
+    tiles: [
+      {
+        href: "/teacher/dashboard",
+        icon: LayoutDashboard,
+        title: "Dashboard",
+        description: "See enrollment trends and course performance at a glance.",
+      },
+      {
+        href: "/teacher/courses",
+        icon: BookOpen,
+        title: "Courses",
+        description: "Build and manage your educational content.",
+      },
+      {
+        href: "/teacher/users",
+        icon: Users,
+        title: "All Students",
+        description: "View, monitor, and support enrolled students.",
+      },
+      {
+        href: "/teacher/studentsapplications",
+        icon: ClipboardList,
+        title: "Applications",
+        description: "Review and approve student applications.",
+      },
+      {
+        href: "/teacher/passcodes",
+        icon: KeyRound,
+        title: "Passcodes",
+        description: "Generate and manage student registration passcodes.",
+      },
+    ],
+  },
+  {
+    label: "Content & Media",
+    tiles: [
+      {
+        href: "/teacher/banners",
+        icon: ImageIcon,
+        title: "Banners",
+        description: "Update the homepage banner carousel.",
+      },
+      {
+        href: "/teacher/events",
+        icon: CalendarDays,
+        title: "Events",
+        description: "Post and manage upcoming events.",
+      },
+      {
+        href: "/teacher/gallery",
+        icon: GalleryHorizontalEnd,
+        title: "Gallery",
+        description: "Manage photos shown on the public gallery.",
+      },
+      {
+        href: "/teacher/notices",
+        icon: Bell,
+        title: "Notices",
+        description: "Publish notices and YouTube links for students.",
+      },
+      {
+        href: "/teacher/feedbacks",
+        icon: MessageSquare,
+        title: "Feedbacks",
+        description: "Review student feedback and testimonials.",
+      },
+    ],
+  },
+  {
+    label: "Account",
+    tiles: [
+      {
+        href: "/teacher/settings",
+        icon: SettingsIcon,
+        title: "Settings",
+        description: "Update your profile, preferences, and platform settings.",
+      },
+    ],
+  },
+];
 
 const Landing = () => {
   const { user, isLoaded } = useUser();
@@ -29,145 +119,73 @@ const Landing = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="bg-customgreys-secondarybg min-h-screen px-6 sm:px-10 lg:px-16 py-10"
+      className="bg-udemy-lightGray min-h-screen px-6 sm:px-10 lg:px-16 py-10"
     >
       <div className="max-w-[1600px] mx-auto">
         {!user ? (
-               <div className="flex justify-center items-center w-full min-h-[60vh] px-4">
-  <div className="bg-white border border-customgreys-darkerGrey text-gray-900 px-10 py-10 rounded-2xl shadow-lg text-center w-full max-w-4xl">
-    <h2 className="text-3xl font-semibold mb-4">Sign In Required</h2>
-    <p className="text-lg text-gray-500">
-      Please sign in to access the admin dashboard and manage your content.
-    </p>
-    <SignInButton mode="modal">
-      <button className="mt-6 px-6 py-3 bg-rose-600 hover:bg-rose-500 text-white rounded-md text-base">
-        Sign In
-      </button>
-    </SignInButton>
-  </div>
-</div>
-
-
+          <div className="flex justify-center items-center w-full min-h-[60vh] px-4">
+            <div className="bg-white-100 border border-gray-200 text-udemy-black px-10 py-10 rounded-md shadow-lg text-center w-full max-w-4xl">
+              <div className="w-14 h-14 rounded-full bg-udemy-purple text-white-100 flex items-center justify-center mx-auto mb-5">
+                <Lock size={26} />
+              </div>
+              <h2 className="text-3xl font-semibold mb-4">Sign In Required</h2>
+              <p className="text-lg text-udemy-gray">
+                Please sign in to access the admin dashboard and manage your content.
+              </p>
+              <SignInButton mode="modal">
+                <button className="mt-6 px-6 py-3 bg-udemy-purple hover:bg-udemy-purpleDark text-white-100 font-bold rounded-sm text-base transition-colors">
+                  Sign In
+                </button>
+              </SignInButton>
+            </div>
+          </div>
         ) : (
           <motion.div
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="space-y-6"
+            className="space-y-10"
           >
-            <div>
-              <h1 className="text-3xl sm:text-4xl font-bold text-gray-900">
-                Welcome to { "LMS Platform Admin Panel"}
-              </h1>
-              <p className="mt-2 text-gray-500 text-sm sm:text-base">
-                Manage your courses, students, and content all in one place.
-              </p>
+            <div className="bg-udemy-purple rounded-md px-8 py-10 sm:px-12 sm:py-12 relative overflow-hidden">
+              <div className="absolute -right-10 -top-10 w-56 h-56 rounded-full bg-white-100/10" />
+              <div className="absolute right-16 bottom-0 w-28 h-28 rounded-full bg-white-100/10" />
+              <div className="relative">
+                <h1 className="text-3xl sm:text-4xl font-bold text-white-100">
+                  Welcome back{user.firstName ? `, ${user.firstName}` : ""}
+                </h1>
+                <p className="mt-2 text-white-100/80 text-sm sm:text-base max-w-lg">
+                  Manage your courses, students, and content all in one place.
+                </p>
+              </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-8">
-              <Link href="/teacher/courses" scroll={false}>
-                <div className={cardStyle("bg-pink-100")}>
-                  <div className={iconWrapStyle("bg-pink-200", "text-pink-700")}>
-                    <BookOpen size={22} />
-                  </div>
-                  <h2 className="text-xl font-semibold mb-2">Create Course</h2>
-                  <p className="text-sm text-gray-600">
-                    Build and manage your educational content.
-                  </p>
+            {sections.map((section) => (
+              <div key={section.label}>
+                <h2 className="flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-udemy-black mb-4">
+                  <span className="w-1.5 h-4 rounded-full bg-udemy-purple" />
+                  {section.label}
+                </h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                  {section.tiles.map((tile) => (
+                    <Link key={tile.href} href={tile.href} scroll={false} className="group">
+                      <div className="rounded-md p-6 h-full transition-all duration-200 cursor-pointer border border-gray-200 shadow-sm hover:shadow-lg hover:border-udemy-purple text-udemy-black bg-white-100">
+                        <div className="w-11 h-11 rounded-md flex items-center justify-center mb-4 bg-udemy-purple text-white-100">
+                          <tile.icon size={22} />
+                        </div>
+                        <h3 className="text-lg font-semibold mb-2 flex items-center justify-between">
+                          {tile.title}
+                          <ArrowRight
+                            size={16}
+                            className="text-udemy-purple opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all"
+                          />
+                        </h3>
+                        <p className="text-sm text-udemy-gray">{tile.description}</p>
+                      </div>
+                    </Link>
+                  ))}
                 </div>
-              </Link>
-
-              <Link href="/teacher/users" scroll={false}>
-                <div className={cardStyle("bg-orange-100")}>
-                  <div className={iconWrapStyle("bg-orange-200", "text-orange-700")}>
-                    <Users size={22} />
-                  </div>
-                  <h2 className="text-xl font-semibold mb-2">All Students</h2>
-                  <p className="text-sm text-gray-600">
-                    View, monitor, and support enrolled students.
-                  </p>
-                </div>
-              </Link>
-
-              <Link href="/teacher/studentsapplications" scroll={false}>
-                <div className={cardStyle("bg-violet-100")}>
-                  <div className={iconWrapStyle("bg-violet-200", "text-violet-700")}>
-                    <ClipboardList size={22} />
-                  </div>
-                  <h2 className="text-xl font-semibold mb-2">
-                    Applications
-                  </h2>
-                  <p className="text-sm text-gray-600">
-                    Review Student Applications.
-                  </p>
-                </div>
-              </Link>
-
-
-              <Link href="/teacher/passcodes" scroll={false}>
-                <div className={cardStyle("bg-sky-100")}>
-                  <div className={iconWrapStyle("bg-sky-200", "text-sky-700")}>
-                    <KeyRound size={22} />
-                  </div>
-                  <h2 className="text-xl font-semibold mb-2">
-                    Passcodes
-                  </h2>
-                  <p className="text-sm text-gray-600">
-                    Student Registrations.
-                  </p>
-                </div>
-              </Link>
-
-              <Link href="/teacher/settings" scroll={false}>
-                <div className={cardStyle("bg-amber-100")}>
-                  <div className={iconWrapStyle("bg-amber-200", "text-amber-700")}>
-                    <SettingsIcon size={22} />
-                  </div>
-                  <h2 className="text-xl font-semibold mb-2">Settings</h2>
-                  <p className="text-sm text-gray-600">
-                    Update your profile, preferences, and platform settings.
-                  </p>
-                </div>
-              </Link>
-
-               <Link href="/teacher/banners" scroll={false}>
-                <div className={cardStyle("bg-emerald-100")}>
-                  <div className={iconWrapStyle("bg-emerald-200", "text-emerald-700")}>
-                    <ImageIcon size={22} />
-                  </div>
-                  <h2 className="text-xl font-semibold mb-2">Banners</h2>
-                  <p className="text-sm text-gray-600">
-                    Update your banners.
-                  </p>
-                </div>
-              </Link>
-
-              <Link href="/teacher/events" scroll={false}>
-                <div className={cardStyle("bg-rose-100")}>
-                  <div className={iconWrapStyle("bg-rose-200", "text-rose-700")}>
-                    <CalendarDays size={22} />
-                  </div>
-                  <h2 className="text-xl font-semibold mb-2">Events</h2>
-                  <p className="text-sm text-gray-600">
-                    Update your events.
-                  </p>
-                </div>
-              </Link>
-
-
-              <Link href="/teacher/gallery" scroll={false}>
-                <div className={cardStyle("bg-fuchsia-100")}>
-                  <div className={iconWrapStyle("bg-fuchsia-200", "text-fuchsia-700")}>
-                    <GalleryHorizontalEnd size={22} />
-                  </div>
-                  <h2 className="text-xl font-semibold mb-2">Gallery</h2>
-                  <p className="text-sm text-gray-600">
-                    Update your Gallery.
-                  </p>
-                </div>
-              </Link>
-
-            </div>
+              </div>
+            ))}
           </motion.div>
         )}
       </div>
