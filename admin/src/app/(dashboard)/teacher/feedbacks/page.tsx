@@ -112,25 +112,25 @@ const FeedbackUploadForm = () => {
     <>
       {deleting && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="text-white text-lg font-semibold">Deleting...</div>
+          <div className="text-white-100 text-lg font-semibold">Deleting...</div>
         </div>
       )}
 
       {uploading && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="text-white text-lg font-semibold">Uploading...</div>
+          <div className="text-white-100 text-lg font-semibold">Uploading...</div>
         </div>
       )}
 
-      <div className="max-w-2xl mx-auto mt-10 bg-white shadow p-6 rounded">
-        <h2 className="text-2xl font-bold mb-4 text-blue-900">Submit Feedback</h2>
+      <div className="max-w-2xl mx-auto mt-10 bg-white-100 border border-gray-200 shadow p-6 rounded">
+        <h2 className="text-2xl font-bold mb-4 text-udemy-black">Submit Feedback</h2>
 
         <form onSubmit={handleSubmit}>
           <textarea
             value={feedback}
             onChange={(e) => setFeedback(e.target.value)}
             placeholder="Write your feedback..."
-            className="w-full mb-4 p-2 border border-blue-300 rounded text-black"
+            className="w-full mb-4 p-2 border border-gray-300 rounded text-black"
             rows={4}
             required
           />
@@ -152,7 +152,7 @@ const FeedbackUploadForm = () => {
                   setVideo(null);
                   setPreviewUrl("");
                 }}
-                className="absolute top-1 right-1 bg-red-600 text-white px-2 py-1 text-xs rounded"
+                className="absolute top-1 right-1 bg-red-600 text-white-100 px-2 py-1 text-xs rounded"
               >
                 Remove
               </button>
@@ -160,12 +160,12 @@ const FeedbackUploadForm = () => {
           )}
 
           {error && <p className="text-red-600 mb-2">{error}</p>}
-          {success && <p className="text-blue-600 mb-2">{success}</p>}
+          {success && <p className="text-udemy-purple mb-2">{success}</p>}
 
           {uploading && (
             <div className="w-full h-3 bg-gray-200 rounded-full mb-3">
               <div
-                className="h-full bg-blue-500 transition-all"
+                className="h-full bg-udemy-purple transition-all"
                 style={{ width: `${uploadProgress}%` }}
               />
             </div>
@@ -174,7 +174,7 @@ const FeedbackUploadForm = () => {
           <button
             type="submit"
             disabled={uploading}
-            className="w-full bg-blue-700 text-white py-2 rounded hover:bg-blue-600 disabled:opacity-60"
+            className="w-full bg-udemy-purple text-white-100 font-bold py-2 rounded-sm hover:bg-udemy-purpleDark disabled:opacity-60"
           >
             {uploading ? "Submitting..." : "Submit Feedback"}
           </button>
@@ -182,7 +182,7 @@ const FeedbackUploadForm = () => {
 
         <hr className="my-8" />
 
-        <h3 className="text-xl font-semibold mb-4 text-blue-800">All Feedback</h3>
+        <h3 className="text-xl font-semibold mb-4 text-udemy-black">All Feedback</h3>
 
         {isFeedbacksLoading ? (
           <p>Loading...</p>
@@ -196,7 +196,7 @@ const FeedbackUploadForm = () => {
                 )}
                 <button
                   onClick={() => handleDelete(fb.id)}
-                  className="absolute top-2 right-2 bg-red-600 text-white px-2 py-1 text-sm rounded hover:bg-red-700"
+                  className="absolute top-2 right-2 bg-red-600 text-white-100 px-2 py-1 text-sm rounded hover:bg-red-700"
                 >
                   Delete
                 </button>

@@ -201,18 +201,18 @@ const EventUploadForm = () => {
     <>
     {deleting && (
       <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-        <div className="text-white text-lg font-semibold">Deleting...</div>
+        <div className="text-white-100 text-lg font-semibold">Deleting...</div>
       </div>
     )}
 
     {uploading && (
       <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-        <div className="text-white text-lg font-semibold">Uploading...</div>
+        <div className="text-white-100 text-lg font-semibold">Uploading...</div>
       </div>
     )}
 
-    <div className="max-w-4xl mx-auto mt-10 bg-white shadow-lg p-6 rounded-md">
-      <h2 className="text-2xl font-semibold mb-4 text-blue-900">Upload Event</h2>
+    <div className="max-w-4xl mx-auto mt-10 bg-white-100 border border-gray-200 shadow-lg p-6 rounded-md">
+      <h2 className="text-2xl font-semibold mb-4 text-udemy-black">Upload Event</h2>
 
       <form onSubmit={handleSubmit}>
         <input
@@ -220,7 +220,7 @@ const EventUploadForm = () => {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           placeholder="Event Title"
-          className="w-full mb-3 border border-blue-300 rounded p-2 text-black"
+          className="w-full mb-3 border border-gray-300 rounded p-2 text-black"
           required
         />
 
@@ -228,27 +228,27 @@ const EventUploadForm = () => {
           type="date"
           value={date}
           onChange={(e) => setDate(e.target.value)}
-          className="w-full mb-3 border border-blue-300 rounded p-2 text-black"
+          className="w-full mb-3 border border-gray-300 rounded p-2 text-black"
         />
 
         <textarea
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           placeholder="Event Description"
-          className="w-full mb-3 border border-blue-300 rounded p-2 text-black"
+          className="w-full mb-3 border border-gray-300 rounded p-2 text-black"
           rows={4}
           required
         />
 
         {/* Main Media Upload */}
         <div className="mb-4">
-  <label className="block mb-2 font-semibold text-blue-900">Main Media</label>
+  <label className="block mb-2 font-semibold text-udemy-black">Main Media</label>
   <input
     type="file"
     accept="image/jpeg,image/png,image/webp,image/gif,video/mp4,video/webm,video/ogg"
     onChange={handleMainMediaChange}
     disabled={uploading}
-    className="w-full border border-blue-300 rounded p-2"
+    className="w-full border border-gray-300 rounded p-2"
   />
   {mainMedia && (
   <div className="mt-2 relative w-full h-48 border rounded overflow-hidden">
@@ -271,7 +271,7 @@ const EventUploadForm = () => {
     <button
       type="button"
       onClick={() => setMainMedia(null)}
-      className="absolute top-1 right-1 bg-red-600 text-white px-2 py-1 text-xs rounded"
+      className="absolute top-1 right-1 bg-red-600 text-white-100 px-2 py-1 text-xs rounded"
     >
       Remove
     </button>
@@ -282,14 +282,14 @@ const EventUploadForm = () => {
 
         {/* Sub Images */}
         <div className="mb-4">
-          <label className="block mb-2 font-semibold text-blue-900">Sub Images</label>
+          <label className="block mb-2 font-semibold text-udemy-black">Sub Images</label>
           <input
             type="file"
             multiple
             disabled={uploading}
             accept="image/jpeg,image/png,image/webp,image/gif"
             onChange={handleSubImagesChange}
-            className="w-full border border-blue-300 rounded p-2"
+            className="w-full border border-gray-300 rounded p-2"
           />
           <div className="grid grid-cols-3 gap-4 mt-3">
             {subImages.map((img, idx) => (
@@ -308,7 +308,7 @@ const EventUploadForm = () => {
                 <button
                   type="button"
                   onClick={() => removeSubImage(idx)}
-                  className="absolute top-1 right-1 bg-red-600 text-white px-2 py-1 text-xs rounded"
+                  className="absolute top-1 right-1 bg-red-600 text-white-100 px-2 py-1 text-xs rounded"
                 >
                   ✕
                 </button>
@@ -318,12 +318,12 @@ const EventUploadForm = () => {
         </div>
 
         {error && <p className="text-red-600 mb-2">{error}</p>}
-        {success && <p className="text-blue-600 mb-2">{success}</p>}
+        {success && <p className="text-udemy-purple mb-2">{success}</p>}
 
         {uploading && (
           <div className="w-full h-3 bg-gray-200 rounded-full overflow-hidden mb-2">
             <div
-              className="h-full bg-blue-500 transition-all"
+              className="h-full bg-udemy-purple transition-all"
               style={{ width: `${uploadProgress}%` }}
             />
           </div>
@@ -332,7 +332,7 @@ const EventUploadForm = () => {
         <button
           type="submit"
           disabled={uploading}
-          className="w-full bg-blue-700 text-white py-2 rounded hover:bg-blue-600 disabled:opacity-60"
+          className="w-full bg-udemy-purple text-white-100 font-bold py-2 rounded-sm hover:bg-udemy-purpleDark disabled:opacity-60"
         >
           {uploading ? "Posting Event..." : "Post Event"}
         </button>
@@ -340,7 +340,7 @@ const EventUploadForm = () => {
 
       <hr className="my-8" />
 
-      <h3 className="text-xl font-semibold mb-4 text-blue-800">All Events</h3>
+      <h3 className="text-xl font-semibold mb-4 text-udemy-black">All Events</h3>
       {isEventsLoading ? (
         <p>Loading events...</p>
       ) : (
@@ -395,7 +395,7 @@ const EventUploadForm = () => {
               <p className="text-gray-700 text-sm">{event.description}</p>
               <button
                 onClick={() => handleDelete(event.id)}
-                className="absolute top-2 right-2 bg-red-600 text-white px-2 py-1 text-sm rounded hover:bg-red-700"
+                className="absolute top-2 right-2 bg-red-600 text-white-100 px-2 py-1 text-sm rounded hover:bg-red-700"
               >
                 Delete
               </button>

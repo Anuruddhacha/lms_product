@@ -58,10 +58,10 @@ const CommentsSection = ({ chapterId }: { chapterId: string }) => {
 
       <div className="space-y-4 max-h-60 overflow-y-auto">
         {comments.map((comment) => (
-          <div key={comment.id} className="bg-white border border-customgreys-darkerGrey p-3 rounded">
+          <div key={comment.id} className="bg-white-100 border border-customgreys-darkerGrey p-3 rounded">
             <CommentItem comment={comment} onDelete={() => handleDeleteComment(comment.id)} />
             {comment.reply && (
-              <div className="ml-4 mt-2 text-sm text-blue-600">
+              <div className="ml-4 mt-2 text-sm text-udemy-purple">
                 <strong>Reply:</strong> {comment.reply}
               </div>
             )}

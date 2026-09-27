@@ -139,7 +139,7 @@ const AllCourseRequests = () => {
     value={searchTerm}
     onChange={(e) => setSearchTerm(e.target.value)}
     placeholder="Search by name, phone, or reg. number"
-    className="w-full sm:w-80 px-3 py-2 rounded bg-white text-gray-900 border border-customgreys-darkerGrey placeholder-gray-400"
+    className="w-full sm:w-80 px-3 py-2 rounded bg-white-100 text-gray-900 border border-customgreys-darkerGrey placeholder-gray-400"
   />
 </div>
 
@@ -151,7 +151,7 @@ const AllCourseRequests = () => {
             key={status}
             onClick={() => setFilterStatus(status as any)}
             className={`px-4 py-1 rounded ${
-              filterStatus === status ? "bg-blue-600 text-white" : "bg-gray-100 text-gray-700"
+              filterStatus === status ? "bg-udemy-purple text-white-100" : "bg-gray-100 text-gray-700"
             }`}
           >
             {status.charAt(0).toUpperCase() + status.slice(1)}
@@ -163,80 +163,56 @@ const AllCourseRequests = () => {
         {filteredRequests.map((request: any) => (
           <div
             key={request.code}
-            className="bg-customgreys-secondarybg rounded-lg p-4 shadow-md flex flex-col justify-between"
+            className="bg-white-100 border border-gray-200 rounded-md p-5 shadow-sm hover:shadow-lg transition-shadow duration-200 flex flex-col"
           >
-
-              {request.profileImageUrl && !request.profileImageUrl.startsWith("undefined/") && (
+            <div className="flex items-center gap-3 mb-4">
+              {request.profileImageUrl && !request.profileImageUrl.startsWith("undefined/") ? (
                 <Image
                   src={getSafeImageUrl(request.profileImageUrl)}
                   alt={`${request.userName}'s profile`}
-                  width={80}
-                  height={80}
-                  className="mb-2 h-20 w-20 rounded-full border object-cover"
+                  width={48}
+                  height={48}
+                  className="h-12 w-12 rounded-full border border-gray-200 object-cover shrink-0"
                   unoptimized={
                     request.profileImageUrl.startsWith("http://") ||
                     request.profileImageUrl.startsWith("https://")
                   }
                 />
-              )} 
-            <div>
-              <p className="text-gray-800 text-sm mb-1">
-                <span className="font-semibold">Reg.No:</span> {request.code}
-              </p>
-
-              <p className="text-gray-800 text-sm mb-1">
-                <span className="font-semibold">Name:</span> {request.userName}
-              </p>
-              <p className="text-gray-800 text-sm mb-1">
-                <span className="font-semibold">Email:</span> {request.email}
-              </p>
-              <p className="text-gray-800 text-sm mb-1">
-                <span className="font-semibold">Phone:</span> {request.phone}
-              </p>
-              <p className="text-gray-800 text-sm mb-3">
-                <span className="font-semibold">Status:</span>{" "}
-                {request.isAccepted ? "✅ Accepted" : "⏳ Pending"}
-              </p>
-
-              {/*<div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-3">
-                {(request.selectedCourseIds || []).slice(0, 6).map((courseId: string) => (
-                  <CourseCheckboxCard
-                    key={courseId}
-                    courseId={courseId}
-                    selectedCourses={selectedCourses[request.code] || []}
-                    onToggle={(id) => toggleCourseSelection(request.code, id)}
-                    userId={request.userId}
-                  />
-
-                ))}
-              </div>*/}
-<div className="mb-3">
-  <a
-    href={`/teacher/studentsapplications/selectedcourse?userId=${request.userId}&code=${request.code}&profileImageUrl=${encodeURIComponent(request.profileImageUrl || '')}`}
-    className="inline-block font-bold text-black bg-yellow-500 hover:bg-yellow-400 text-white px-4 py-2 rounded text-sm"
-  >
-    Review Application
-  </a>
-</div>
-
-
+              ) : (
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-udemy-purpleLight text-udemy-purple font-bold">
+                  {request.userName?.[0]?.toUpperCase() || "?"}
+                </div>
+              )}
+              <div className="min-w-0">
+                <p className="font-semibold text-udemy-black truncate">{request.userName}</p>
+                <p className="text-xs text-udemy-gray">Reg.No: {request.code}</p>
+              </div>
+              <span
+                className={`ml-auto shrink-0 text-xs font-semibold px-2 py-1 rounded-full ${
+                  request.isAccepted
+                    ? "bg-udemy-purpleLight text-udemy-purple"
+                    : "bg-gray-100 text-udemy-gray"
+                }`}
+              >
+                {request.isAccepted ? "Accepted" : "Pending"}
+              </span>
             </div>
 
-           { /*<div className="flex gap-2 mt-2">
-            <button
-             onClick={() => enrollCourse(request.userId, request.code, request.profileImageUrl)}
-             className="bg-blue-600 hover:bg-blue-500 text-white w-full py-2 rounded flex-1"
-             >
-              Grant Access
-            </button>
-           <button
-             onClick={() => unenrollCourse(request.userId, request.code)}
-           className="bg-red-600 hover:bg-red-500 text-white w-full py-2 rounded flex-1"
-              >
-               Block Access
-              </button>
-              </div>*/}
+            <div className="space-y-1.5 mb-4 text-sm">
+              <p className="text-udemy-gray truncate">
+                <span className="text-udemy-black font-medium">Email:</span> {request.email}
+              </p>
+              <p className="text-udemy-gray">
+                <span className="text-udemy-black font-medium">Phone:</span> {request.phone}
+              </p>
+            </div>
 
+            <a
+              href={`/teacher/studentsapplications/selectedcourse?userId=${request.userId}&code=${request.code}&profileImageUrl=${encodeURIComponent(request.profileImageUrl || '')}`}
+              className="mt-auto inline-flex items-center justify-center font-bold text-white-100 bg-udemy-purple hover:bg-udemy-purpleDark px-4 py-2 rounded-sm text-sm transition-colors"
+            >
+              Review Application
+            </a>
           </div>
         ))}
       </div>

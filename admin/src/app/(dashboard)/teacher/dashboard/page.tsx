@@ -41,40 +41,40 @@ const DashboardPage = () => {
 
       {/* KPI Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-6">
-        <div className="bg-rose-100 rounded-2xl p-6 shadow-sm">
-          <div className="w-11 h-11 rounded-xl bg-rose-200 flex items-center justify-center text-rose-700">
+        <div className="bg-white-100 border border-gray-200 rounded-md p-6 shadow-sm">
+          <div className="w-11 h-11 rounded-md bg-udemy-purpleLight flex items-center justify-center text-udemy-purple">
             <Users size={22} />
           </div>
-          <p className="text-3xl font-bold text-gray-900 mt-4">
+          <p className="text-3xl font-bold text-udemy-black mt-4">
             {stats.totalStudents.toLocaleString()}
           </p>
-          <p className="text-sm text-gray-600 mt-1">Total Students</p>
+          <p className="text-sm text-udemy-gray mt-1">Total Students</p>
         </div>
 
-        <div className="bg-violet-100 rounded-2xl p-6 shadow-sm">
-          <div className="w-11 h-11 rounded-xl bg-violet-200 flex items-center justify-center text-violet-700">
+        <div className="bg-white-100 border border-gray-200 rounded-md p-6 shadow-sm">
+          <div className="w-11 h-11 rounded-md bg-udemy-purpleLight flex items-center justify-center text-udemy-purple">
             <BookOpen size={22} />
           </div>
-          <p className="text-3xl font-bold text-gray-900 mt-4">
+          <p className="text-3xl font-bold text-udemy-black mt-4">
             {stats.totalCourses.toLocaleString()}
           </p>
-          <p className="text-sm text-gray-600 mt-1">Total Courses</p>
+          <p className="text-sm text-udemy-gray mt-1">Total Courses</p>
         </div>
 
-        <div className="bg-amber-100 rounded-2xl p-6 shadow-sm">
-          <div className="w-11 h-11 rounded-xl bg-amber-200 flex items-center justify-center text-amber-700">
+        <div className="bg-white-100 border border-gray-200 rounded-md p-6 shadow-sm">
+          <div className="w-11 h-11 rounded-md bg-udemy-purpleLight flex items-center justify-center text-udemy-purple">
             <GraduationCap size={22} />
           </div>
-          <p className="text-3xl font-bold text-gray-900 mt-4">
+          <p className="text-3xl font-bold text-udemy-black mt-4">
             {stats.totalEnrollments.toLocaleString()}
           </p>
-          <p className="text-sm text-gray-600 mt-1">Total Enrollments</p>
+          <p className="text-sm text-udemy-gray mt-1">Total Enrollments</p>
         </div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mb-6">
         {/* Enrollment Trends */}
-        <div className="lg:col-span-2 bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+        <div className="lg:col-span-2 bg-white-100 rounded-md p-6 shadow-sm border border-gray-200">
           <h2 className="text-lg font-semibold text-gray-900 mb-4">
             Enrollment Trends
           </h2>
@@ -103,7 +103,7 @@ const DashboardPage = () => {
         </div>
 
         {/* Category Breakdown */}
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+        <div className="bg-white-100 rounded-md p-6 shadow-sm border border-gray-200">
           <h2 className="text-lg font-semibold text-gray-900 mb-4">
             Courses by Category
           </h2>
@@ -152,7 +152,7 @@ const DashboardPage = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
         {/* Recent Courses */}
-        <div className="lg:col-span-2 bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+        <div className="lg:col-span-2 bg-white-100 rounded-md p-6 shadow-sm border border-gray-200">
           <h2 className="text-lg font-semibold text-gray-900 mb-4">
             Recent Courses
           </h2>
@@ -165,7 +165,7 @@ const DashboardPage = () => {
                   key={c.courseId}
                   className="rounded-xl overflow-hidden border border-gray-100"
                 >
-                  <div className="relative w-full h-24 bg-rose-50">
+                  <div className="relative w-full h-24 bg-udemy-lightGray">
                     <Image
                       src={getSafeImageUrl(c.image)}
                       alt={c.title}
@@ -186,7 +186,7 @@ const DashboardPage = () => {
         </div>
 
         {/* Top Courses */}
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+        <div className="bg-white-100 rounded-md p-6 shadow-sm border border-gray-200">
           <h2 className="text-lg font-semibold text-gray-900 mb-4">Top Courses</h2>
           {stats.topCourses.length === 0 ? (
             <p className="text-sm text-gray-500">No enrollments yet.</p>
@@ -194,7 +194,7 @@ const DashboardPage = () => {
             <div className="space-y-4">
               {stats.topCourses.map((c, i) => (
                 <div key={c.courseId} className="flex items-center gap-3">
-                  <span className="w-6 h-6 rounded-full bg-rose-100 text-rose-700 text-xs font-semibold flex items-center justify-center shrink-0">
+                  <span className="w-6 h-6 rounded-full bg-udemy-purpleLight text-udemy-purple text-xs font-semibold flex items-center justify-center shrink-0">
                     {i + 1}
                   </span>
                   <div className="flex-1 min-w-0">

@@ -42,9 +42,9 @@ const SignUpComponent = () => {
           },
           formFieldLabel: "text-white-50 font-normal",
           formButtonPrimary:
-            "bg-primary-700 text-white-100 hover:bg-primary-600 !shadow-none",
+            "bg-udemy-purple text-white-100 hover:bg-udemy-purpleDark !shadow-none",
           formFieldInput: "bg-white-100 border border-customgreys-darkerGrey text-white-50 !shadow-none",
-          footerActionLink: "text-primary-750 hover:text-primary-600",
+          footerActionLink: "text-udemy-purple hover:text-udemy-purpleDark",
         },
       }}
       signInUrl={signInUrl}
