@@ -29,7 +29,7 @@ const Toolbar = ({ onSearch, onCategoryChange }: ToolbarProps) => {
         <SelectTrigger className="toolbar__select">
           <SelectValue placeholder="Categories" />
         </SelectTrigger>
-        <SelectContent className="bg-slate-900 dark:bg-slate-800 hover:bg-slate-900 dark:bg-slate-800">
+        <SelectContent className="bg-white-100 text-udemy-black border border-gray-200">
           <SelectItem value="all" className="toolbar__select-item">
             All Categories
           </SelectItem>

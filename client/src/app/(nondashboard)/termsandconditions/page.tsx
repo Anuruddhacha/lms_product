@@ -1,19 +1,18 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import Image from 'next/image';
 
 export default function TermsPage() {
   const router = useRouter();
 
   return (
-    <div className="flex flex-col items-center mt-10 px-4 pt-[100px] min-h-screen bg-white dark:bg-gray-900">
-      <div className="w-full max-w-3xl bg-white rounded-xl shadow-lg p-8">
-        <h1 className="text-3xl font-bold mb-8 text-center text-blue-500">
+    <div className="flex flex-col items-center mt-10 px-4 pt-[100px] min-h-screen bg-white-100">
+      <div className="w-full max-w-3xl bg-white-100 border border-gray-200 rounded-md shadow-lg p-8">
+        <h1 className="text-3xl font-bold mb-8 text-center text-udemy-purple">
           Terms and Conditions
         </h1>
 
-        <div className="prose max-w-none text-gray-800 dark:text-gray-200 space-y-4">
+        <div className="prose max-w-none text-udemy-black space-y-4">
   <p>
     By proceeding, you agree to our <strong>Terms & Conditions</strong> and <strong>Privacy Policy</strong>.
   </p>
@@ -45,7 +44,7 @@ export default function TermsPage() {
   </p>
 
   <p>
-    For any technical support, please contact our support team via the <a href="/contactus" className="text-blue-600 underline">Contact Us</a> page.
+    For any technical support, please contact our support team via the <a href="/contactus" className="text-udemy-purple underline">Contact Us</a> page.
   </p>
 
   <h3 className="text-lg font-semibold">Fee Clarifications</h3>
@@ -64,22 +63,12 @@ export default function TermsPage() {
         <div className="mt-8 flex justify-center space-x-4">
           <button
             onClick={() => router.back()}
-            className="h-12 px-6 font-semibold rounded-md bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-600 hover:scale-[1.02] text-white shadow-md hover:shadow-lg transition-all duration-300 ease-in-out"
+            className="h-12 px-6 font-semibold rounded-sm bg-udemy-purple hover:bg-udemy-purpleDark text-white-100 shadow-md transition-colors duration-300 ease-in-out"
           >
             Back
           </button>
           {/* Optional: add an "Agree" button if you want to confirm acceptance here */}
         </div>
-      </div>
-
-      <div className="fixed bottom-10 left-0 right-0 flex justify-center">
-        <Image
-          src="/logo.svg"
-          alt="LMS Platform Logo"
-          width={150}
-          height={150}
-          className="opacity-20"
-        />
       </div>
     </div>
   );

@@ -2,7 +2,6 @@
 
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { FiMapPin, FiPhoneCall } from "react-icons/fi";
 
 export default function Footer() {
@@ -14,8 +13,8 @@ export default function Footer() {
 
           {/* Logo & About */}
           <div>
-            <Link href="/">
-              <Image src="/logo.svg" alt="LMS Platform Logo" width={140} height={30} />
+            <Link href="/" className="text-xl font-black text-white-100">
+              LMS Platform
             </Link>
             <p className="mt-4 text-sm leading-relaxed">
               Discover a world of knowledge and opportunities with our online education platform. Pursue a new career.

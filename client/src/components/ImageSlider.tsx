@@ -25,7 +25,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images, interval = 3000 }) =>
   };
 
   return (
-    <div className="relative h-[500px] overflow-hidden rounded-2xl shadow-lg bg-transparent">
+    <div className="relative h-[500px] overflow-hidden rounded-md shadow-lg bg-transparent">
       {/* Slides */}
       <div
         className="flex transition-transform duration-700 ease-in-out h-full"
@@ -48,14 +48,14 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images, interval = 3000 }) =>
       {/* Controls */}
       <button
         onClick={prevSlide}
-        className="absolute top-1/2 left-4 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition"
+        className="absolute top-1/2 left-4 -translate-y-1/2 bg-black/50 text-white-100 p-2 rounded-full hover:bg-black/70 transition"
         aria-label="Previous Slide"
       >
         <ChevronLeft size={24} />
       </button>
       <button
         onClick={nextSlide}
-        className="absolute top-1/2 right-4 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition"
+        className="absolute top-1/2 right-4 -translate-y-1/2 bg-black/50 text-white-100 p-2 rounded-full hover:bg-black/70 transition"
         aria-label="Next Slide"
       >
         <ChevronRight size={24} />

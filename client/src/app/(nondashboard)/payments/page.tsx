@@ -4,6 +4,7 @@ import { useCreatePaymentSessionMutation } from '@/state/api';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import Image from "next/image";
+import Loading from "@/components/Loading";
 
 
 export default function PaymentsPage() {
@@ -144,25 +145,15 @@ export default function PaymentsPage() {
   };
 
 
-    // Show logo splash while loading
+    // Show loading splash while loading
   if (isLoading) {
-    return (
-      <div className="flex items-center justify-center h-screen bg-white dark:bg-gray-900">
-        <Image
-          src="/logo.svg"
-          alt="LMS Platform"
-          width={200}
-          height={200}
-          className="animate-pulse"
-        />
-      </div>
-    );
+    return <Loading />;
   }
 
   return (
     <div className="flex flex-col items-center mt-10 px-4 pt-[100px]">
-      <div className="w-full max-w-2xl bg-white rounded-xl shadow-lg p-8">
-        <h1 className="text-3xl font-bold mb-8 text-center text-blue-500">Secure Payment</h1>
+      <div className="w-full max-w-2xl bg-white-100 border border-gray-200 rounded-md shadow-lg p-8">
+        <h1 className="text-3xl font-bold mb-8 text-center text-udemy-purple">Secure Payment</h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
@@ -171,7 +162,7 @@ export default function PaymentsPage() {
               type="text"
               value={name}
               onChange={e => setName(e.target.value)}
-              className="w-full border border-gray-300 rounded px-4 py-2 mt-1 focus:outline-none focus:ring focus:border-blue-300 text-black"
+              className="w-full border border-gray-300 rounded px-4 py-2 mt-1 focus:outline-none focus:ring focus:ring-udemy-purple/30 focus:border-udemy-purple text-black"
               placeholder="Your Name"
             />
           </div>
@@ -182,7 +173,7 @@ export default function PaymentsPage() {
               type="email"
               value={email}
               onChange={e => setEmail(e.target.value)}
-              className="w-full border text-black border-gray-300 rounded px-4 py-2 mt-1 focus:outline-none focus:ring focus:border-blue-300"
+              className="w-full border text-black border-gray-300 rounded px-4 py-2 mt-1 focus:outline-none focus:ring focus:ring-udemy-purple/30 focus:border-udemy-purple"
               placeholder="Your Email"
             />
           </div>
@@ -194,7 +185,7 @@ export default function PaymentsPage() {
               min={0}
               value={amount}
               onChange={e => setAmount(e.target.value)}
-              className="w-full border border-gray-300 rounded px-4 py-2 mt-1 focus:outline-none focus:ring focus:border-blue-300 text-black"
+              className="w-full border border-gray-300 rounded px-4 py-2 mt-1 focus:outline-none focus:ring focus:ring-udemy-purple/30 focus:border-udemy-purple text-black"
               placeholder="1000"
             />
           </div>
@@ -205,7 +196,7 @@ export default function PaymentsPage() {
               type="text"
               value={description}
               onChange={e => setDescription(e.target.value)}
-              className="w-full border border-gray-300 rounded px-4 py-2 mt-1 focus:outline-none focus:ring focus:border-blue-300 text-black"
+              className="w-full border border-gray-300 rounded px-4 py-2 mt-1 focus:outline-none focus:ring focus:ring-udemy-purple/30 focus:border-udemy-purple text-black"
               placeholder="Course Fee Payment"
             />
           </div>
@@ -217,7 +208,7 @@ export default function PaymentsPage() {
   <div className="flex flex-col sm:flex-row items-center space-y-6 sm:space-y-0 sm:space-x-6 space-x-4">
     {/* Visa / MasterCard */}
     <label className={`flex items-center space-x-3 cursor-pointer p-3 rounded-lg border ${
-      cardType === 'cbc' ? 'border-blue-500 bg-blue-50' : 'border-gray-300'
+      cardType === 'cbc' ? 'border-udemy-purple bg-udemy-purpleLight' : 'border-gray-300'
     }`}>
       <input
         type="radio"
@@ -225,7 +216,7 @@ export default function PaymentsPage() {
         value="cbc"
         checked={cardType === 'cbc'}
         onChange={() => setCardType('cbc')}
-        className="form-radio text-blue-500"
+        className="form-radio text-udemy-purple"
       />
       <div className="flex items-center space-x-3">
     <Image src="/combank_logos.jpg" alt="Visa and MasterCard" width={130} height={80} />
@@ -237,7 +228,7 @@ export default function PaymentsPage() {
 
     {/* Amex */}
     <label className={`flex items-center space-x-3 cursor-pointer p-3 rounded-lg border ${
-      cardType === 'ntb' ? 'border-blue-500 bg-blue-50' : 'border-gray-300'
+      cardType === 'ntb' ? 'border-udemy-purple bg-udemy-purpleLight' : 'border-gray-300'
     }`}>
       <input
         type="radio"
@@ -245,7 +236,7 @@ export default function PaymentsPage() {
         value="ntb"
         checked={cardType === 'ntb'}
         onChange={() => setCardType('ntb')}
-        className="form-radio text-blue-500"
+        className="form-radio text-udemy-purple"
       />
       <div className="flex items-center space-x-2">
         <Image src="/ntb_logo.jpg" alt="Amex" width={130} height={80} />
@@ -265,7 +256,7 @@ export default function PaymentsPage() {
     href="/read-before-pay.pdf"
     target="_blank"
     rel="noopener noreferrer"
-    className="inline-flex items-center space-x-2 text-blue-600 underline hover:text-blue-800"
+    className="inline-flex items-center space-x-2 text-udemy-purple underline hover:text-udemy-purpleDark"
   >
     <span>View “Read Before You Pay”</span>
   </a>
@@ -284,7 +275,7 @@ export default function PaymentsPage() {
       I agree to the{' '}
       <button
         onClick={() => router.push('/termsandconditions')} // Adjust this path if your terms page is different
-        className="text-blue-600 underline hover:text-blue-800"
+        className="text-udemy-purple underline hover:text-udemy-purpleDark"
         type="button"
       >
         Terms and Conditions
@@ -298,8 +289,8 @@ export default function PaymentsPage() {
   <button
     onClick={handlePay}
     disabled={isProcessing || !agreed}
-    className={`w-full h-12 inline-flex items-center justify-center font-semibold rounded-md text-white shadow-md transition-all duration-300 ease-in-out
-    ${(isProcessing || !agreed) ? 'bg-gray-400 cursor-not-allowed' : 'bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-600 hover:shadow-lg hover:scale-[1.02]'}
+    className={`w-full h-12 inline-flex items-center justify-center font-semibold rounded-sm text-white-100 shadow-md transition-all duration-300 ease-in-out
+    ${(isProcessing || !agreed) ? 'bg-gray-400 cursor-not-allowed' : 'bg-udemy-purple hover:bg-udemy-purpleDark hover:shadow-lg'}
     `}
   >
     Pay Now
@@ -325,7 +316,7 @@ export default function PaymentsPage() {
             <div className="mt-8 pb-5">  
            <button
             onClick={() => router.push('/')} // Adjust this path if your homepage is different
-            className="h-12 px-6 inline-flex items-center justify-center font-semibold rounded-md bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-600 text-white shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 ease-in-out"
+            className="h-12 px-6 inline-flex items-center justify-center font-semibold rounded-sm bg-udemy-purple hover:bg-udemy-purpleDark text-white-100 shadow-md transition-colors duration-300 ease-in-out"
           >
             Home
           </button>

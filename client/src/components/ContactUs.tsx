@@ -41,18 +41,18 @@ export default function ContactUs() {
               </div>
 
               <div className="mt-3">
-                <h5 className="text-lg font-semibold text-gray-800 dark:text-slate-200">
+                <h5 className="text-lg font-semibold text-udemy-black">
                   {member.name}
                 </h5>
 
                 <div className="mt-2">
-                  <p className="text-slate-500 dark:text-slate-400">Phone:</p>
+                  <p className="text-udemy-gray">Phone:</p>
                   <div className="flex flex-col mt-1 gap-1">
                     {member.phoneNumbers.map((phone, i) => (
                       <Link
                         key={i}
                         href={`tel:${phone.replace(/\s+/g, "")}`}
-                        className="text-blue-600 hover:underline transition duration-300"
+                        className="text-udemy-purple hover:underline transition duration-300"
                       >
                         {phone}
                       </Link>
@@ -61,10 +61,10 @@ export default function ContactUs() {
                 </div>
 
                 <div className="mt-3">
-                  <p className="text-slate-500 dark:text-slate-400">Email:</p>
+                  <p className="text-udemy-gray">Email:</p>
                   <Link
                     href={`mailto:${member.email}`}
-                    className="text-blue-600 hover:underline transition duration-300"
+                    className="text-udemy-purple hover:underline transition duration-300"
                   >
                     {member.email}
                   </Link>
@@ -77,7 +77,7 @@ export default function ContactUs() {
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex items-center justify-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition w-full sm:w-40"
+      className="inline-flex items-center justify-center px-4 py-2 bg-green-600 text-white-100 rounded-lg hover:bg-green-700 transition w-full sm:w-40"
     >
       <FaWhatsapp className="w-5 h-5 mr-2" />
       WhatsApp
@@ -89,7 +89,7 @@ export default function ContactUs() {
       href={facebookUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex items-center justify-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition w-full sm:w-40"
+      className="inline-flex items-center justify-center px-4 py-2 bg-[#1877F2] text-white-100 rounded-lg hover:bg-[#0f5fcc] transition w-full sm:w-40"
     >
       <FaFacebookF className="w-5 h-5 mr-2" />
       Facebook

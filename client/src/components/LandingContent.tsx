@@ -3,11 +3,11 @@
 import React, { useEffect, useState } from "react";
 import { SignedIn, SignedOut } from "@clerk/nextjs";
 import Link from "next/link";
-import Image from "next/image";
 import BannerSlider from "@/components/Banners";
 import GallerySection from "@/components/GallerySection";
 import EventsSection from "@/components/EventsSection";
 import FeedbackSection from "@/components/FeedbackSection";
+import Loading from "@/components/Loading";
 import { useGetAllNoticesQuery, useGetAllYouTubeLinksQuery } from "@/state/api";
 
 
@@ -37,17 +37,7 @@ const extractVideoId = (url: string) => {
   }, []);
 
   if (isLoading) {
-    return (
-      <div className="flex items-center justify-center h-screen bg-white dark:bg-gray-900">
-        <Image
-          src="/logo.svg"
-          alt="LMS Platform Logo"
-          width={200}
-          height={200}
-          className="animate-pulse"
-        />
-      </div>
-    );
+    return <Loading />;
   }
 
   return (

@@ -125,7 +125,7 @@ const ChaptersSidebar = () => {
     <>
       {/* Toggle Button - only visible on mobile */}
       <button
-        className="lg:hidden fixed top-4 left-12 z-50 bg-white rounded-full p-2 shadow-md border bg-blue-500 border-gray-300"
+        className="lg:hidden fixed top-4 left-12 z-50 bg-udemy-purple text-white-100 rounded-full p-2 shadow-md"
         onClick={() => setShowSidebar((prev) => !prev)}
       >
         {showSidebar ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -135,7 +135,7 @@ const ChaptersSidebar = () => {
       <div
         ref={sidebarRef}
        className={`
-  chapters-sidebar flex-col bg-white text-gray-800 border-r border-gray-200 p-4
+  chapters-sidebar flex-col bg-white-100 text-udemy-black border-r border-gray-200 p-4
   transition-transform duration-300 ease-in-out
 
   lg:translate-x-0 lg:relative lg:h-auto lg:min-w-[18rem] lg:max-w-[100%] lg:flex
@@ -146,7 +146,7 @@ const ChaptersSidebar = () => {
 
       >
         <div className="chapters-sidebar__header mb-4">
-          <h2 className="chapters-sidebar__title text-xl font-bold text-blue-600">
+          <h2 className="chapters-sidebar__title text-xl font-bold text-udemy-black">
             {course.title}
           </h2>
           <hr className="chapters-sidebar__divider border-t border-gray-200 my-3" />
@@ -207,7 +207,7 @@ const Section = ({
     <div className="chapters-sidebar__section">
       <div
         onClick={() => toggleSection(section.sectionTitle)}
-        className="chapters-sidebar__section-header flex justify-between items-center cursor-pointer hover:bg-blue-50 px-3 py-2 rounded transition"
+        className="chapters-sidebar__section-header flex justify-between items-center cursor-pointer hover:bg-udemy-lightGray px-3 py-2 rounded transition"
       >
         <div className="chapters-sidebar__section-title-wrapper flex items-center gap-2">
           <p className=" text-md  text-black font-bold">
@@ -276,14 +276,14 @@ const ProgressVisuals = ({
                 key={chapter.chapterId}
                 className={cn(
                   "chapters-sidebar__progress-bar w-full h-2 bg-gray-200 rounded",
-                  isCompleted && "chapters-sidebar__progress-bar--completed bg-blue-500"
+                  isCompleted && "chapters-sidebar__progress-bar--completed bg-udemy-purple"
                 )}
               ></div>
             );
           })}
         </div>
         <div className="chapters-sidebar__trophy">
-          <Trophy className="chapters-sidebar__trophy-icon text-blue-400" />
+          <Trophy className="chapters-sidebar__trophy-icon text-white-100" />
         </div>
       </div>
       <p className="chapters-sidebar__progress-text text-sm text-black">
@@ -327,7 +327,7 @@ const ResourcesList = ({
               target="_blank"
               rel="noopener noreferrer"
               title={`Download ${resource.fileName}`}
-              className="chapters-sidebar__resource-download-btn text-xs text-white bg-purple-400 hover:bg-purple-500 px-3 py-1 rounded transition"
+              className="chapters-sidebar__resource-download-btn text-xs text-white-100 bg-udemy-purple hover:bg-udemy-purpleDark px-3 py-1 rounded transition"
             >
               Download
             </a>
@@ -415,14 +415,14 @@ const Chapter = ({
 
   return (
     <li
-      className={cn("chapters-sidebar__chapter flex items-center justify-between cursor-pointer hover:bg-blue-50 px-3 py-2 rounded transition", {
-        "chapters-sidebar__chapter--current bg-blue-100": isCurrentChapter,
+      className={cn("chapters-sidebar__chapter flex items-center justify-between cursor-pointer hover:bg-udemy-lightGray px-3 py-2 rounded transition", {
+        "chapters-sidebar__chapter--current bg-udemy-purpleLight": isCurrentChapter,
       })}
       onClick={() => handleChapterClick(sectionId, chapter.chapterId)}
     >
       {isCompleted ? (
         <div
-          className="chapters-sidebar__chapter-check text-blue-600 cursor-pointer"
+          className="chapters-sidebar__chapter-check text-udemy-purple cursor-pointer"
           onClick={handleToggleComplete}
           title="Toggle completion status"
         >
@@ -431,7 +431,7 @@ const Chapter = ({
       ) : (
         <div
           className={cn("chapters-sidebar__chapter-number w-6 h-6 flex items-center justify-center rounded-full bg-gray-200 text-sm text-gray-700", {
-            "chapters-sidebar__chapter-number--current bg-blue-500 text-white": isCurrentChapter,
+            "chapters-sidebar__chapter-number--current bg-udemy-purple text-white-100": isCurrentChapter,
           })}
         >
           {index + 1}

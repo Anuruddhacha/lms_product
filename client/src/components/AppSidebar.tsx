@@ -22,7 +22,6 @@ import {
   User,
 } from "lucide-react";
 import Loading from "./Loading";
-import Image from "next/image";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
@@ -58,7 +57,7 @@ const AppSidebar = () => {
     <Sidebar
       collapsible="icon"
       style={{ height: "100vh" }}
-      className="bg-white-100 dark:bg-white-100 border-none shadow-lg"
+      className="bg-white-100 dark:bg-white-100 border-none border-r border-gray-200 shadow-none"
     >
       <SidebarHeader>
         <SidebarMenu className="app-sidebar__menu">
@@ -66,20 +65,13 @@ const AppSidebar = () => {
             <SidebarMenuButton
   size="lg"
   onClick={() => toggleSidebar()}
-  className="group hover:bg-blue-100 transition-colors duration-200"
+  className="group hover:bg-udemy-lightGray transition-colors duration-200"
 >
   <div className="app-sidebar__logo-container group">
     <div className="app-sidebar__logo-wrapper">
-      <Image
-        src="/logo.svg"
-        alt="logo"
-        width={25}
-        height={20}
-        className="app-sidebar__logo"
-      />
-      <p className="app-sidebar__title text-blue-900">LMS Platform</p>
+      <p className="app-sidebar__title text-udemy-black">LMS Platform</p>
     </div>
-    <PanelLeft className="app-sidebar__collapse-icon text-blue-600 group-hover:text-blue-800" />
+    <PanelLeft className="app-sidebar__collapse-icon text-udemy-gray group-hover:text-udemy-black" />
   </div>
 </SidebarMenuButton>
 
@@ -100,7 +92,7 @@ const AppSidebar = () => {
                 key={link.href}
                 className={cn(
                   "app-sidebar__nav-item",
-                  isActive && "bg-blue-100 dark:bg-blue-900"
+                  isActive && "bg-udemy-purpleLight"
                 )}
               >
                 <SidebarMenuButton
@@ -108,7 +100,7 @@ const AppSidebar = () => {
                   size="lg"
                   className={cn(
                     "app-sidebar__nav-button",
-                    !isActive && "text-customgreys-dirtyGrey"
+                    !isActive && "text-udemy-gray"
                   )}
                 >
                   <Link
@@ -117,12 +109,12 @@ const AppSidebar = () => {
                     scroll={false}
                   >
                     <link.icon
-                      className={isActive ? "text-white-50" : "text-gray-500"}
+                      className={isActive ? "text-udemy-purple" : "text-udemy-gray"}
                     />
                     <span
                       className={cn(
                         "app-sidebar__nav-text",
-                        isActive ? "text-white-50" : "text-gray-500"
+                        isActive ? "text-udemy-purple font-bold" : "text-udemy-gray"
                       )}
                     >
                       {link.label}

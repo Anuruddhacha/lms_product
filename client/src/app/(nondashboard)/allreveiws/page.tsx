@@ -30,9 +30,9 @@ function AllReviewsPage() {
   }
 
   return (
-    <section className="py-20 mt-20 bg-gray-50 dark:bg-gray-900 min-h-screen">
+    <section className="py-20 mt-20 bg-udemy-lightGray min-h-screen">
       <div className="container mx-auto px-4 text-center">
-        <h2 className="text-4xl font-extrabold text-gray-900 dark:text-white mb-10">
+        <h2 className="text-4xl font-extrabold text-udemy-black mb-10">
           All Student Reviews
         </h2>
 
@@ -51,15 +51,15 @@ type FeedbackCardProps = {
 
 function FeedbackCard({ name, role, feedback, rating }: FeedbackCardProps) {
   return (
-    <div className="max-w-sm bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md text-left border border-gray-200 dark:border-gray-700 flex flex-col justify-between">
-      <p className="text-gray-900 dark:text-gray-100 mb-4 break-words">{feedback}</p>
+    <div className="max-w-sm bg-white-100 rounded-md p-6 shadow-md text-left border border-gray-200 flex flex-col justify-between">
+      <p className="text-udemy-black mb-4 break-words">{feedback}</p>
       <div className="flex items-center gap-4 mt-auto">
-        <div className="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold uppercase">
+        <div className="w-12 h-12 rounded-full bg-udemy-purple flex items-center justify-center text-white-100 font-bold uppercase">
           {name[0]}
         </div>
         <div>
-          <p className="font-semibold text-gray-900 dark:text-gray-100">{name}</p>
-          <p className="text-sm text-blue-600">{role}</p>
+          <p className="font-semibold text-udemy-black">{name}</p>
+          <p className="text-sm text-udemy-purple">{role}</p>
           <StarRating rating={rating} />
         </div>
       </div>

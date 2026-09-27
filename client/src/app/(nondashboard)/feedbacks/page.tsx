@@ -31,12 +31,12 @@ const FeedbacksPage = () => {
     );
 
   return (
-    <section className="py-20 mt-20 bg-gradient-to-br  shadow-inner">
+    <section className="py-20 mt-20 bg-udemy-lightGray">
       <div className="container relative text-center">
-        <h2 className="text-4xl lg:text-5xl font-extrabold text-gray-800 dark:text-white mb-4">
-          Student <span className="text-blue-500">Feedbacks</span>
+        <h2 className="text-4xl lg:text-5xl font-extrabold text-udemy-black mb-4">
+          Student <span className="text-udemy-purple">Feedbacks</span>
         </h2>
-        <p className="text-slate-600 max-w-xl mx-auto mb-12">
+        <p className="text-udemy-gray max-w-xl mx-auto mb-12">
           Hear directly from our students about their experiences and growth.
         </p>
 
@@ -44,7 +44,7 @@ const FeedbacksPage = () => {
           {feedbackData.data.map((item) => (
             <div
               key={item.id}
-              className="group bg-white dark:bg-slate-900 rounded-xl shadow-lg dark:shadow-gray-700 transition-all overflow-hidden"
+              className="group bg-white-100 rounded-md shadow-lg border border-gray-200 transition-all overflow-hidden"
             >
               {/* Video Section */}
               <div className="relative h-52 w-full overflow-hidden">
@@ -72,7 +72,7 @@ const FeedbacksPage = () => {
               {/* Feedback Text */}
               {item.feedback && (
                 <div className="p-5">
-                  <p className="text-gray-700 dark:text-gray-300 text-sm line-clamp-4">
+                  <p className="text-udemy-gray text-sm line-clamp-4">
                     {item.feedback}
                   </p>
                 </div>
@@ -99,7 +99,7 @@ const FeedbacksPage = () => {
                   (currentIndex - 1 + allVideos.length) % allVideos.length;
                 setModalVideo(allVideos[prevIndex]);
               }}
-              className="absolute left-0 top-1/2 transform -translate-y-1/2 text-white bg-black bg-opacity-40 p-2 rounded-full hover:bg-opacity-70 z-50"
+              className="absolute left-0 top-1/2 transform -translate-y-1/2 text-white-100 bg-black bg-opacity-40 p-2 rounded-full hover:bg-opacity-70 z-50"
             >
               <FiChevronLeft className="w-8 h-8" />
             </button>
@@ -116,7 +116,7 @@ const FeedbacksPage = () => {
                 const nextIndex = (currentIndex + 1) % allVideos.length;
                 setModalVideo(allVideos[nextIndex]);
               }}
-              className="absolute right-0 top-1/2 transform -translate-y-1/2 text-white bg-black bg-opacity-40 p-2 rounded-full hover:bg-opacity-70 z-50"
+              className="absolute right-0 top-1/2 transform -translate-y-1/2 text-white-100 bg-black bg-opacity-40 p-2 rounded-full hover:bg-opacity-70 z-50"
             >
               <FiChevronRight className="w-8 h-8" />
             </button>

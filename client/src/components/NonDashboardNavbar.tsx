@@ -21,11 +21,6 @@ const NonDashboardNavbar = () => {
             className="flex flex-row items-center text-udemy-black transition duration-300"
             scroll={false}
           >
-            <img
-              src="/logo.svg"
-              alt="LMS Platform Logo"
-              className="h-10 w-10 object-contain mr-2"
-            />
             <span className="text-2xl font-black tracking-tight">LMS Platform</span>
           </Link>
 

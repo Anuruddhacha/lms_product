@@ -107,7 +107,7 @@ const PaymentPageContent = () => {
       {/* Navigation Buttons */}
       <div className="payment__actions">
         <Button
-          className="hover:bg-white-50/10"
+          className="hover:bg-udemy-lightGray"
           onClick={handleSignOutAndNavigate}
           variant="outline"
           type="button"

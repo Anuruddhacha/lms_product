@@ -1,6 +1,5 @@
 import Header from "@/components/Header";
 import { UserProfile } from "@clerk/nextjs";
-import { dark } from "@clerk/themes";
 import React from "react";
 
 const UserProfilePage = () => {
@@ -11,9 +10,8 @@ const UserProfilePage = () => {
         path="/user/profile"
         routing="path"
         appearance={{
-          baseTheme: dark,
           elements: {
-            scrollBox: "bg-customgreys-darkGrey",
+            scrollBox: "bg-white-100",
             navbar: {
               "& > div:nth-child(1)": {
                 background: "none",

@@ -238,12 +238,12 @@ if (storedPasscode) {
 
 
   return (
-    <div className="flex justify-center items-center mt-10 px-4 bg-blue-50">
+    <div className="flex justify-center items-center mt-10 px-4 bg-udemy-lightGray">
   <form
     onSubmit={handleSubmit}
-    className="max-w-2xl w-full bg-white p-8 mt-10 rounded-md shadow-md"
+    className="max-w-2xl w-full bg-white-100 border border-gray-200 p-8 mt-10 rounded-md shadow-md"
   >
-    <h2 className="text-blue-900 text-xl font-semibold mb-6">User Registration</h2>
+    <h2 className="text-udemy-black text-xl font-semibold mb-6">User Registration</h2>
 
     {/* Inputs */}
     <input
@@ -251,47 +251,47 @@ if (storedPasscode) {
       placeholder="Full Name"
       value={name}
       onChange={(e) => setName(e.target.value)}
-      className="w-full p-3 mb-4 rounded border border-blue-300 focus:border-blue-600 focus:ring-2 focus:ring-blue-300 text-black bg-blue-50 placeholder-blue-700"
+      className="w-full p-3 mb-4 rounded border border-gray-300 focus:border-udemy-purple focus:ring-2 focus:ring-udemy-purple/30 text-black bg-white-100 placeholder-udemy-gray"
     />
     <input
       type="text"
       placeholder="Phone Number"
       value={phone}
       onChange={(e) => setPhone(e.target.value)}
-      className="w-full p-3 mb-4 rounded border border-blue-300 focus:border-blue-600 focus:ring-2 focus:ring-blue-300 text-black bg-blue-50 placeholder-blue-700"
+      className="w-full p-3 mb-4 rounded border border-gray-300 focus:border-udemy-purple focus:ring-2 focus:ring-udemy-purple/30 text-black bg-white-100 placeholder-udemy-gray"
     />
     <input
       type="text"
       placeholder="Address"
       value={address}
       onChange={(e) => setAddress(e.target.value)}
-      className="w-full p-3 mb-6 rounded border border-blue-300 focus:border-blue-600 focus:ring-2 focus:ring-blue-300 text-black bg-blue-50 placeholder-blue-700"
+      className="w-full p-3 mb-6 rounded border border-gray-300 focus:border-udemy-purple focus:ring-2 focus:ring-udemy-purple/30 text-black bg-white-100 placeholder-udemy-gray"
     />
 
     {/* Profile Image Upload */}
     <div className="mb-6">
-      <label className="block text-blue-800 font-medium mb-2">Profile Picture</label>
+      <label className="block text-udemy-black font-medium mb-2">Profile Picture</label>
       <input
         type="file"
         accept="image/*"
         onChange={handleImageChange}
-        className="w-full p-2 border border-blue-300 rounded bg-blue-50 text-blue-900"
+        className="w-full p-2 border border-gray-300 rounded bg-white-100 text-udemy-black"
       />
       {profileImagePreview && (
         <img
           src={profileImagePreview}
           alt="Preview"
-          className="mt-3 rounded w-32 h-32 object-cover border border-blue-300"
+          className="mt-3 rounded w-32 h-32 object-cover border border-gray-300"
         />
       )}
     </div>
 
     {/* Course Selection */}
-    <h3 className="text-blue-900 text-lg font-semibold mb-3">Select Courses</h3>
+    <h3 className="text-udemy-black text-lg font-semibold mb-3">Select Courses</h3>
 
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
   {loadingCourses ? (
-    <p className="text-blue-700">Loading courses...</p>
+    <p className="text-udemy-gray">Loading courses...</p>
   ) : isError ? (
     <p className="text-red-600">Failed to load courses.</p>
   ) : (
@@ -299,13 +299,13 @@ if (storedPasscode) {
       ?.map((course) => (
         <label
           key={course.courseId}
-          className="flex gap-2 items-start bg-blue-100 p-3 rounded border border-blue-300"
+          className="flex gap-2 items-start bg-udemy-lightGray p-3 rounded border border-gray-200"
         >
           <input
             type="checkbox"
             checked={selectedCourses.includes(course.courseId)}
             onChange={() => handleCheckboxChange(course.courseId)}
-            className="mt-1 accent-blue-600"
+            className="mt-1 accent-udemy-purple"
           />
           <div className="flex-1">
             <CourseCardSearch course={course} />
@@ -318,22 +318,22 @@ if (storedPasscode) {
 
     {/* Feedback */}
     {error && <p className="text-red-600 text-sm mb-2">{error}</p>}
-    {success && <p className="text-blue-600 text-sm mb-2">{success}</p>}
+    {success && <p className="text-udemy-purple text-sm mb-2">{success}</p>}
 
     {/* Submit Button */}
     <button
       type="submit"
       disabled={submitting}
-      className="bg-blue-700 hover:bg-blue-600 text-white px-6 py-3 rounded-md w-full transition duration-200 disabled:opacity-60"
+      className="bg-udemy-purple hover:bg-udemy-purpleDark text-white-100 font-bold px-6 py-3 rounded-sm w-full transition duration-200 disabled:opacity-60"
     >
       {submitting ? "Saving..." : "Complete Registration"}
     </button>
   </form>
   {submitting && (
   <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-    <div className="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center">
-      <div className="w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mb-3"></div>
-      <p className="text-blue-900 font-medium">Processing your registration...</p>
+    <div className="bg-white-100 p-6 rounded-md shadow-lg flex flex-col items-center">
+      <div className="w-8 h-8 border-4 border-udemy-purple border-t-transparent rounded-full animate-spin mb-3"></div>
+      <p className="text-udemy-black font-medium">Processing your registration...</p>
     </div>
   </div>
 )}

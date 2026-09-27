@@ -167,7 +167,7 @@ export default function EventsSection() {
           const prevIndex = (currentIndex - 1 + allImages.length) % allImages.length;
           setModalImage(allImages[prevIndex]);
         }}
-        className="absolute left-0 top-1/2 transform -translate-y-1/2 text-white bg-black bg-opacity-40 p-2 rounded-full hover:bg-opacity-70 z-50"
+        className="absolute left-0 top-1/2 transform -translate-y-1/2 text-white-100 bg-black bg-opacity-40 p-2 rounded-full hover:bg-opacity-70 z-50"
       >
         <FiChevronLeft className="w-8 h-8" />
       </button>
@@ -184,7 +184,7 @@ export default function EventsSection() {
           const nextIndex = (currentIndex + 1) % allImages.length;
           setModalImage(allImages[nextIndex]);
         }}
-        className="absolute right-0 top-1/2 transform -translate-y-1/2 text-white bg-black bg-opacity-40 p-2 rounded-full hover:bg-opacity-70 z-50"
+        className="absolute right-0 top-1/2 transform -translate-y-1/2 text-white-100 bg-black bg-opacity-40 p-2 rounded-full hover:bg-opacity-70 z-50"
       >
         <FiChevronRight className="w-8 h-8" />
       </button>
