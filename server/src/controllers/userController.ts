@@ -195,36 +195,46 @@ export const deleteUserAndDataByEmail = async (req: Request, res: Response): Pro
       return;
     }
 
-    // Step 1: Delete user from DB + Clerk
-    const users = await DBUser.scan("email").eq(email).exec();
-    if (!users || users.length === 0) {
+    // Look up each record type independently — a registration can be stuck
+    // (e.g. registerUserAtomic died mid-flight) with a RegistrationCode
+    // and/or CourseRequest but no DBUser yet, so a missing user must not
+    // block cleanup of the other tables.
+    const [users, courseRequests, codes] = await Promise.all([
+      DBUser.scan("email").eq(email).exec(),
+      CourseRequest.scan({ email }).exec(),
+      RegistrationCode.scan("email").eq(email).exec(),
+    ]);
+
+    if (
+      (!users || users.length === 0) &&
+      (!courseRequests || courseRequests.length === 0) &&
+      (!codes || codes.length === 0)
+    ) {
       res.status(404).json({
-        data: { success: false, message: "No user found with this email" },
-        message: "No user found with this email",
+        data: { success: false, message: "No user or registration data found with this email" },
+        message: "No user or registration data found with this email",
       });
       return;
     }
 
-    await Promise.all(
-      users.map(async (user: any) => {
-        try {
-          await clerkClient.users.deleteUser(user.id);
-          console.log(`Deleted Clerk user ${user.id}`);
-        } catch (clerkError) {
-          console.error(`Failed to delete Clerk user ${user.id}:`, clerkError);
-        }
-        await DBUser.delete(user.id);
-      })
-    );
+    if (users && users.length > 0) {
+      await Promise.all(
+        users.map(async (user: any) => {
+          try {
+            await clerkClient.users.deleteUser(user.id);
+            console.log(`Deleted Clerk user ${user.id}`);
+          } catch (clerkError) {
+            console.error(`Failed to delete Clerk user ${user.id}:`, clerkError);
+          }
+          await DBUser.delete(user.id);
+        })
+      );
+    }
 
-    // Step 2: Delete all course requests
-    const courseRequests = await CourseRequest.scan({ email }).exec();
     if (courseRequests && courseRequests.length > 0) {
       await Promise.all(courseRequests.map((cr: any) => CourseRequest.delete(cr.code)));
     }
 
-    // Step 3: Delete all registration codes
-    const codes = await RegistrationCode.scan("email").eq(email).exec();
     if (codes && codes.length > 0) {
       await Promise.all(codes.map((code: any) => RegistrationCode.delete(code.code)));
     }
