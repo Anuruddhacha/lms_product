@@ -5,8 +5,9 @@ import {
   useSavePasscodeIfNotTakenMutation,
   useGetAllPasscodesQuery,
   useDeletePasscodeByCodeMutation,
+  useDeleteUserAndDataByEmailMutation,
 } from "@/state/api";
-import { Mail, Phone, Key, Search, Copy } from "lucide-react";
+import { Mail, Phone, Key, Search, Copy, RotateCcw } from "lucide-react";
 
 const AdminPasscodeGenerator = () => {
   const [email, setEmail] = useState("");
@@ -20,6 +21,8 @@ const AdminPasscodeGenerator = () => {
   const [savePasscode] = useSavePasscodeIfNotTakenMutation();
   const { data: passcodeData, isLoading, refetch } = useGetAllPasscodesQuery();
   const [deletePasscode] = useDeletePasscodeByCodeMutation();
+  const [deleteUserAndDataByEmail] = useDeleteUserAndDataByEmailMutation();
+  const [resettingEmail, setResettingEmail] = useState<string | null>(null);
 
 
   const generateRandomPasscode = () =>
@@ -99,6 +102,39 @@ const handleDelete = async (passcodeToDelete: string) => {
   } catch (err) {
     setError("Error deleting passcode.");
     console.error(err);
+  }
+};
+
+// Wipes the student's user account, course applications, and registration
+// codes for this email — used to unblock a student whose registration got
+// stuck mid-way (e.g. "Email already used for a registration code" with no
+// way to retry). Does not touch the passcode row itself; use Delete for that.
+const handleResetStudent = async (studentEmail: string) => {
+  if (!studentEmail) return;
+
+  const confirmed = window.confirm(
+    `Reset all registration data for ${studentEmail}?\n\nThis permanently deletes their user account, course applications, and registration codes so they can register again from scratch. This cannot be undone.`
+  );
+  if (!confirmed) return;
+
+  setError("");
+  setSuccess("");
+  setResettingEmail(studentEmail);
+
+  try {
+    const res = await deleteUserAndDataByEmail(studentEmail).unwrap();
+    if (res.success) {
+      setSuccess(`All registration data for ${studentEmail} has been reset.`);
+    } else {
+      setError(res.message || "Failed to reset student data.");
+    }
+  } catch (err: any) {
+    // A 404 here just means there was no user account yet (only a stuck
+    // registration code/application) — still a useful outcome to report.
+    setError(err?.data?.message || "Error resetting student data.");
+    console.error(err);
+  } finally {
+    setResettingEmail(null);
   }
 };
 
@@ -248,13 +284,24 @@ const handleDelete = async (passcodeToDelete: string) => {
                         </span>
                       </td>
                       <td className="px-4 py-2.5">
-                        <button
-                          onClick={() => handleDelete(item.passcode)}
-                          className="bg-red-600 text-white-100 px-3 py-1 rounded-sm hover:bg-red-700 transition-colors text-xs font-semibold"
-                          title="Delete passcode"
-                        >
-                          Delete
-                        </button>
+                        <div className="flex items-center gap-2">
+                          <button
+                            onClick={() => handleResetStudent(item.email)}
+                            disabled={resettingEmail === item.email}
+                            className="inline-flex items-center gap-1 border border-red-600 text-red-600 px-3 py-1 rounded-sm hover:bg-red-50 transition-colors text-xs font-semibold disabled:opacity-50"
+                            title="Delete this student's account, applications, and registration codes so they can register again"
+                          >
+                            <RotateCcw className="w-3 h-3" />
+                            {resettingEmail === item.email ? "Resetting..." : "Reset Student"}
+                          </button>
+                          <button
+                            onClick={() => handleDelete(item.passcode)}
+                            className="bg-red-600 text-white-100 px-3 py-1 rounded-sm hover:bg-red-700 transition-colors text-xs font-semibold"
+                            title="Delete passcode"
+                          >
+                            Delete
+                          </button>
+                        </div>
                       </td>
                     </tr>
                   ))

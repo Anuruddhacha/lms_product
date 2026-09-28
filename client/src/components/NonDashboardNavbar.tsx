@@ -68,14 +68,6 @@ const NonDashboardNavbar = () => {
             >
               Log in
             </Link>
-
-            <Link
-              href="/payments"
-              className="h-10 px-5 inline-flex items-center justify-center text-sm font-bold rounded-sm bg-udemy-black text-white-100 hover:bg-black transition-colors"
-              scroll={false}
-            >
-              Pay Here
-            </Link>
           </SignedOut>
         </div>
 
@@ -100,7 +92,9 @@ const NonDashboardNavbar = () => {
           <SignedOut>
             <Link href="/signin?isFirstTime=false" className="block w-full text-center text-sm font-medium text-udemy-black hover:text-udemy-purple transition">Log in</Link>
           </SignedOut>
-          <Link href="/payments" className="block w-full text-center text-sm font-medium text-udemy-black hover:text-udemy-purple transition">Pay Here</Link>
+          <SignedIn>
+            <Link href="/payments" className="block w-full text-center text-sm font-medium text-udemy-black hover:text-udemy-purple transition">Pay Here</Link>
+          </SignedIn>
         </div>
       )}
     </nav>

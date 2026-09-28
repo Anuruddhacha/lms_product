@@ -5,9 +5,12 @@ import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import Image from "next/image";
 import Loading from "@/components/Loading";
+import { useUser, SignInButton } from "@clerk/nextjs";
+import { Lock } from "lucide-react";
 
 
 export default function PaymentsPage() {
+  const { user, isLoaded: isUserLoaded } = useUser();
   const [createSession] = useCreatePaymentSessionMutation();
 
   const [name, setName] = useState('');
@@ -146,8 +149,29 @@ export default function PaymentsPage() {
 
 
     // Show loading splash while loading
-  if (isLoading) {
+  if (isLoading || !isUserLoaded) {
     return <Loading />;
+  }
+
+  if (!user) {
+    return (
+      <div className="flex justify-center items-center min-h-[70vh] px-4 pt-[100px]">
+        <div className="bg-white-100 border border-gray-200 text-center px-10 py-10 rounded-md shadow-lg w-full max-w-md">
+          <div className="w-14 h-14 rounded-full bg-udemy-purple text-white-100 flex items-center justify-center mx-auto mb-5">
+            <Lock size={26} />
+          </div>
+          <h2 className="text-2xl font-bold text-udemy-black mb-3">Sign In Required</h2>
+          <p className="text-udemy-gray mb-6">
+            Please sign in to make a payment.
+          </p>
+          <SignInButton mode="modal">
+            <button className="px-6 py-3 bg-udemy-purple hover:bg-udemy-purpleDark text-white-100 font-bold rounded-sm text-base transition-colors">
+              Sign In
+            </button>
+          </SignInButton>
+        </div>
+      </div>
+    );
   }
 
   return (
